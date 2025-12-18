@@ -1,0 +1,1192 @@
+[
+  {
+    "id": "cinnabar",
+    "name": "Cinnabar",
+    "chinese": "朱砂",
+    "pinyin": "Zhū Shā",
+    "hex": "#ff461f",
+    "meaning": "Symbolizes joy, life, and eternity. Historically used in Taoist alchemy and imperial seals.",
+    "tags": [
+      "red",
+      "warm",
+      "nature",
+      "mineral"
+    ]
+  },
+  {
+    "id": "tea-white",
+    "name": "Tea White",
+    "chinese": "茶白",
+    "pinyin": "Chá Bái",
+    "hex": "#f3f9f1",
+    "meaning": "The color of white tea buds, representing purity, simplicity, and the Zen state of mind.",
+    "tags": [
+      "white",
+      "neutral",
+      "plant",
+      "zen"
+    ]
+  },
+  {
+    "id": "bamboo-green",
+    "name": "Bamboo Green",
+    "chinese": "竹青",
+    "pinyin": "Zhú Qīng",
+    "hex": "#789262",
+    "meaning": "Represents resilience, integrity, and the gentlemanly virtues in Confucian culture.",
+    "tags": [
+      "green",
+      "cool",
+      "plant",
+      "virtue"
+    ]
+  },
+  {
+    "id": "persimmon-red",
+    "name": "Persimmon Red",
+    "chinese": "柿红",
+    "pinyin": "Shì Hóng",
+    "hex": "#f2481b",
+    "meaning": "Symbolizes a bountiful harvest, festivity, and good fortune, often seen in autumn celebrations.",
+    "tags": [
+      "red",
+      "orange",
+      "warm",
+      "fruit"
+    ]
+  },
+  {
+    "id": "rouge",
+    "name": "Rouge",
+    "chinese": "胭脂",
+    "pinyin": "Yān Zhi",
+    "hex": "#9d2933",
+    "meaning": "A classic cosmetic color symbolizing beauty, romance, and the elegance of ancient court ladies.",
+    "tags": [
+      "red",
+      "warm",
+      "cosmetic",
+      "romance"
+    ]
+  },
+  {
+    "id": "sky-blue",
+    "name": "Sky Blue after Rain",
+    "chinese": "天青",
+    "pinyin": "Tiān Qīng",
+    "hex": "#77969a",
+    "meaning": "The legendary color of Ru ware porcelain, symbolizing clarity after a storm and rare beauty.",
+    "tags": [
+      "blue",
+      "cool",
+      "sky",
+      "ceramic"
+    ]
+  },
+  {
+    "id": "goose-yellow",
+    "name": "Goose Yellow",
+    "chinese": "鹅黄",
+    "pinyin": "É Huáng",
+    "hex": "#fff143",
+    "meaning": "The color of newborn goslings and spring willow shoots, symbolizing new life and hope.",
+    "tags": [
+      "yellow",
+      "warm",
+      "animal",
+      "spring"
+    ]
+  },
+  {
+    "id": "ink-black",
+    "name": "Ink Black",
+    "chinese": "墨黑",
+    "pinyin": "Mò Hēi",
+    "hex": "#50616d",
+    "meaning": "The depth of calligraphy ink, representing knowledge, mystery, and scholarly elegance.",
+    "tags": [
+      "black",
+      "neutral",
+      "culture",
+      "writing"
+    ]
+  },
+  {
+    "id": "glaze-blue",
+    "name": "Glaze Blue",
+    "chinese": "琉璃蓝",
+    "pinyin": "Liú Lí Lán",
+    "hex": "#2a5caa",
+    "meaning": "A deep, translucent blue found in ancient glazes, symbolizing wisdom and tranquility.",
+    "tags": [
+      "blue",
+      "cool",
+      "mineral",
+      "royal"
+    ]
+  },
+  {
+    "id": "begonia-red",
+    "name": "Begonia Red",
+    "chinese": "海棠红",
+    "pinyin": "Hǎi Táng Hóng",
+    "hex": "#db5a6b",
+    "meaning": "The color of begonia flowers, associated with longing, feminine beauty, and poetic sorrow.",
+    "tags": [
+      "red",
+      "pink",
+      "warm",
+      "flower"
+    ]
+  },
+  {
+    "id": "moonlit-plum",
+    "name": "Moonlit Plum",
+    "chinese": "月影梅",
+    "pinyin": "Yuè yǐng méi",
+    "hex": "#D4A5B5",
+    "meaning": "Inspired by plum blossoms under moonlight in Song Dynasty poetry, symbolizing quiet elegance.",
+    "tags": [
+      "purple",
+      "soft",
+      "nature",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "autumn-wheat",
+    "name": "Autumn Wheat",
+    "chinese": "秋麦",
+    "pinyin": "Qiū mài",
+    "hex": "#E8C97C",
+    "meaning": "The golden hue of ripened wheat fields in Tang pastoral poems, representing harvest and abundance.",
+    "tags": [
+      "yellow",
+      "warm",
+      "agriculture",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "frosted-lotus",
+    "name": "Frosted Lotus",
+    "chinese": "霜荷",
+    "pinyin": "Shuāng hé",
+    "hex": "#B5C4C1",
+    "meaning": "The pale green-grey of lotus leaves touched by morning frost, evoking late autumn melancholy.",
+    "tags": [
+      "green",
+      "cool",
+      "nature",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "drifting-smoke",
+    "name": "Drifting Smoke",
+    "chinese": "流烟",
+    "pinyin": "Liú yān",
+    "hex": "#C0C4C7",
+    "meaning": "The soft grey of incense smoke in temple paintings, suggesting spiritual transcendence.",
+    "tags": [
+      "grey",
+      "ethereal",
+      "religion",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "dragon-scale-blue",
+    "name": "Dragon Scale Blue",
+    "chinese": "龙鳞青",
+    "pinyin": "Lóng lín qīng",
+    "hex": "#478384",
+    "meaning": "The iridescent blue-green of mythical dragon scales in Ming Dynasty textiles.",
+    "tags": [
+      "blue",
+      "mythical",
+      "imperial",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "swallow-rain",
+    "name": "Swallow Rain",
+    "chinese": "燕雨",
+    "pinyin": "Yàn yǔ",
+    "hex": "#7A9CC6",
+    "meaning": "The cool blue-grey of spring rain observed by swallows in Yuan Dynasty landscape paintings.",
+    "tags": [
+      "blue",
+      "cool",
+      "weather",
+      "yuan-dynasty"
+    ]
+  },
+  {
+    "id": "sunset-bell",
+    "name": "Sunset Bell",
+    "chinese": "暮钟",
+    "pinyin": "Mù zhōng",
+    "hex": "#B37A4A",
+    "meaning": "The warm bronze of temple bells illuminated by setting sun in Buddhist poetry.",
+    "tags": [
+      "brown",
+      "warm",
+      "religion",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "phoenix-feather",
+    "name": "Phoenix Feather",
+    "chinese": "凤羽",
+    "pinyin": "Fèng yǔ",
+    "hex": "#E25555",
+    "meaning": "The vibrant red-orange of mythical phoenix plumage in Han Dynasty lacquerware.",
+    "tags": [
+      "red",
+      "mythical",
+      "imperial",
+      "han-dynasty"
+    ]
+  },
+  {
+    "id": "frosted-peony",
+    "name": "Frosted Peony",
+    "chinese": "霜染牡丹",
+    "pinyin": "shuāng rǎn mǔdān",
+    "hex": "#F0D3E4",
+    "meaning": "Symbolizes delicate beauty and resilience, inspired by peonies dusted with morning frost in Tang poetry.",
+    "tags": [
+      "pink",
+      "flower",
+      "winter",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "moonlit-bamboo",
+    "name": "Moonlit Bamboo",
+    "chinese": "月映竹影",
+    "pinyin": "yuè yìng zhú yǐng",
+    "hex": "#C8D8BE",
+    "meaning": "Represents tranquility and scholarly refinement, evoking bamboo groves under moonlight in Song dynasty paintings.",
+    "tags": [
+      "green",
+      "nature",
+      "scholar",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "autumn-cicada-wing",
+    "name": "Autumn Cicada Wing",
+    "chinese": "秋蝉翼",
+    "pinyin": "qiū chán yì",
+    "hex": "#E6D7A8",
+    "meaning": "A translucent gold-green reminiscent of cicada wings in late autumn, symbolizing fleeting beauty.",
+    "tags": [
+      "gold",
+      "nature",
+      "transient",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "drifting-lotus-scent",
+    "name": "Drifting Lotus Scent",
+    "chinese": "浮香荷",
+    "pinyin": "fú xiāng hé",
+    "hex": "#E8B4B8",
+    "meaning": "The pale pink of lotus blossoms carried by summer breezes, celebrated in Qing dynasty garden poetry.",
+    "tags": [
+      "pink",
+      "flower",
+      "summer",
+      "qing-dynasty"
+    ]
+  },
+  {
+    "id": "swallow-rain-grey",
+    "name": "Swallow Rain Grey",
+    "chinese": "燕雨灰",
+    "pinyin": "yàn yǔ huī",
+    "hex": "#8C8C8C",
+    "meaning": "The soft grey of spring rain seen through the wings of nesting swallows, a symbol of renewal.",
+    "tags": [
+      "grey",
+      "bird",
+      "spring",
+      "han-dynasty"
+    ]
+  },
+  {
+    "id": "temple-bell-gold",
+    "name": "Temple Bell Gold",
+    "chinese": "梵钟金",
+    "pinyin": "fàn zhōng jīn",
+    "hex": "#C9A220",
+    "meaning": "The warm glow of Buddhist temple bells at dusk, representing spiritual resonance.",
+    "tags": [
+      "gold",
+      "religious",
+      "sunset",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "frosted-cicada-wing",
+    "name": "Frosted Cicada Wing",
+    "chinese": "霜蝉翼",
+    "pinyin": "shuāng chán yì",
+    "hex": "#E6F0EA",
+    "meaning": "Inspired by the delicate transparency of cicada wings in early autumn frost.",
+    "tags": [
+      "cool",
+      "nature",
+      "autumn",
+      "qing-dynasty"
+    ]
+  },
+  {
+    "id": "moonlit-bamboo-shadow",
+    "name": "Moonlit Bamboo Shadow",
+    "chinese": "月竹影",
+    "pinyin": "yuè zhú yǐng",
+    "hex": "#C0C6B9",
+    "meaning": "The subtle grey-green of bamboo shadows cast by moonlight in Song dynasty gardens.",
+    "tags": [
+      "green",
+      "cool",
+      "night",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "whispering-wind",
+    "name": "Whispering Wind",
+    "chinese": "风吟",
+    "pinyin": "fēng yín",
+    "hex": "#D6E6E6",
+    "meaning": "A soft, ethereal hue inspired by the gentle whispers of the wind through ancient courtyards.",
+    "tags": [
+      "blue",
+      "cool",
+      "nature",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "distant-mountain",
+    "name": "Distant Mountain",
+    "chinese": "远山",
+    "pinyin": "yuǎn shān",
+    "hex": "#7A9A9A",
+    "meaning": "A muted green-grey reminiscent of mountains fading into the horizon in classical landscape paintings.",
+    "tags": [
+      "green",
+      "cool",
+      "nature",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "lotus-heart",
+    "name": "Lotus Heart",
+    "chinese": "莲心",
+    "pinyin": "lián xīn",
+    "hex": "#E6B3B3",
+    "meaning": "A delicate pink inspired by the innermost petals of a lotus, symbolizing purity and enlightenment.",
+    "tags": [
+      "pink",
+      "warm",
+      "nature",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "autumn-dew",
+    "name": "Autumn Dew",
+    "chinese": "秋露",
+    "pinyin": "qiū lù",
+    "hex": "#E6E6D6",
+    "meaning": "A pale, translucent green-gold resembling dew on autumn grass at dawn.",
+    "tags": [
+      "green",
+      "cool",
+      "nature",
+      "yuan-dynasty"
+    ]
+  },
+  {
+    "id": "snowy-plum",
+    "name": "Snowy Plum",
+    "chinese": "雪梅",
+    "pinyin": "xuě méi",
+    "hex": "#E6D6E6",
+    "meaning": "A soft lavender-pink evoking plum blossoms dusted with snow in winter gardens.",
+    "tags": [
+      "purple",
+      "cool",
+      "nature",
+      "qing-dynasty"
+    ]
+  },
+  {
+    "id": "river-mist",
+    "name": "River Mist",
+    "chinese": "河雾",
+    "pinyin": "hé wù",
+    "hex": "#B3C6C6",
+    "meaning": "A cool, misty blue-grey inspired by early morning fog over tranquil rivers.",
+    "tags": [
+      "blue",
+      "cool",
+      "nature",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "golden-cicada",
+    "name": "Golden Cicada",
+    "chinese": "金蝉",
+    "pinyin": "jīn chán",
+    "hex": "#D6C6A3",
+    "meaning": "A warm, golden hue reminiscent of cicada wings glinting in the summer sun.",
+    "tags": [
+      "gold",
+      "warm",
+      "nature",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "twilight-bell",
+    "name": "Twilight Bell",
+    "chinese": "暮钟",
+    "pinyin": "mù zhōng",
+    "hex": "#9A7A7A",
+    "meaning": "A deep, muted red-brown evoking the solemn tones of temple bells at dusk.",
+    "tags": [
+      "brown",
+      "warm",
+      "religion",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "silk-cloud",
+    "name": "Silk Cloud",
+    "chinese": "云丝",
+    "pinyin": "yún sī",
+    "hex": "#F0E6E6",
+    "meaning": "A delicate hue reminiscent of fine silk floating like clouds in the morning mist.",
+    "tags": [
+      "white",
+      "soft",
+      "elegant",
+      "han-dynasty"
+    ]
+  },
+  {
+    "id": "brocade-dawn",
+    "name": "Brocade Dawn",
+    "pinyin": "jǐn xiá",
+    "chinese": "锦霞",
+    "hex": "#E8C4C4",
+    "meaning": "The warm glow of dawn reflected on luxurious brocade fabrics.",
+    "tags": [
+      "pink",
+      "warm",
+      "luxury",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "jade-thread",
+    "name": "Jade Thread",
+    "chinese": "玉线",
+    "pinyin": "yù xiàn",
+    "hex": "#88C9A1",
+    "meaning": "The serene green of jade woven into delicate threads of silk.",
+    "tags": [
+      "green",
+      "cool",
+      "serene",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "golden-silk",
+    "name": "Golden Silk",
+    "chinese": "金丝",
+    "pinyin": "jīn sī",
+    "hex": "#F2D480",
+    "meaning": "The radiant shimmer of gold threads embedded in royal silk.",
+    "tags": [
+      "yellow",
+      "bright",
+      "royal",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "indigo-weave",
+    "name": "Indigo Weave",
+    "chinese": "靛织",
+    "pinyin": "diàn zhī",
+    "hex": "#3A5F7D",
+    "meaning": "The deep blue of indigo-dyed fabric, woven with care and tradition.",
+    "tags": [
+      "blue",
+      "deep",
+      "traditional",
+      "qing-dynasty"
+    ]
+  },
+  {
+    "id": "pearl-satin",
+    "name": "Pearl Satin",
+    "chinese": "珠缎",
+    "pinyin": "zhū duàn",
+    "hex": "#E6E6FA",
+    "meaning": "The lustrous sheen of pearls reflected on smooth satin fabric.",
+    "tags": [
+      "purple",
+      "soft",
+      "luxury",
+      "yuan-dynasty"
+    ]
+  },
+  {
+    "id": "crimson-damask",
+    "name": "Crimson Damask",
+    "chinese": "绛锦",
+    "pinyin": "jiàng jǐn",
+    "hex": "#9E1F35",
+    "meaning": "The rich red of damask silk, symbolizing prosperity and joy.",
+    "tags": [
+      "red",
+      "rich",
+      "prosperity",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "mist-linen",
+    "name": "Mist Linen",
+    "chinese": "雾麻",
+    "pinyin": "wù má",
+    "hex": "#D3D3D3",
+    "meaning": "The subtle, earthy tone of linen softened by morning mist.",
+    "tags": [
+      "grey",
+      "earthy",
+      "natural",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "jade-dream",
+    "name": "Jade Dream",
+    "chinese": "玉梦",
+    "pinyin": "Yù mèng",
+    "hex": "#5C8B7B",
+    "meaning": "A serene green reminiscent of jade treasures in ancient dreams.",
+    "tags": [
+      "green",
+      "jade",
+      "calm",
+      "han-dynasty"
+    ]
+  },
+  {
+    "id": "tea-whisper",
+    "name": "Tea Whisper",
+    "chinese": "茶语",
+    "pinyin": "Chá yǔ",
+    "hex": "#6B7D5E",
+    "meaning": "The soft murmur of tea leaves steeping in a quiet morning.",
+    "tags": [
+      "green",
+      "tea",
+      "peaceful",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "bamboo-veil",
+    "name": "Bamboo Veil",
+    "chinese": "竹帘",
+    "pinyin": "Zhú lián",
+    "hex": "#4A5F4A",
+    "meaning": "The delicate shade of bamboo curtains swaying in the breeze.",
+    "tags": [
+      "green",
+      "bamboo",
+      "elegant",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "celadon-mist",
+    "name": "Celadon Mist",
+    "chinese": "青瓷雾",
+    "pinyin": "Qīngcí wù",
+    "hex": "#7D9D8E",
+    "meaning": "The ethereal green of celadon porcelain shrouded in morning mist.",
+    "tags": [
+      "green",
+      "celadon",
+      "ceramic",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "lotus-pond",
+    "name": "Lotus Pond",
+    "chinese": "莲池",
+    "pinyin": "Lián chí",
+    "hex": "#5E7E6E",
+    "meaning": "The tranquil green of lotus leaves floating on a quiet pond.",
+    "tags": [
+      "green",
+      "lotus",
+      "serene",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "emerald-peak",
+    "name": "Emerald Peak",
+    "chinese": "翠峰",
+    "pinyin": "Cuì fēng",
+    "hex": "#4A6B5A",
+    "meaning": "The majestic green of distant mountain peaks bathed in sunlight.",
+    "tags": [
+      "green",
+      "mountain",
+      "majestic",
+      "yuan-dynasty"
+    ]
+  },
+  {
+    "id": "willow-shade",
+    "name": "Willow Shade",
+    "chinese": "柳荫",
+    "pinyin": "Liǔ yīn",
+    "hex": "#6B8E7B",
+    "meaning": "The cool green shade of willow trees by a riverside.",
+    "tags": [
+      "green",
+      "willow",
+      "cool",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "moss-path",
+    "name": "Moss Path",
+    "chinese": "苔径",
+    "pinyin": "Tái jìng",
+    "hex": "#5A6B5A",
+    "meaning": "The ancient green of moss-covered stones along a hidden garden path.",
+    "tags": [
+      "green",
+      "moss",
+      "ancient",
+      "qing-dynasty"
+    ]
+  },
+  {
+    "id": "mountain-mist",
+    "name": "Mountain Mist",
+    "chinese": "山雾",
+    "pinyin": "shān wù",
+    "hex": "#B0C4DE",
+    "meaning": "A soft, ethereal hue reminiscent of mist clinging to ancient mountain peaks.",
+    "tags": [
+      "blue",
+      "cool",
+      "nature",
+      "serene"
+    ]
+  },
+  {
+    "id": "pine-shadow",
+    "name": "Pine Shadow",
+    "chinese": "松影",
+    "pinyin": "sōng yǐng",
+    "hex": "#556B2F",
+    "meaning": "A deep, earthy green evoking the shadows cast by ancient pine trees.",
+    "tags": [
+      "green",
+      "earthy",
+      "nature",
+      "forest"
+    ]
+  },
+  {
+    "id": "sunset-peak",
+    "name": "Sunset Peak",
+    "chinese": "夕峰",
+    "pinyin": "xī fēng",
+    "hex": "#CD5C5C",
+    "meaning": "A warm, fiery hue inspired by the last light of day on mountain summits.",
+    "tags": [
+      "red",
+      "warm",
+      "nature",
+      "dramatic"
+    ]
+  },
+  {
+    "id": "moonlit-stream",
+    "name": "Moonlit Stream",
+    "chinese": "月溪",
+    "pinyin": "yuè xī",
+    "hex": "#87CEFA",
+    "meaning": "A cool, tranquil blue reminiscent of a stream bathed in moonlight.",
+    "tags": [
+      "blue",
+      "cool",
+      "nature",
+      "calm"
+    ]
+  },
+  {
+    "id": "stone-gray",
+    "name": "Stone Gray",
+    "chinese": "石灰",
+    "pinyin": "shí huī",
+    "hex": "#708090",
+    "meaning": "A sturdy, neutral gray inspired by the weathered stones of riverbanks.",
+    "tags": [
+      "gray",
+      "neutral",
+      "nature",
+      "earthy"
+    ]
+  },
+  {
+    "id": "autumn-cliff",
+    "name": "Autumn Cliff",
+    "chinese": "秋崖",
+    "pinyin": "qiū yá",
+    "hex": "#D2691E",
+    "meaning": "A rich, warm brown reminiscent of cliffs adorned with autumn foliage.",
+    "tags": [
+      "brown",
+      "warm",
+      "nature",
+      "autumn"
+    ]
+  },
+  {
+    "id": "frosted-peak",
+    "name": "Frosted Peak",
+    "chinese": "霜峰",
+    "pinyin": "shuāng fēng",
+    "hex": "#E0FFFF",
+    "meaning": "A pale, icy blue evoking the crisp air atop snow-capped mountains.",
+    "tags": [
+      "blue",
+      "cool",
+      "nature",
+      "winter"
+    ]
+  },
+  {
+    "id": "river-dawn",
+    "name": "River Dawn",
+    "chinese": "江晓色",
+    "pinyin": "Jiāng xiǎo sè",
+    "hex": "#B5C7D3",
+    "meaning": "The soft blue-gray hue of a river at dawn, symbolizing tranquility and new beginnings.",
+    "tags": [
+      "blue",
+      "cool",
+      "nature",
+      "dawn"
+    ]
+  },
+  {
+    "id": "mountain-haze",
+    "name": "Mountain Haze",
+    "chinese": "山霭",
+    "pinyin": "Shān ǎi",
+    "hex": "#D1D9D7",
+    "meaning": "The ethereal mist that clings to mountain peaks, evoking mystery and serenity.",
+    "tags": [
+      "gray",
+      "cool",
+      "nature",
+      "mist"
+    ]
+  },
+  {
+    "id": "pebble-stream",
+    "name": "Pebble Stream",
+    "chinese": "溪石色",
+    "pinyin": "Xī shí sè",
+    "hex": "#A89F94",
+    "meaning": "The warm, earthy tone of stones smoothed by flowing water, representing resilience and time.",
+    "tags": [
+      "brown",
+      "warm",
+      "nature",
+      "stream"
+    ]
+  },
+  {
+    "id": "snow-summit",
+    "name": "Snow Summit",
+    "chinese": "雪峰白",
+    "pinyin": "Xuě fēng bái",
+    "hex": "#F0F3F5",
+    "meaning": "The pristine white of snow-capped peaks, symbolizing purity and grandeur.",
+    "tags": [
+      "white",
+      "cool",
+      "nature",
+      "mountain"
+    ]
+  },
+  {
+    "id": "forest-shadow",
+    "name": "Forest Shadow",
+    "chinese": "林荫",
+    "pinyin": "Lín yīn",
+    "hex": "#5A6E5C",
+    "meaning": "The deep green of shaded forests, embodying peace and hidden wisdom.",
+    "tags": [
+      "green",
+      "cool",
+      "nature",
+      "forest"
+    ]
+  },
+  {
+    "id": "sunlit-cascade",
+    "name": "Sunlit Cascade",
+    "chinese": "日照瀑",
+    "pinyin": "Rì zhào pù",
+    "hex": "#FFD166",
+    "meaning": "The golden glow of sunlight on a waterfall, representing energy and vitality.",
+    "tags": [
+      "yellow",
+      "warm",
+      "nature",
+      "waterfall"
+    ]
+  },
+  {
+    "id": "twilight-ravine",
+    "name": "Twilight Ravine",
+    "chinese": "暮谷",
+    "pinyin": "Mù gǔ",
+    "hex": "#6E4B5E",
+    "meaning": "The dusky purple of a ravine at twilight, evoking introspection and quiet beauty.",
+    "tags": [
+      "purple",
+      "cool",
+      "nature",
+      "twilight"
+    ]
+  },
+  {
+    "id": "peach-blossom-dawn",
+    "name": "Peach Blossom Dawn",
+    "chinese": "桃花晓",
+    "pinyin": "táo huā xiǎo",
+    "hex": "#F7CAC9",
+    "meaning": "Inspired by the delicate pink hues of peach blossoms at dawn, symbolizing fleeting beauty in Tang poetry.",
+    "tags": [
+      "pink",
+      "spring",
+      "romantic",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "golden-oriole",
+    "name": "Golden Oriole",
+    "chinese": "金莺黄",
+    "pinyin": "jīn yīng huáng",
+    "hex": "#FFD700",
+    "meaning": "The vibrant yellow of oriole feathers, often mentioned in Song Dynasty poems as a sign of prosperity.",
+    "tags": [
+      "yellow",
+      "bright",
+      "joy",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "crimson-maple",
+    "name": "Crimson Maple",
+    "chinese": "枫叶红",
+    "pinyin": "fēng yè hóng",
+    "hex": "#D10047",
+    "meaning": "The deep red of autumn maple leaves, evoking the melancholic beauty of seasonal change in Song poetry.",
+    "tags": [
+      "red",
+      "autumn",
+      "melancholy",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "jadeite-green",
+    "name": "Jadeite Green",
+    "chinese": "翡翠绿",
+    "pinyin": "fěi cuì lǜ",
+    "hex": "#30DFB1",
+    "meaning": "The luminous green of jadeite, representing purity and elegance in Tang Dynasty art and poetry.",
+    "tags": [
+      "green",
+      "elegant",
+      "luxury",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "amber-sunset",
+    "name": "Amber Sunset",
+    "chinese": "琥珀夕",
+    "pinyin": "hǔ pò xī",
+    "hex": "#FF7E00",
+    "meaning": "The warm, golden-orange hues of a setting sun, often depicted in Song Dynasty landscape poetry.",
+    "tags": [
+      "orange",
+      "warm",
+      "sunset",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "indigo-dream",
+    "name": "Indigo Dream",
+    "chinese": "靛蓝梦",
+    "pinyin": "diàn lán mèng",
+    "hex": "#4B0082",
+    "meaning": "The deep blue of indigo dye, symbolizing the mysterious and dreamlike quality of Tang Dynasty night poems.",
+    "tags": [
+      "blue",
+      "mysterious",
+      "night",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "white-plum-blossom",
+    "name": "White Plum Blossom",
+    "chinese": "白梅花",
+    "pinyin": "bái méi huā",
+    "hex": "#F5F5F5",
+    "meaning": "The pristine white of plum blossoms, representing resilience and purity in harsh winter, a favorite in Song poetry.",
+    "tags": [
+      "white",
+      "winter",
+      "resilience",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "azure-sky",
+    "name": "Azure Sky",
+    "chinese": "碧空",
+    "pinyin": "bì kōng",
+    "hex": "#87CEEB",
+    "meaning": "Represents the vast and clear sky, symbolizing freedom and limitless possibilities.",
+    "tags": [
+      "blue",
+      "sky",
+      "freedom",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "celestial-wave",
+    "name": "Celestial Wave",
+    "chinese": "天波",
+    "pinyin": "tiān bō",
+    "hex": "#00B4D8",
+    "meaning": "Inspired by the waves of the heavenly river, embodying tranquility and divine connection.",
+    "tags": [
+      "cyan",
+      "water",
+      "divine",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "frosted-lake",
+    "name": "Frosted Lake",
+    "chinese": "霜湖",
+    "pinyin": "shuāng hú",
+    "hex": "#B0E0E6",
+    "meaning": "Evokes the serene beauty of a lake touched by morning frost, symbolizing purity and calm.",
+    "tags": [
+      "blue",
+      "frost",
+      "serenity",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "moonlit-glaze",
+    "name": "Moonlit Glaze",
+    "chinese": "月釉",
+    "pinyin": "yuè yòu",
+    "hex": "#E0F7FA",
+    "meaning": "Reflects the delicate sheen of moonlight on ceramic glaze, representing elegance and artistry.",
+    "tags": [
+      "cyan",
+      "moon",
+      "ceramic",
+      "qing-dynasty"
+    ]
+  },
+  {
+    "id": "ocean-mist",
+    "name": "Ocean Mist",
+    "chinese": "海雾",
+    "pinyin": "hǎi wù",
+    "hex": "#D4F1F9",
+    "meaning": "Captures the ethereal mist rising from the ocean, symbolizing mystery and renewal.",
+    "tags": [
+      "blue",
+      "ocean",
+      "mist",
+      "tang-dynasty"
+    ]
+  },
+  {
+    "id": "pearl-river",
+    "name": "Pearl River",
+    "chinese": "珠河",
+    "pinyin": "zhū hé",
+    "hex": "#88D8C0",
+    "meaning": "Named after the luminous waters of the Pearl River, embodying prosperity and harmony.",
+    "tags": [
+      "cyan",
+      "river",
+      "prosperity",
+      "song-dynasty"
+    ]
+  },
+  {
+    "id": "sky-dream",
+    "name": "Sky Dream",
+    "chinese": "天梦",
+    "pinyin": "tiān mèng",
+    "hex": "#A7C7E7",
+    "meaning": "Represents the dreamy hues of the sky at dusk, symbolizing hope and imagination.",
+    "tags": [
+      "blue",
+      "sky",
+      "dream",
+      "ming-dynasty"
+    ]
+  },
+  {
+    "id": "turquoise-cloud",
+    "name": "Turquoise Cloud",
+    "chinese": "翠云",
+    "pinyin": "cuì yún",
+    "hex": "#40E0D0",
+    "meaning": "Inspired by the rare sight of turquoise clouds, symbolizing rarity and divine favor.",
+    "tags": [
+      "cyan",
+      "cloud",
+      "divine",
+      "qing-dynasty"
+    ]
+  },
+  {
+    "id": "autumn-harvest",
+    "name": "Autumn Harvest",
+    "chinese": "秋收黄",
+    "pinyin": "Qiū shōu huáng",
+    "hex": "#E6B422",
+    "meaning": "Represents the golden hues of ripe grains during the autumn harvest season.",
+    "tags": [
+      "yellow",
+      "autumn",
+      "harvest",
+      "abundance"
+    ]
+  },
+  {
+    "id": "golden-sunset",
+    "name": "Golden Sunset",
+    "chinese": "金日落",
+    "pinyin": "Jīn rì luò",
+    "hex": "#F2A900",
+    "meaning": "Captures the warm, golden glow of the setting sun in autumn skies.",
+    "tags": [
+      "gold",
+      "sunset",
+      "autumn",
+      "warmth"
+    ]
+  },
+  {
+    "id": "amber-glow",
+    "name": "Amber Glow",
+    "chinese": "琥珀光",
+    "pinyin": "Hǔ pò guāng",
+    "hex": "#FFBF00",
+    "meaning": "Resembles the radiant glow of amber, cherished for its beauty and warmth.",
+    "tags": [
+      "amber",
+      "glow",
+      "warm",
+      "radiant"
+    ]
+  },
+  {
+    "id": "harvest-moon",
+    "name": "Harvest Moon",
+    "chinese": "丰收月",
+    "pinyin": "Fēng shōu yuè",
+    "hex": "#E6C229",
+    "meaning": "Evokes the golden light of the harvest moon, a symbol of abundance and celebration.",
+    "tags": [
+      "yellow",
+      "moon",
+      "harvest",
+      "festival"
+    ]
+  },
+  {
+    "id": "gilded-dragon",
+    "name": "Gilded Dragon",
+    "chinese": "鎏金龙",
+    "pinyin": "Liú jīn lóng",
+    "hex": "#D4AF37",
+    "meaning": "Represents the golden scales of the dragon, a symbol of imperial power and good fortune.",
+    "tags": [
+      "gold",
+      "dragon",
+      "imperial",
+      "fortune"
+    ]
+  },
+  {
+    "id": "saffron-dust",
+    "name": "Saffron Dust",
+    "chinese": "藏红花尘",
+    "pinyin": "Zàng hóng huā chén",
+    "hex": "#F4C430",
+    "meaning": "Inspired by the precious saffron spice, symbolizing rarity and elegance.",
+    "tags": [
+      "yellow",
+      "saffron",
+      "spice",
+      "elegance"
+    ]
+  }
+]

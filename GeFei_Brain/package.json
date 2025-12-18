@@ -1,0 +1,16 @@
+{
+    "name": "gefei-brain",
+    "version": "1.0.0",
+    "description": "A sealed, portable SEO Knowledge Library based on Ge Fei's Friends community data.",
+    "main": "index.js",
+    "scripts": {
+        "test": "node examples/simple_query.js"
+    },
+    "keywords": [
+        "seo",
+        "knowledge-base",
+        "ai-context"
+    ],
+    "author": "Antigravity",
+    "license": "ISC"
+}
