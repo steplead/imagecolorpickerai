@@ -53,5 +53,6 @@ export const findClosestChineseColor = (userHex) => {
  */
 export const getColorsByTag = (tag) => {
     if (!tag) return [];
-    return chineseColors.filter(c => c.tags && c.tags.includes(tag.toLowerCase()));
+    const searchTag = tag.toLowerCase();
+    return chineseColors.filter(c => c.tags && c.tags.some(t => t.toLowerCase() === searchTag));
 };
