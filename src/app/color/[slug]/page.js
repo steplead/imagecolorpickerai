@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, Tag } from 'lucide-react';
 import chineseColors from '../../../data/chineseColors.json';
 import WallpaperGenerator from '../../../components/WallpaperGenerator';
+import ColorHarmony from '../../../components/ColorHarmony';
+import ColorActions from '../../../components/ColorActions';
 
 // 1. Generate Static Params for all 500+ colors
 export async function generateStaticParams() {
@@ -66,18 +68,21 @@ export default async function Page({ params }) {
                     </div>
 
                     <div className="p-8">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
                             <div>
                                 <h1 className="text-4xl font-bold text-neutral-900 mb-2">{color.name}</h1>
                                 <p className="text-xl font-serif text-neutral-500 italic">{color.chinese} ({color.pinyin})</p>
                             </div>
-                            <div className="flex flex-col items-end">
+                            <div className="flex flex-col md:items-end">
                                 <span className="text-3xl font-mono font-bold text-neutral-800 tracking-wider">{color.hex}</span>
                                 <span className="text-sm font-mono text-neutral-400 mt-1">{rgb}</span>
                             </div>
                         </div>
 
-                        <div className="prose prose-neutral max-w-none">
+                        {/* Interactive Actions */}
+                        <ColorActions hex={color.hex} rgb={rgb} />
+
+                        <div className="prose prose-neutral max-w-none mt-10">
                             <h3 className="text-sm font-bold uppercase text-neutral-400 tracking-wider mb-2">Cultural Meaning</h3>
                             <p className="text-lg leading-relaxed text-neutral-700">
                                 {color.meaning}
@@ -98,8 +103,11 @@ export default async function Page({ params }) {
                             ))}
                         </div>
 
+                        {/* Color Harmonies */}
+                        <ColorHarmony hex={color.hex} />
+
                         {/* AI Generator */}
-                        <div className="border-t mt-8 pt-8">
+                        <div className="border-t mt-12 pt-12">
                             <WallpaperGenerator colorName={color.name} hex={color.hex} chinese={color.chinese} />
                         </div>
                     </div>
@@ -117,3 +125,4 @@ export default async function Page({ params }) {
         </div>
     );
 }
+

@@ -2,15 +2,17 @@
 
 import { useState, useRef } from 'react';
 import ColorThief from 'colorthief';
-import { Upload, Image as ImageIcon, ArrowRight, Palette } from 'lucide-react';
+import { Upload, Image as ImageIcon, ArrowRight, Palette, Copy, Check } from 'lucide-react';
 import Link from 'next/link';
 import { findClosestChineseColor } from '../utils/colorUtils';
+import RecentPicks from '../components/RecentPicks';
 
 export default function Home() {
   const [image, setImage] = useState(null);
   const [colors, setColors] = useState([]);
   const [selectedColor, setSelectedColor] = useState(null);
   const [match, setMatch] = useState(null);
+  const [copied, setCopied] = useState(false);
   const imgRef = useRef(null);
 
   const handleImageUpload = (e) => {
@@ -40,7 +42,6 @@ export default function Home() {
       }
     } catch (err) {
       console.error("Color extraction failed:", err);
-      // Fallback: If ColorThief fails, maybe just use white/black or alert user
       alert("Could not extract colors from this image. Try another one.");
     }
   };
@@ -51,6 +52,12 @@ export default function Home() {
     setMatch(result);
   };
 
+  const handleCopy = (hex) => {
+    navigator.clipboard.writeText(hex);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <main className="flex flex-col items-center min-h-screen p-4 sm:p-8 bg-neutral-50 text-neutral-800 font-sans">
       {/* Header */}
@@ -59,9 +66,10 @@ export default function Home() {
           <Palette className="w-6 h-6 text-red-600" />
           <span>Image Color Picker</span>
         </h1>
-        <nav className="text-sm font-medium text-neutral-500 gap-4 flex">
-          <Link href="/colors/red" className="hover:text-red-600 transition">Red Colors</Link>
-          <Link href="/colors/blue" className="hover:text-blue-600 transition">Blue Colors</Link>
+        <nav className="text-sm font-medium text-neutral-500 gap-6 flex">
+          <Link href="/colors/red" className="hover:text-red-600 transition">Red</Link>
+          <Link href="/colors/blue" className="hover:text-blue-600 transition">Blue</Link>
+          <Link href="/colors/green" className="hover:text-emerald-600 transition">Green</Link>
         </nav>
       </header>
 
@@ -91,10 +99,10 @@ export default function Home() {
                   onClick={extractColors}
                   className="bg-neutral-900 text-white px-4 py-2 rounded-full shadow-sm text-sm font-medium hover:bg-neutral-800 transition backdrop-blur"
                 >
-                  Generate Palette
+                  Regenerate
                 </button>
                 <label className="bg-white/90 backdrop-blur px-4 py-2 rounded-full shadow-sm text-sm font-medium cursor-pointer hover:bg-white transition">
-                  Change Image
+                  New Image
                   <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
                 </label>
               </div>
@@ -123,7 +131,16 @@ export default function Home() {
               <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 border-t pt-6">
                 <div className="flex items-start justify-between">
                   <div>
-                    <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider">Closest Match</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider">Closest Match</span>
+                      <button
+                        onClick={() => handleCopy(selectedColor)}
+                        className="flex items-center gap-1.5 text-xs text-neutral-400 hover:text-neutral-900 transition"
+                      >
+                        {copied ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                        {selectedColor}
+                      </button>
+                    </div>
                     {match ? (
                       <div>
                         <h3 className="text-3xl font-bold text-neutral-900 mt-1">{match.name}</h3>
@@ -158,6 +175,9 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {/* History Section */}
+      <RecentPicks lastPick={match} />
 
       {/* SEO Content (Bottom Fold) */}
       <section className="max-w-2xl mt-16 text-neutral-600 space-y-6">
