@@ -7,12 +7,18 @@ export async function POST(request) {
     try {
         const { prompt } = await request.json();
 
-        if (!process.env.REPLICATE_API_TOKEN) {
-            return NextResponse.json({ error: "Missing REPLICATE_API_TOKEN" }, { status: 500 });
+        const token = process.env.REPLICATE_API_TOKEN;
+
+        if (!token) {
+            console.error("Missing REPLICATE_API_TOKEN in environment.");
+            return NextResponse.json({
+                error: "Missing REPLICATE_API_TOKEN. Please add it to your Cloudflare Pages environment variables and trigger a RE-BUILD.",
+                debug_info: "Ensure the token is added to both 'Production' and 'Preview' environments in Cloudflare Settings."
+            }, { status: 500 });
         }
 
         const replicate = new Replicate({
-            auth: process.env.REPLICATE_API_TOKEN,
+            auth: token,
         });
 
         // Valid parameters for black-forest-labs/flux-schnell

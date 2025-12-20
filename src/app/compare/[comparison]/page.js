@@ -4,24 +4,8 @@ import { ArrowLeft, ArrowRightLeft, Palette, Info } from 'lucide-react';
 import chineseColors from '../../../data/chineseColors.json';
 import ColorActions from '../../../components/ColorActions';
 
-// 1. Generate Static Params (A few popular ones to start)
-export async function generateStaticParams() {
-    // For a massive SEO play, we could generate all combinations, 
-    // but for now we'll do 10 popular ones or let them be dynamic (SSR).
-    // Let's do a sample of combinations from the same tags.
-    const params = [];
-    const tags = ['red', 'blue', 'green', 'warm'];
-
-    tags.forEach(tag => {
-        const colors = chineseColors.filter(c => c.tags && c.tags.includes(tag)).slice(0, 3);
-        for (let i = 0; i < colors.length; i++) {
-            for (let j = i + 1; j < colors.length; j++) {
-                params.push({ comparison: `${colors[i].id}-vs-${colors[j].id}` });
-            }
-        }
-    });
-    return params;
-}
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 // 2. Generate Metadata
 export async function generateMetadata({ params }) {
