@@ -32,11 +32,18 @@ Cloudflare needs your API keys to run the AI features. scroll down to **Environm
 | `OPENROUTER_API_KEY` | *Your OpenRouter Key* |
 | `NODE_VERSION` | `20` (Recommended) |
 
-### 5. Deployment
-1.  Click **Save and Deploy**.
-2.  Wait for the build to finish. Cloudflare will give you a `*.pages.dev` URL.
+### 5. Add Compatibility Flags
+Since we are using modern Next.js features, Cloudflare needs a special "Compatibility Flag" enabled:
+1.  Go to **Settings** (设置) -> **Functions** (函数).
+2.  Find the **Compatibility flags** (兼容性标志) section.
+3.  Add the flag: `nodejs_compat` to **both** "Production" and "Preview" environments.
 
-### 6. Linking your Custom Domain
+### 6. Deployment
+1.  Go back to the **Deployments** tab.
+2.  Click **Retry build** (or trigger a new build by pushing code).
+3.  Wait for the build to finish. Cloudflare will give you a `*.pages.dev` URL.
+
+### 7. Linking your Custom Domain
 If you want to use `imagecolorpickerai.com`:
 1.  Go to the **Custom domains** tab in your Pages project.
 2.  Click **Set up a custom domain**.
