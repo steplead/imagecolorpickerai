@@ -26,14 +26,7 @@ import Header from "@/components/Header";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-neutral-50 text-neutral-900`}
-        suppressHydrationWarning
-      >
-        <Header />
-        <div className="pt-16">
-          {children}
-        </div>
+      <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-3SWWDX8EVF"
           strategy="afterInteractive"
@@ -47,6 +40,15 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-3SWWDX8EVF');
           `}
         </Script>
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-neutral-50 text-neutral-900`}
+        suppressHydrationWarning
+      >
+        <Header />
+        <div className="pt-16">
+          {children}
+        </div>
       </body>
     </html>
   );
