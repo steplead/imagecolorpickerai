@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
 export const runtime = 'edge';
 
@@ -6,14 +6,16 @@ export async function POST(req) {
     try {
         const { colorName, hex } = await req.json();
 
-        if (!process.env.OPENROUTER_API_KEY) {
+        const apiKey = process.env.OPENROUTER_API_KEY || getRequestContext().env.OPENROUTER_API_KEY;
+
+        if (!apiKey) {
             return NextResponse.json({ error: "Missing API Key" }, { status: 500 });
         }
 
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+                "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({

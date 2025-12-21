@@ -1,13 +1,17 @@
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
 
+import { getRequestContext } from '@cloudflare/next-on-pages';
+
 export const runtime = 'edge';
 
 export async function POST(request) {
     try {
         const { prompt } = await request.json();
 
-        const token = process.env.REPLICATE_API_TOKEN;
+        // 1. Try process.env first (standard)
+        // 2. Fallback to getRequestContext().env for Cloudflare Runtime bindings
+        const token = process.env.REPLICATE_API_TOKEN || getRequestContext().env.REPLICATE_API_TOKEN;
 
         if (!token) {
             console.error("Missing REPLICATE_API_TOKEN in environment.");
