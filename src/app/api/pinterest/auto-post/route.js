@@ -41,9 +41,12 @@ export async function GET(req) {
         }
 
         // 1. Natural Distribution Check
-        // To hit ~15 posts per day (10-20 range) when run every hour:
-        // 15/24 = 0.625 probability
-        const probability = 0.65;
+        // STRATEGY: Run Cron every 15 minutes (96 runs/day).
+        // Target: ~15 posts/day.
+        // Probability p = 15 / 96 = ~0.156 (15.6%)
+        // This creates highly irregular gaps between posts (e.g., 15 mins, 4 hours, 30 mins)
+        // creating a very natural, human-like activity pattern.
+        const probability = 0.16;
         const isForce = req.nextUrl.searchParams.get('force') === 'true';
 
         if (!isForce && Math.random() > probability) {
