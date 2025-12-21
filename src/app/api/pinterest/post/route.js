@@ -40,8 +40,27 @@ export async function POST(req) {
         const data = await response.json();
 
         if (!response.ok) {
-            console.error("Pinterest API Error:", data);
-            throw new Error(data.message || "Failed to create Pin");
+            console.error("Pinterest API Error Context:", {
+                status: response.status,
+                statusText: response.statusText,
+                data: data,
+                boardIdUsed: boardId.substring(0, 4) + "..." + boardId.substring(boardId.length - 4)
+            });
+
+            // Provide more specific error messages based on Pinterest's response
+            let errorMessage = data.message || "Failed to create Pin";
+            if (response.status === 404) {
+                errorMessage = `Pinterest says: Board not found or no access (ID: ${boardId})`;
+            } else if (response.status === 403) {
+                errorMessage = "Pinterest Permission Denied. Check your token scopes (pins:write, boards:read).";
+            } else if (response.status === 401) {
+                errorMessage = "Pinterest Unauthorized. Your token might be expired or invalid.";
+            }
+
+            return NextResponse.json({
+                error: errorMessage,
+                details: data
+            }, { status: response.status });
         }
 
         return NextResponse.json({ success: true, pinUrl: `https://www.pinterest.com/pin/${data.id}` });
