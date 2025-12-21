@@ -14,14 +14,8 @@ export async function POST(request) {
 
         if (!token) {
             console.error("Missing REPLICATE_API_TOKEN in environment.");
-
-            // Debug: List available keys (excluding values for security)
-            const processKeys = Object.keys(process.env).filter(k => !k.startsWith('npm_') && !k.startsWith('NEXT_')).join(', ');
-            const ctxKeys = envCtx ? Object.keys(envCtx).join(', ') : 'No Cloudflare Context';
-
             return NextResponse.json({
-                error: `Missing REPLICATE_API_TOKEN. [CF Keys: ${ctxKeys || 'None'}] [Process Keys: ${processKeys || 'None'}]`,
-                debug_info: "Please verify you have added 'REPLICATE_API_TOKEN' in Cloudflare Pages -> Settings -> Environment Variables for BOTH Production and Preview.",
+                error: "Missing REPLICATE_API_TOKEN. Please ensure it is added to your Cloudflare Pages Environment Variables.",
             }, { status: 500 });
         }
 
