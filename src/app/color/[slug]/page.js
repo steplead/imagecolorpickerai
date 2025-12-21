@@ -8,6 +8,7 @@ import ColorActions from '../../../components/ColorActions';
 import ColorTexture from '../../../components/ColorTexture';
 import ColorComparison from '../../../components/ColorComparison';
 import PaletteDisplay from '../../../components/PaletteDisplay';
+import Visualizer from '../../../components/Visualizer';
 
 // 1. Generate Static Params for all 500+ colors
 export async function generateStaticParams() {
@@ -111,6 +112,9 @@ export default async function Page({ params }) {
 
                         {/* Palette Generator (Phase 17) */}
                         <PaletteDisplay baseColor={color.hex} />
+
+                        {/* Visual Studio (Phase 19) */}
+                        <Visualizer colorHex={color.hex} />
 
                         {/* AI Generator */}
                         <div className="border-t mt-12 pt-12">
