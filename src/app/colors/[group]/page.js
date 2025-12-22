@@ -1,18 +1,20 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import chineseColors from '../../../data/chineseColors.json';
+import { getAllColors } from '../../../utils/colorData';
 import { getColorsByTag } from '../../../utils/colorUtils';
 
-// 1. Generate Static Params for all Tags (normalized to lowercase)
+// 1. Generate Static Params for all Tags + Collections
 export async function generateStaticParams() {
-    const allTags = new Set();
-    chineseColors.forEach(c => {
-        if (c.tags) c.tags.forEach(t => allTags.add(t.toLowerCase()));
+    const allGroups = new Set(['chinese', 'japanese']); // Explicitly add collections
+    const colors = getAllColors();
+
+    colors.forEach(c => {
+        if (c.tags) c.tags.forEach(t => allGroups.add(t.toLowerCase()));
     });
 
-    return Array.from(allTags).map(tag => ({
-        group: tag,
+    return Array.from(allGroups).map(group => ({
+        group: group, // match [group] param name
     }));
 }
 
