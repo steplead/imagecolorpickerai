@@ -1,7 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Image Color Picker AI - Pro EyeDropper",
-    "version": "1.0.0",
+    "name": "Image Color Picker AI",
+    "short_name": "ColorPicker",
+    "version": "1.0.1",
     "description": "Pick any color from any website and see its history, TCM palette, and accessibility score on ImageColorPickerAI.",
     "permissions": [
         "activeTab",
