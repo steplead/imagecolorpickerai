@@ -90,9 +90,11 @@ export default function Footer() {
                     <p className="text-xs text-neutral-400">
                         &copy; {currentYear} ImageColorPickerAI. All rights reserved. Built for designers, historians, and AI enthusiasts.
                     </p>
-                    <div className="flex gap-6 text-xs text-neutral-400">
-                        <Link href="/privacy" className="hover:text-neutral-600">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-neutral-600">Terms of Service</Link>
+                    <div className="flex flex-wrap justify-center gap-6 text-xs text-neutral-400">
+                        <Link href="/about" className="hover:text-neutral-600 transition" title="About ImageColorPickerAI">About</Link>
+                        <Link href="/contact" className="hover:text-neutral-600 transition" title="Contact Us">Contact</Link>
+                        <Link href="/privacy-policy" className="hover:text-neutral-600 transition" title="Privacy Policy">Privacy Policy</Link>
+                        <Link href="/terms-of-service" className="hover:text-neutral-600 transition" title="Terms of Service">Terms of Service</Link>
                     </div>
                 </div>
             </div>
