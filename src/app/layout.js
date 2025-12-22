@@ -16,13 +16,35 @@ export const metadata = {
   metadataBase: new URL('https://imagecolorpickerai.com'),
   title: "Image Color Picker - Extract Hex Codes from Images",
   description: "Upload any image to find its Traditional Chinese Color match. Extract Hex codes, RGB, and generate aesthetic wallpapers instantly.",
-  // Protocol 3: No keywords tag
+  openGraph: {
+    title: "Image Color Picker AI - Traditional Color Encyclopedia",
+    description: "Extract precise hex codes and cultural history from any image using AI.",
+    url: "https://imagecolorpickerai.com",
+    siteName: "ImageColorPickerAI",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Image Color Picker AI Tool Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Image Color Picker AI",
+    description: "AI-powered color extraction and cultural mapping.",
+    images: ["/og-image.png"],
+  },
   alternates: {
     canonical: '/',
   },
 };
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }) {
   return (
@@ -32,9 +54,10 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <Header />
-        <div className="pt-16">
+        <main className="pt-16 min-h-[calc(100vh-64px)]">
           {children}
-        </div>
+        </main>
+        <Footer />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-3SWWDX8EVF"
           strategy="afterInteractive"

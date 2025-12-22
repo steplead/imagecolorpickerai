@@ -8,7 +8,13 @@ const ARCHETYPE_LINKS = [
     { id: 'red', name: 'Imperial Red', href: '/colors/red' },
     { id: 'blue', name: 'Misty Blue', href: '/colors/blue' },
     { id: 'green', name: 'Jade Valley', href: '/colors/green' },
-    { id: 'warm', name: 'Sunset Embers', href: '/colors/warm' },
+    { id: 'scan', name: 'AI Analyst', href: '/scan' },
+];
+
+const LOCALES = [
+    { code: 'en', name: 'English', path: '/' },
+    { code: 'zh', name: '中文', path: '/zh' },
+    { code: 'ja', name: '日本語', path: '/ja' },
 ];
 
 export default function Header() {
@@ -27,24 +33,49 @@ export default function Header() {
                     </span>
                 </Link>
 
-                {/* Navigation */}
-                <nav className="flex items-center gap-1 sm:gap-4">
-                    {ARCHETYPE_LINKS.map((link) => {
-                        const isActive = pathname === link.href;
-                        return (
-                            <Link
-                                key={link.id}
-                                href={link.href}
-                                className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${isActive
+                {/* Navigation & Locale */}
+                <div className="flex items-center gap-2 sm:gap-6">
+                    <nav className="hidden md:flex items-center gap-2">
+                        {ARCHETYPE_LINKS.map((link) => {
+                            const isActive = pathname === link.href;
+                            return (
+                                <Link
+                                    key={link.id}
+                                    href={link.href}
+                                    className={`px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${isActive
                                         ? 'bg-neutral-900 text-white shadow-lg'
                                         : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100'
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        );
-                    })}
-                </nav>
+                                        }`}
+                                >
+                                    {link.name}
+                                </Link>
+                            );
+                        })}
+                    </nav>
+
+                    <div className="h-4 w-[1px] bg-neutral-200 hidden md:block" />
+
+                    <div className="flex items-center gap-1 bg-neutral-100 p-1 rounded-full">
+                        {LOCALES.map((loc) => {
+                            const isActive = pathname.startsWith(loc.path) && (loc.path !== '/' || pathname === '/');
+                            // Precise check for root vs others
+                            const isExact = loc.code === 'en' ? pathname === '/' || (!pathname.startsWith('/zh') && !pathname.startsWith('/ja')) : pathname.startsWith(loc.path);
+
+                            return (
+                                <Link
+                                    key={loc.code}
+                                    href={loc.path}
+                                    className={`px-2 py-1 rounded-full text-[10px] font-bold transition-all ${isExact
+                                        ? 'bg-white text-neutral-900 shadow-sm'
+                                        : 'text-neutral-400 hover:text-neutral-600'
+                                        }`}
+                                >
+                                    {loc.code.toUpperCase()}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
         </header>
     );
