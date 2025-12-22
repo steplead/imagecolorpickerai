@@ -1,55 +1,72 @@
-import chineseColors from '../data/chineseColors.json';
+import { getAllColors } from '../utils/colorData';
+import { IDEA_CATEGORIES } from '../utils/ideaUtils';
 
 export default function sitemap() {
     const baseUrl = 'https://imagecolorpickerai.com';
+    const allColors = getAllColors();
 
-    // 1. Static Routes
+    // 1. Static Routes (The Hubs)
     const routes = [
         '',
+        '/scan',
+        '/ideas',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString().split('T')[0],
         changeFrequency: 'daily',
-        priority: 1.0,
+        priority: route === '' ? 1.0 : 0.9,
     }));
 
-    // 2. Color Detail Pages (Programmatic)
-    const colorRoutes = chineseColors.map((color) => ({
+    // 2. Color Detail Pages (The Long Tail)
+    const colorRoutes = allColors.map((color) => ({
         url: `${baseUrl}/color/${color.id}`,
         lastModified: new Date().toISOString().split('T')[0],
         changeFrequency: 'weekly',
         priority: 0.8,
     }));
 
-    // 3. Category Pages (Programmatic)
-    const uniqueTags = new Set();
-    chineseColors.forEach(c => {
-        if (c.tags) c.tags.forEach(t => uniqueTags.add(t));
-    });
+    // 3. Collection Pages (The Categories)
+    // Extract unique collections (chinese, japanese, pantone, nature)
+    const collections = [...new Set(allColors.map(c => c.collectionId || 'chinese'))];
 
-    const categoryRoutes = Array.from(uniqueTags).map((tag) => ({
-        url: `${baseUrl}/colors/${tag}`,
+    const collectionRoutes = collections.map((group) => ({
+        url: `${baseUrl}/colors/${group}`,
         lastModified: new Date().toISOString().split('T')[0],
         changeFrequency: 'weekly',
         priority: 0.9,
     }));
 
-    // 4. Comparison Pages (Programmatic SEO Hub)
+    // 4. Idea Hub Pages (The Intent Buckets)
+    const ideaRoutes = IDEA_CATEGORIES.map((cat) => ({
+        url: `${baseUrl}/ideas/${cat.id}`,
+        lastModified: new Date().toISOString().split('T')[0], // Always fresh
+        changeFrequency: 'weekly',
+        priority: 0.9,
+    }));
+
+    // 5. Comparison Pages (Legacy + Programmatic)
     const vsRoutes = [];
+    // Only generate a small subset for sitemap to avoid bloat, 
+    // relying on internal linking for the rest.
     const tags = ['red', 'blue', 'green', 'warm'];
+    // Limit to first 20 comparisons to keep sitemap manageable
+    let count = 0;
+
     tags.forEach(tag => {
-        const colors = chineseColors.filter(c => c.tags && c.tags.includes(tag)).slice(0, 3);
+        const colors = allColors.filter(c => c.tags && c.tags.includes(tag)).slice(0, 3);
         for (let i = 0; i < colors.length; i++) {
             for (let j = i + 1; j < colors.length; j++) {
+                if (count > 50) break;
                 vsRoutes.push({
                     url: `${baseUrl}/compare/${colors[i].id}-vs-${colors[j].id}`,
                     lastModified: new Date().toISOString().split('T')[0],
                     changeFrequency: 'monthly',
                     priority: 0.7,
                 });
+                count++;
             }
         }
     });
 
-    return [...routes, ...colorRoutes, ...categoryRoutes, ...vsRoutes];
+    return [...routes, ...collectionRoutes, ...ideaRoutes, ...colorRoutes, ...vsRoutes];
 }
