@@ -1,6 +1,7 @@
-import { ColorDetail } from '../../color/[slug]/page';
+import { ColorDetailView } from '../../../components/ColorDetailView';
 export { generateStaticParams, generateMetadata } from '../../color/[slug]/page';
 
 export default async function JaColorPage({ params }) {
-    return <ColorDetail params={params} locale="ja" />;
+    const resolvedParams = await params;
+    return <ColorDetailView params={resolvedParams} locale="ja" />;
 }

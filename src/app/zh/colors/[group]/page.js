@@ -1,6 +1,7 @@
-import { ColorsCollection } from '../../colors/[group]/page';
+import { ColorsCollectionView } from '../../../components/ColorsCollectionView';
 export { generateStaticParams, generateMetadata } from '../../colors/[group]/page';
 
 export default async function ZhColorsPage({ params }) {
-    return <ColorsCollection params={params} locale="zh" />;
+    const resolvedParams = await params;
+    return <ColorsCollectionView params={resolvedParams} locale="zh" />;
 }

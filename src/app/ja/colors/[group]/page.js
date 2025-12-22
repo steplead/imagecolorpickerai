@@ -1,6 +1,7 @@
-import { ColorsCollection } from '../../colors/[group]/page';
+import { ColorsCollectionView } from '../../../components/ColorsCollectionView';
 export { generateStaticParams, generateMetadata } from '../../colors/[group]/page';
 
 export default async function JaColorsPage({ params }) {
-    return <ColorsCollection params={params} locale="ja" />;
+    const resolvedParams = await params;
+    return <ColorsCollectionView params={resolvedParams} locale="ja" />;
 }
