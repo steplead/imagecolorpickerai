@@ -17,9 +17,24 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const imgRef = useRef(null);
 
-  // 1. Load state from localStorage on mount
+  // 1. Load state from localStorage on mount AND handle extension picks
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      // Check for extension handoff first
+      const params = new URLSearchParams(window.location.search);
+      const pickedHex = params.get('picked');
+
+      if (pickedHex) {
+        const hex = `#${pickedHex}`;
+        setSelectedColor(hex);
+        const result = findClosestChineseColor(hex);
+        setMatch(result);
+        // Clear param from URL without reload
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, '', newUrl);
+        return; // Skip loading local storage if we have a fresh pick
+      }
+
       const savedImage = localStorage.getItem('picker_image');
       const savedColors = localStorage.getItem('picker_colors');
       const savedSelected = localStorage.getItem('picker_selected');

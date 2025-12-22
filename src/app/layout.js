@@ -45,6 +45,7 @@ export const metadata = {
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FryingBeansFooter from '@/components/FryingBeansFooter';
 
 export default function RootLayout({ children }) {
   return (
@@ -54,10 +55,15 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <Header />
-        <main className="pt-16 min-h-[calc(100vh-64px)]">
+        <main className="flex-grow pt-24 pb-12">
           {children}
         </main>
+
+        {/* Protocol 5: Internal Link Circulation */}
+        <FryingBeansFooter />
+
         <Footer />
+
         {/* AdSense Auto Ads - Replace with real ID when approved */}
         <Script
           async

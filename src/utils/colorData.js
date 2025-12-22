@@ -21,7 +21,23 @@ const ALL_COLORS = [
     ...natureColors.map(c => normalizeColor(c, 'nature'))
 ];
 
-// 2. Data Access Methods
+// 2. Data Access
+// Protocol 5: "Frying Beans" - Random Sampling for Internal Link Circulation
+export function getRandomColors(count = 10) {
+    const shuffled = [...ALL_COLORS].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
+
+// Protocol 5: Combination Engine - Finding color pairs
+// This is used for generating pages like /combine/imperial-red-and-deep-blue
+export function getColorBySlug(slug) {
+    // Basic lookup. Improve with exact match if needed.
+    // Assuming slug is lowercase english name parameterized
+    return ALL_COLORS.find(c =>
+        c.name.toLowerCase().replace(/\s+/g, '-') === slug
+    );
+}
+
 export function getAllColors() {
     return ALL_COLORS;
 }

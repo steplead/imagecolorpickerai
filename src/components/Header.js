@@ -25,11 +25,17 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group transition-all" title="Image Color Picker AI - Home">
-                    <div className="bg-neutral-900 p-1.5 rounded-lg text-white group-hover:bg-red-600 transition-colors">
-                        <Palette className="w-5 h-5" />
+                    <div className="relative p-1 rounded-xl group-hover:bg-indigo-50 transition-all duration-300">
+                        {/* Neon Glow Layer */}
+                        <div className="absolute inset-0 bg-indigo-500/0 group-hover:bg-indigo-500/10 blur-xl rounded-full transition-all duration-500" />
+                        <img
+                            src="/icon.png"
+                            alt="Logo"
+                            className="w-8 h-8 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-sm rounded-lg"
+                        />
                     </div>
-                    <span className="font-bold text-neutral-900 tracking-tight hidden sm:block">
-                        ImageColorPicker<span className="text-red-600 italic">AI</span>
+                    <span className="font-black text-neutral-900 tracking-tighter hidden sm:block text-lg">
+                        ImageColorPicker<span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-amber-500">AI</span>
                     </span>
                 </Link>
 

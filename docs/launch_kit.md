@@ -11,8 +11,11 @@ This kit provides the standardized copy and strategy for our public launch acros
 - **Tagline:** The Traditonal Color Encyclopedia & AI Wallpaper Generator
 - **Description:** 
   > More than just a hex extractor. Image Color Picker AI bridges ancient cultural stories with modern design. 
-  > - 500+ Traditional Chinese & Japanese Colors.
-  > - AI-Powered Personal Aura Analysis.
+  > - 🎨 **Traditional Color Encyclopedias** (Chinese / Japanese / Pantone)
+  > - ⚖️ **WCAG & Color Blindness Accessibility Suite** (New!)
+  > - 🧬 **Combination Engine** (Test infinite color pairings for contrast & aesthetics)
+  > - 🖼️ **AI-Powered Image Color Extraction**
+  > - ⚡ **Zero-Latency Privacy-First Architecture**
   > - 8K Design Wallpaper Generator.
   > - Pro Exports (Figma / Adobe Swatch).
   > - 100% Free & No Sign-up required.

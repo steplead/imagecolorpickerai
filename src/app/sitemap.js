@@ -61,8 +61,16 @@ export default function sitemap() {
         for (let i = 0; i < colors.length; i++) {
             for (let j = i + 1; j < colors.length; j++) {
                 if (count > 50) break;
+                // Legacy Compare
                 vsRoutes.push({
                     url: `${baseUrl}/compare/${colors[i].id}-vs-${colors[j].id}`,
+                    lastModified: new Date().toISOString().split('T')[0],
+                    changeFrequency: 'monthly',
+                    priority: 0.7,
+                });
+                // Protocol 5 Combine (Seed)
+                vsRoutes.push({
+                    url: `${baseUrl}/combine/${colors[i].id}-and-${colors[j].id}`,
                     lastModified: new Date().toISOString().split('T')[0],
                     changeFrequency: 'monthly',
                     priority: 0.7,
