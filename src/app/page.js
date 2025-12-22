@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { findClosestChineseColor } from '../utils/colorUtils';
 import RecentPicks from '../components/RecentPicks';
 import PinterestGallery from '../components/PinterestGallery';
+import AdPlacement from '../components/AdPlacement';
 
 export default function Home() {
   const [image, setImage] = useState(null);
@@ -226,6 +227,11 @@ export default function Home() {
             )}
           </div>
         )}
+      </div>
+
+      {/* Monetization Slot - Home Above Fold (Protocol 3.3) */}
+      <div className="w-full max-w-2xl px-4">
+        <AdPlacement slot="home-top-fold" />
       </div>
 
       {/* History Section */}

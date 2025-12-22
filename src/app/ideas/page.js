@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Heart, Briefcase, Home, Shirt, Palette, Sparkles } from 'lucide-react';
 import { IDEA_CATEGORIES } from '../../utils/ideaUtils';
+import AdPlacement from '../../components/AdPlacement';
 
 export const metadata = {
     title: 'Color Inspiration & Ideas | Traditional Chinese Palette Guide',
@@ -27,6 +28,10 @@ export default function IdeasHub() {
                 <p className="text-lg text-neutral-500 max-w-2xl mx-auto font-serif italic">
                     Don't just pick a color. Pick a meaning. Explore curated collections designed for specific life moments and creative projects.
                 </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto px-4 mb-12">
+                <AdPlacement slot="ideas-hub-top" />
             </div>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { getColorsByTag } from '../utils/colorUtils';
 import { getCollectionMetadata } from '../utils/colorData';
+import AdPlacement from './AdPlacement';
 
 export function ColorsCollectionView({ params, locale = 'en' }) {
     const { group } = params;
@@ -110,6 +111,8 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
                         </Link>
                     ))}
                 </div>
+
+                <AdPlacement slot="collection-footer" className="mt-16" />
 
                 {/* Navigation to other tags */}
                 <div className="mt-16 pt-8 border-t border-neutral-200">

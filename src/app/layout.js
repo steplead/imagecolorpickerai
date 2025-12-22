@@ -58,6 +58,13 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        {/* AdSense Auto Ads - Replace with real ID when approved */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-3SWWDX8EVF"
           strategy="afterInteractive"
