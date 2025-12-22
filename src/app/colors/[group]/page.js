@@ -41,7 +41,11 @@ export async function generateMetadata({ params }) {
 }
 
 // 3. Page Component
-export default async function Page({ params, locale = 'en' }) {
+export default async function Page({ params }) {
+    return <ColorsCollection params={params} locale="en" />;
+}
+
+export async function ColorsCollection({ params, locale = 'en' }) {
     const { group } = await params;
     if (!group) return notFound();
 

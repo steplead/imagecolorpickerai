@@ -1,6 +1,6 @@
-import ColorDetail from '../../color/[slug]/page';
+import { ColorDetail } from '../../color/[slug]/page';
 export { generateStaticParams, generateMetadata } from '../../color/[slug]/page';
 
-export default function ZhColorPage(props) {
-    return <ColorDetail {...props} locale="zh" />;
+export default async function ZhColorPage({ params }) {
+    return <ColorDetail params={params} locale="zh" />;
 }

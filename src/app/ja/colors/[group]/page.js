@@ -1,6 +1,6 @@
-import Page from '../../colors/[group]/page';
+import { ColorsCollection } from '../../colors/[group]/page';
 export { generateStaticParams, generateMetadata } from '../../colors/[group]/page';
 
-export default function JaColorsPage(props) {
-    return <Page {...props} locale="ja" />;
+export default async function JaColorsPage({ params }) {
+    return <ColorsCollection params={params} locale="ja" />;
 }

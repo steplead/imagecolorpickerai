@@ -41,7 +41,11 @@ export async function generateMetadata({ params }) {
     };
 }
 
-export default function ColorDetail({ params, locale = 'en' }) {
+export default async function Page({ params }) {
+    return <ColorDetail params={params} locale="en" />;
+}
+
+export function ColorDetail({ params, locale = 'en' }) {
     const color = getColorById(params.slug);
 
     if (!color) {

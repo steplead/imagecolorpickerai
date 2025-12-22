@@ -1,6 +1,6 @@
-import Page from '../../colors/[group]/page';
+import { ColorsCollection } from '../../colors/[group]/page';
 export { generateStaticParams, generateMetadata } from '../../colors/[group]/page';
 
-export default function ZhColorsPage(props) {
-    return <Page {...props} locale="zh" />;
+export default async function ZhColorsPage({ params }) {
+    return <ColorsCollection params={params} locale="zh" />;
 }
