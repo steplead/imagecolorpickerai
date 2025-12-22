@@ -19,8 +19,8 @@ export async function generateMetadata({ params }) {
     if (!catData) return { title: 'Ideas' };
 
     return {
-        title: `Best Traditional Chinese Colors for ${catData.title} | ImageColorPickerAI`,
-        description: `Looking for ${catData.title} color inspiration? Explore our curated collection of ${getColorsForCategory(category).length} auspicious and harmonious traditional colors perfect for your project.`,
+        title: `Traditional Chinese Colors for ${catData.title} - Meaning & Palette | ImageColorPickerAI`,
+        description: `Curated ${catData.title.toLowerCase()} color inspiration. Explore ${getColorsForCategory(category).length} traditional Chinese colors with deep meanings and hex codes for your ${catData.title.toLowerCase()} projects.`,
         alternates: {
             canonical: `/ideas/${category}`,
         },

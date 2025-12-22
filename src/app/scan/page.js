@@ -2,8 +2,8 @@ import PersonalColorAnalyst from '../../components/PersonalColorAnalyst';
 import JsonLd from '../../components/JsonLd';
 
 export const metadata = {
-    title: 'Find Your Traditional Color Aura | AI Personal Color Analysis',
-    description: 'Upload a selfie to discover your unique Traditional Chinese Color Aura. Are you Imperial Red or Tea White? Scan now.',
+    title: 'AI Personal Color Analysis - Find Your Traditional Color Aura | ImageColorPickerAI',
+    description: 'Professional AI Personal Color Analysis. Upload a selfie to discover your unique Traditional Chinese Color Aura match. 100% Free & No-sign up.',
     alternates: {
         canonical: '/scan',
     },

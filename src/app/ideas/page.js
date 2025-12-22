@@ -4,8 +4,8 @@ import { IDEA_CATEGORIES } from '../../utils/ideaUtils';
 import AdPlacement from '../../components/AdPlacement';
 
 export const metadata = {
-    title: 'Color Inspiration & Ideas | Traditional Chinese Palette Guide',
-    description: 'Find the perfect Traditional Chinese colors for your project. Curated palettes for Weddings, Branding, Interior Design, and Art.',
+    title: 'Color Inspiration & Palette Ideas - Traditional Chinese Design Guide | ImageColorPickerAI',
+    description: 'Curated color inspiration for your next project. Explore traditional Chinese palettes for Weddings, Branding, and Interior Design. Professional design guide.',
     alternates: {
         canonical: '/ideas',
     },
