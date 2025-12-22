@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Copy, Check, FileJson, Download } from 'lucide-react';
 import { generateFigmaCopy, downloadASE } from '../utils/exportUtils';
+import ProExport from './ProExport';
 
 const ColorActions = ({ hex, rgb, colorName = "Color" }) => {
     const [copied, setCopied] = useState(false);
@@ -47,16 +48,16 @@ const ColorActions = ({ hex, rgb, colorName = "Color" }) => {
                 Figma
             </button>
 
-            <button
-                onClick={() => downloadASE(colorName, hex)}
-                className="flex items-center gap-2 px-4 py-2 bg-sky-50 text-sky-700 border border-sky-100 rounded-lg text-sm font-medium hover:bg-sky-100 transition shadow-sm"
-                title="Download Adobe Swatch Exchange file"
-            >
-                <Download className="w-4 h-4" />
-                .ASE
-            </button>
+            {/* Phase 23: The Merchant (Design Kit) */}
+            <ProExport color={{ hex, name: colorName }} rgbArray={parseRGB(rgb)} />
         </div>
     );
+};
+
+// Helper to parse "rgb(r, g, b)" string
+const parseRGB = (str) => {
+    const match = str.match(/\d+/g);
+    return match ? match.map(Number) : [0, 0, 0];
 };
 
 export default ColorActions;
