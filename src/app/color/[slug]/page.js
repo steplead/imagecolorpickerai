@@ -169,6 +169,7 @@ export default function ColorDetail({ params }) {
                     </div>
                 </div>
             </div>
-            );
+        </>
+    );
 }
 
