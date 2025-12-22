@@ -59,7 +59,8 @@ export default function ColorDetail({ params, locale = 'en' }) {
             love: 'Love this color?',
             guide: `Get the complete ${collectionMeta.name} Swatch Guide.`,
             view: 'View Design Guide',
-            back: 'Back to Collection'
+            back: 'Back to Collection',
+            cluster: 'More colors in this category'
         },
         zh: {
             meaning: `文化背景 (${color.collectionId === 'japanese' ? '日文' : '中文'})`,
@@ -67,7 +68,8 @@ export default function ColorDetail({ params, locale = 'en' }) {
             love: '喜欢这个颜色吗？',
             guide: `获取完整的 ${collectionMeta.name} 设计指南。`,
             view: '查看设计指南',
-            back: '返回集合'
+            back: '返回集合',
+            cluster: '此类别的更多颜色'
         },
         ja: {
             meaning: `文化的背景 (${color.collectionId === 'japanese' ? '漢字' : '中国語'})`,
@@ -75,7 +77,8 @@ export default function ColorDetail({ params, locale = 'en' }) {
             love: 'この色が気に入りましたか？',
             guide: `完全な ${collectionMeta.name} スウォッチガイドを入手。`,
             view: 'デザインガイドを見る',
-            back: 'コレクションに戻る'
+            back: 'コレクションに戻る',
+            cluster: 'このカテゴリーの他の色'
         }
     };
 
@@ -199,6 +202,31 @@ export default function ColorDetail({ params, locale = 'en' }) {
                         <button className="px-6 py-2 bg-sky-600 text-white rounded-lg font-medium hover:bg-sky-700 transition">
                             {t.view}
                         </button>
+                    </div>
+
+                    {/* Topic Cluster Footer (Phase 30: Link Authority) */}
+                    <div className="mt-16 pt-8 border-t border-neutral-200">
+                        <h3 className="text-sm font-bold uppercase text-neutral-400 tracking-wider mb-6 flex items-center gap-2">
+                            <Palette className="w-4 h-4" />
+                            {t.cluster}
+                        </h3>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                            {relatedColors.slice(0, 12).map(c => (
+                                <Link
+                                    key={c.id}
+                                    href={`${locale === 'en' ? '' : `/${locale}`}/color/${c.id}`}
+                                    className="group block"
+                                >
+                                    <div
+                                        className="h-12 w-full rounded-lg shadow-sm border border-neutral-100 group-hover:scale-105 transition-transform"
+                                        style={{ backgroundColor: c.hex }}
+                                    />
+                                    <span className="text-[10px] text-neutral-400 mt-1 block truncate font-mono">
+                                        {c.name}
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
