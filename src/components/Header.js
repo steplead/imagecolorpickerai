@@ -53,17 +53,14 @@ export default function Header() {
         <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100/50">
             <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
                 {/* Logo Only (Proportional Size) */}
-                <Link href={pathname.startsWith('/zh') ? '/zh' : pathname.startsWith('/ja') ? '/ja' : pathname.startsWith('/es') ? '/es' : pathname.startsWith('/fr') ? '/fr' : pathname.startsWith('/de') ? '/de' : pathname.startsWith('/pt') ? '/pt' : '/'} className="flex items-center group transition-all" title="Image Color Picker AI - Home">
-                    <div className="relative transition-all duration-300">
-                        {/* Precision Droplet Clipping */}
-                        <div className="relative z-10 w-[84px] h-[84px] rounded-full overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.1] group-hover:rotate-[8deg]">
-                            <img
-                                src="/icon.png"
-                                alt="Image Color Picker AI"
-                                className="w-full h-full object-cover shadow-[0_4px_12px_rgba(0,0,0,0.15)] rounded-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.05]"
-                            />
-                        </div>
+                {/* Logo */}
+                <Link href="/" className="flex items-center gap-2 group transition-all" title="Image Color Picker AI - Home">
+                    <div className="bg-neutral-900 p-1.5 rounded-lg text-white group-hover:bg-red-600 transition-colors">
+                        <Palette className="w-5 h-5" />
                     </div>
+                    <span className="font-bold text-neutral-900 tracking-tight hidden sm:block">
+                        ImageColorPicker<span className="text-red-600 italic">AI</span>
+                    </span>
                 </Link>
 
                 {/* Navigation & Locale */}
