@@ -11,6 +11,7 @@ import ColorComparison from './ColorComparison';
 import PaletteDisplay from './PaletteDisplay';
 import Visualizer from './Visualizer';
 import AdPlacement from './AdPlacement';
+import ColorAccessibility from './ColorAccessibility';
 
 export function ColorDetailView({ params, locale = 'en' }) {
     const color = getColorById(params.slug);
@@ -152,6 +153,9 @@ export function ColorDetailView({ params, locale = 'en' }) {
 
                             {/* Visual Studio (Phase 19) */}
                             <Visualizer colorHex={color.hex} />
+
+                            {/* Phase 35: Accessibility Suite */}
+                            <ColorAccessibility hex={color.hex} />
 
                             {/* Monetization Slot - In-Article (Protocol 3.3) */}
                             <AdPlacement slot="detail-in-article" className="mt-12" />

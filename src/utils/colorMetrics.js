@@ -95,3 +95,90 @@ export function generatePalettes(baseHex) {
         monochromatic: [lighter, baseHex, darker]
     };
 }
+
+// --- Accessibility & WCAG Utilities ---
+
+function getLuminance(r, g, b) {
+    var a = [r, g, b].map(function (v) {
+        v /= 255;
+        return v <= 0.03928
+            ? v / 12.92
+            : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+}
+
+function hexToRgbVals(hex) {
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : { r: 0, g: 0, b: 0 };
+}
+
+export function getContrastRatio(hex1, hex2) {
+    const rgb1 = hexToRgbVals(hex1);
+    const rgb2 = hexToRgbVals(hex2);
+    const lum1 = getLuminance(rgb1.r, rgb1.g, rgb1.b);
+    const lum2 = getLuminance(rgb2.r, rgb2.g, rgb2.b);
+    const brightest = Math.max(lum1, lum2);
+    const darkest = Math.min(lum1, lum2);
+    return (brightest + 0.05) / (darkest + 0.05);
+}
+
+export function getWCAGScore(ratio) {
+    if (ratio >= 7) return 'AAA';
+    if (ratio >= 4.5) return 'AA';
+    if (ratio >= 3) return 'AA Large';
+    return 'Fail';
+}
+
+// Color Blindness Simulation Matrix
+// Source: https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html
+export function simulateColorBlindness(hex, type) {
+    const { r, g, b } = hexToRgbVals(hex);
+
+    const matrices = {
+        protanopia: [ // Red-blind
+            0.567, 0.433, 0,
+            0.558, 0.442, 0,
+            0, 0.242, 0.758
+        ],
+        deuteranopia: [ // Green-blind
+            0.625, 0.375, 0,
+            0.7, 0.3, 0,
+            0, 0.3, 0.7
+        ],
+        tritanopia: [ // Blue-blind
+            0.95, 0.05, 0,
+            0, 0.433, 0.567,
+            0, 0.475, 0.525
+        ],
+        achromatopsia: [ // Monochromacy
+            0.299, 0.587, 0.114,
+            0.299, 0.587, 0.114,
+            0.299, 0.587, 0.114
+        ]
+    };
+
+    const m = matrices[type] || matrices.achromatopsia;
+
+    // Apply matrix
+    let R = (r * m[0] + g * m[1] + b * m[2]);
+    let G = (r * m[3] + g * m[4] + b * m[5]);
+    let B = (r * m[6] + g * m[7] + b * m[8]);
+
+    // Clamping
+    R = Math.min(Math.max(0, R), 255);
+    G = Math.min(Math.max(0, G), 255);
+    B = Math.min(Math.max(0, B), 255);
+
+    // Convert back to Hex
+    const toHex = (c) => {
+        const hex = Math.round(c).toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+    };
+
+    return "#" + toHex(R) + toHex(G) + toHex(B);
+}

@@ -17,8 +17,8 @@ export async function generateMetadata({ params }) {
     const meta = getCollectionMetadata(color.collectionId);
 
     return {
-        title: `${color.name} (${color.nativeName}) - ${meta.name} | Image Color Picker AI`,
-        description: `${color.name} (${color.nativeName}, ${color.hex}) - ${color.meaning} Part of the ${meta.name} collection.`,
+        title: `${color.name} (${color.nativeName}) - Contrast Checker & ${meta.name} | Image Color Picker AI`,
+        description: `${color.name} (${color.nativeName}, ${color.hex}) - ${color.meaning} Check WCAG accessibility contrast and color blindness simulation.`,
         alternates: {
             canonical: `/color/${color.id}`,
             languages: {
