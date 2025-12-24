@@ -1,6 +1,8 @@
 # 🎨 AI Image Color Picker (GeFei Protocol Edition)
 
-A high-performance **Classified SEO Library** and **AI Tool** for matching images to Traditional Chinese Colors. Built with Next.js 14, DeepSeek, and Flux-Schnell.
+### 🔗 Live Tool: [**https://imagecolorpickerai.com**](https://imagecolorpickerai.com)
+
+A high-performance **Traditional Color Extraction Dataset** and **AI Design Tool** for matching images to historical color palettes. Built with Next.js 14, DeepSeek, and Flux-Schnell.
 
 ## 🚀 Features
 
