@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import EmbedWidget from '@/components/EmbedWidget';
 import { WebPageSchema, OrganizationSchema } from '@/components/JsonLd';
 
