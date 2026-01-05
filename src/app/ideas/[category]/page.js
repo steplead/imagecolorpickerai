@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import JsonLd from '../../../components/JsonLd';
 import { IDEA_CATEGORIES, getColorsForCategory } from '../../../utils/ideaUtils';
+import EmbedWidget from '../../../components/EmbedWidget';
 
 // 1. Generate Static Paths for all Categories
 export async function generateStaticParams() {
@@ -110,6 +111,11 @@ export default async function IdeaCategoryPage({ params }) {
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Embed Widget (Link Magnet Strategy - Content Page) */}
+                    <div className="mt-16">
+                        <EmbedWidget />
                     </div>
                 </div>
             </main>

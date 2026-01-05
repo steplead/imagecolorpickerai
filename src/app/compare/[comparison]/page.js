@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRightLeft, Palette, Info } from 'lucide-react';
 import chineseColors from '../../../data/chineseColors.json';
 import ColorActions from '../../../components/ColorActions';
+import EmbedWidget from '../../../components/EmbedWidget';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -120,6 +121,11 @@ export default async function Page({ params }) {
                             <span className="text-sm font-bold">Perfect Duo</span>
                         </div>
                     </div>
+                </div>
+
+                {/* Embed Widget (Link Magnet Strategy) */}
+                <div className="mt-12">
+                    <EmbedWidget />
                 </div>
             </div>
         </div>

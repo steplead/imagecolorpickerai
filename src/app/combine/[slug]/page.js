@@ -3,6 +3,7 @@ import { getContrastRatio, getWCAGScore } from '@/utils/colorMetrics';
 import Link from 'next/link';
 import AdPlacement from '@/components/AdPlacement';
 import AccessibilityBadge from '@/components/AccessibilityBadge';
+import EmbedWidget from '@/components/EmbedWidget';
 
 export const runtime = 'edge';
 
@@ -112,6 +113,11 @@ export default function CombinationPage({ params }) {
                 >
                     View {color2.name} Details
                 </Link>
+            </div>
+
+            {/* Embed Widget (Link Magnet Strategy - HIGH PRIORITY) */}
+            <div className="mt-12">
+                <EmbedWidget />
             </div>
         </div>
     );

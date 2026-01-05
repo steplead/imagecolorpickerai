@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Heart, Briefcase, Home, Shirt, Palette, Sparkles } from 'lucide-react';
 import { IDEA_CATEGORIES } from '../utils/ideaUtils';
 import AdPlacement from './AdPlacement';
+import EmbedWidget from './EmbedWidget';
 
 const IconMap = {
     Heart, Briefcase, Home, Shirt, Palette
@@ -172,6 +173,12 @@ export default function IdeasHub({ locale = 'en' }) {
                         </Link>
                     );
                 })}
+
+            </div>
+
+            {/* Embed Widget CTA Section */}
+            <div className="max-w-4xl mx-auto mt-16 px-4">
+                <EmbedWidget />
             </div>
         </main>
     );
