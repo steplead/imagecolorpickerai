@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { getColorsByTag } from '../utils/colorUtils';
 import { getCollectionMetadata } from '../utils/colorData';
 import AdPlacement from './AdPlacement';
+import EmbedWidget from './EmbedWidget';
 
 export function ColorsCollectionView({ params, locale = 'en' }) {
     const { group } = params;
@@ -149,6 +150,11 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
                             </Link>
                         ))}
                     </div>
+                </div>
+
+                {/* Embed Widget (Link Magnet Strategy) */}
+                <div className="mt-12">
+                    <EmbedWidget />
                 </div>
             </div>
         </div>

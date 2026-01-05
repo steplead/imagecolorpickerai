@@ -8,6 +8,7 @@ import { findClosestChineseColor } from '../utils/colorUtils';
 import RecentPicks from '../components/RecentPicks';
 import PinterestGallery from '../components/PinterestGallery';
 import AdPlacement from '../components/AdPlacement';
+import EmbedWidget from '../components/EmbedWidget';
 
 export default function HomeView({ locale = 'en' }) {
     const [image, setImage] = useState(null);
@@ -691,6 +692,11 @@ export default function HomeView({ locale = 'en' }) {
                         <p className="text-sm text-neutral-500">{t.faqA3}</p>
                     </div>
                 </div>
+            </section>
+
+            {/* Embed Widget Section (Link Magnet Strategy) */}
+            <section className="max-w-4xl w-full mt-24 mb-12 px-4">
+                <EmbedWidget />
             </section>
 
         </div >

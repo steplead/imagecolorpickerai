@@ -12,6 +12,7 @@ import PaletteDisplay from './PaletteDisplay';
 import Visualizer from './Visualizer';
 import AdPlacement from './AdPlacement';
 import ColorAccessibility from './ColorAccessibility';
+import EmbedWidget from './EmbedWidget';
 
 export function ColorDetailView({ params, locale = 'en' }) {
     const color = getColorById(params.slug);
@@ -243,6 +244,11 @@ export function ColorDetailView({ params, locale = 'en' }) {
                                 </Link>
                             ))}
                         </div>
+                    </div>
+
+                    {/* Embed Widget (Link Magnet Strategy) */}
+                    <div className="mt-12">
+                        <EmbedWidget />
                     </div>
                 </div>
             </div>
