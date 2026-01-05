@@ -1,0 +1,23 @@
+import IdeasHub from '../../../components/IdeasHub';
+
+export const metadata = {
+    title: 'Farbinspiration & Palettenideen - Traditioneller Design-Leitfaden | ImageColorPickerAI',
+    description: 'Kuratierte Farbinspiration für Ihr nächstes Projekt. Entdecken Sie traditionelle Paletten für Hochzeiten, Branding und Inneneinrichtung. Profi-Design-Guide.',
+    alternates: {
+        canonical: '/de/ideas',
+        languages: {
+            'en': '/ideas',
+            'zh-Hans': '/zh/ideas',
+            'ja': '/ja/ideas',
+            'es': '/es/ideas',
+            'fr': '/fr/ideas',
+            'de': '/de/ideas',
+            'pt': '/pt/ideas',
+            'x-default': '/ideas',
+        },
+    },
+};
+
+export default function Page() {
+    return <IdeasHub locale="de" />;
+}
