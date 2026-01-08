@@ -19,5 +19,21 @@ export const metadata = {
 };
 
 export default function Page() {
-    return <IdeasHub locale="ja" />;
+    const collectionPageSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "色のインスピレーションとパレットのアイデア",
+        "description": "次のプロジェクトのための厳選された色のインスピレーション。結婚式、ブランディング、インテリアデザインのための伝統的な中国・日本のパレットを探索。",
+        "url": "https://imagecolorpickerai.com/ja/ideas"
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+            />
+            <IdeasHub locale="ja" />
+        </>
+    );
 }

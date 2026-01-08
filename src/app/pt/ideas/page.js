@@ -19,5 +19,21 @@ export const metadata = {
 };
 
 export default function Page() {
-    return <IdeasHub locale="pt" />;
+    const collectionPageSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Inspiração de Cores e Ideias de Paletas",
+        "description": "Inspiração de cores curada para o seu próximo projecto. Explore paletas tradicionais para casamentos, marcas e design de interiores.",
+        "url": "https://imagecolorpickerai.com/pt/ideas"
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+            />
+            <IdeasHub locale="pt" />
+        </>
+    );
 }

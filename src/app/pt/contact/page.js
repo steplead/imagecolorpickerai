@@ -19,5 +19,27 @@ export const metadata = {
 };
 
 export default function Page() {
-    return <ContactView locale="pt" />;
+    const contactSchema = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "mainContentOfPage": {
+            "@type": "WebPageElement",
+            "name": "Contate o ImageColorPickerAI"
+        },
+        "about": {
+            "@type": "Organization",
+            "name": "ImageColorPickerAI",
+            "url": "https://imagecolorpickerai.com"
+        }
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+            />
+            <ContactView locale="pt" />
+        </>
+    );
 }

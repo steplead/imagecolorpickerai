@@ -19,5 +19,30 @@ export const metadata = {
 };
 
 export default function Page() {
-    return <AboutView locale="pt" />;
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ImageColorPickerAI",
+        "url": "https://imagecolorpickerai.com",
+        "logo": "https://imagecolorpickerai.com/icon.png",
+        "description": "Seletor de cor de imagem alimentado por IA e enciclopédia de cores tradicional. Conectando a antiga cultura de cores chinesa e japonesa com a tecnologia moderna de IA.",
+        "sameAs": [
+            "https://github.com/steplead/imagecolorpickerai",
+            "https://www.pinterest.com/johnlauvip/traditional-chinese-art-wallpapers/"
+        ],
+        "founder": {
+            "@type": "Person",
+            "name": "ImageColorPickerAI Team"
+        }
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+            />
+            <AboutView locale="pt" />
+        </>
+    );
 }

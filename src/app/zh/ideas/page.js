@@ -19,5 +19,21 @@ export const metadata = {
 };
 
 export default function Page() {
-    return <IdeasHub locale="zh" />;
+    const collectionPageSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "配色灵感与方案创意",
+        "description": "为您的下一个项目精心挑选的配案例灵感。探索专为婚礼、品牌和室内设计打造的中国传统色。",
+        "url": "https://imagecolorpickerai.com/zh/ideas"
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+            />
+            <IdeasHub locale="zh" />
+        </>
+    );
 }
