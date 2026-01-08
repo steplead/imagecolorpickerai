@@ -81,6 +81,17 @@ export default function sitemap() {
     });
 
     // 6. Multilingual Expansion (ZH/JA/ES/FR/DE/PT)
+    const languages = ['zh', 'ja', 'es', 'fr', 'de', 'pt'];
+
+    const localizedStaticRoutes = languages.flatMap(lang =>
+        ['', '/scan', '/ideas', '/about', '/contact', '/privacy-policy', '/terms-of-service'].map(route => ({
+            url: `${baseUrl}/${lang}${route}`,
+            lastModified: new Date().toISOString().split('T')[0],
+            changeFrequency: 'daily',
+            priority: route === '' ? 0.9 : 0.8,
+        }))
+    );
+
     const zhRoutes = [
         ...colorRoutes.map(r => ({ ...r, url: r.url.replace('/color/', '/zh/color/') })),
         ...collectionRoutes.map(r => ({ ...r, url: r.url.replace('/colors/', '/zh/colors/') }))
@@ -108,6 +119,7 @@ export default function sitemap() {
 
     return [
         ...routes,
+        ...localizedStaticRoutes,
         ...collectionRoutes,
         ...ideaRoutes,
         ...colorRoutes,

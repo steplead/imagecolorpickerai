@@ -1,0 +1,222 @@
+
+> temp_app@0.1.0 pages:build
+> npx @cloudflare/next-on-pages
+
+⚡️ @cloudflare/next-on-pages CLI v.1.13.16
+⚡️ Detected Package Manager: npm (11.6.2)
+⚡️ Preparing project...
+⚡️ Project is ready
+⚡️ Building project...
+▲  Vercel CLI 47.0.4
+▲  WARN! Build not running on Vercel. System environment variables will not be available.
+▲  WARNING: You should not upload the `.next` directory.
+▲  Installing dependencies...
+▲  npm warn Unknown cli config "--unsafe-perm". This will stop working in the next major version of npm.
+▲  up to date in 318ms
+▲  173 packages are looking for funding
+▲  run `npm fund` for details
+▲  Detected Next.js version: 15.1.7
+▲  Running "npm run build"
+▲  > temp_app@0.1.0 build
+▲  > next build
+▲  ▲ Next.js 15.1.7
+▲  - Environments: .env.local
+▲  Creating an optimized production build ...
+▲  ✓ Compiled successfully
+▲  Linting and checking validity of types ...
+▲  ⨯ ESLint: Cannot find module '/Users/bruno2025/Documents/iProjects/imagecolorpickerai/node_modules/eslint-config-next/typescript' imported from /Users/bruno2025/Documents/iProjects/imagecolorpickerai/eslint.config.mjs Did you mean to import "eslint-config-next/typescript.js"?
+▲  Collecting page data ...
+▲  ⚠ Using edge runtime on a page currently disables static generation for that page
+▲  Generating static pages (0/1809) ...
+▲  Generating static pages (452/1809)
+▲  Generating static pages (904/1809)
+▲  Generating static pages (1356/1809)
+▲  ✓ Generating static pages (1809/1809)
+▲  Finalizing page optimization ...
+▲  Collecting build traces ...
+▲  
+▲  Route (app)                              Size     First Load JS
+▲  ┌ ○ /                                    147 B           142 kB
+▲  ├ ○ /_not-found                          986 B           106 kB
+▲  ├ ○ /about                               188 B           109 kB
+▲  ├ ƒ /api/analyze-color                   157 B           105 kB
+▲  ├ ƒ /api/generate-wallpaper              157 B           105 kB
+▲  ├ ƒ /api/pinterest/auto-post             157 B           105 kB
+▲  ├ ƒ /api/pinterest/feed                  157 B           105 kB
+▲  ├ ƒ /api/pinterest/post                  157 B           105 kB
+▲  ├ ● /color/[slug]                        147 B           163 kB
+▲  ├   ├ /color/cinnabar
+▲  ├   ├ /color/tea-white
+▲  ├   ├ /color/bamboo-green
+▲  ├   └ [+110 more paths]
+▲  ├ ● /colors/[group]                      930 B           110 kB
+▲  ├   ├ /colors/chinese
+▲  ├   ├ /colors/japanese
+▲  ├   ├ /colors/red
+▲  ├   └ [+139 more paths]
+▲  ├ ƒ /combine/[slug]                      902 B           110 kB
+▲  ├ ƒ /compare/[comparison]                1.99 kB         148 kB
+▲  ├ ○ /contact                             157 B           105 kB
+▲  ├ ○ /de                                  147 B           142 kB
+▲  ├ ● /de/color/[slug]                     147 B           163 kB
+▲  ├   ├ /de/color/cinnabar
+▲  ├   ├ /de/color/tea-white
+▲  ├   ├ /de/color/bamboo-green
+▲  ├   └ [+110 more paths]
+▲  ├ ● /de/colors/[group]                   930 B           110 kB
+▲  ├   ├ /de/colors/chinese
+▲  ├   ├ /de/colors/japanese
+▲  ├   ├ /de/colors/red
+▲  ├   └ [+139 more paths]
+▲  ├ ○ /es                                  146 B           142 kB
+▲  ├ ● /es/color/[slug]                     145 B           163 kB
+▲  ├   ├ /es/color/cinnabar
+▲  ├   ├ /es/color/tea-white
+▲  ├   ├ /es/color/bamboo-green
+▲  ├   └ [+110 more paths]
+▲  ├ ● /es/colors/[group]                   930 B           110 kB
+▲  ├   ├ /es/colors/chinese
+▲  ├   ├ /es/colors/japanese
+▲  ├   ├ /es/colors/red
+▲  ├   └ [+139 more paths]
+▲  ├ ○ /fr                                  147 B           142 kB
+▲  ├ ● /fr/color/[slug]                     147 B           163 kB
+▲  ├   ├ /fr/color/cinnabar
+▲  ├   ├ /fr/color/tea-white
+▲  ├   ├ /fr/color/bamboo-green
+▲  ├   └ [+110 more paths]
+▲  ├ ● /fr/colors/[group]                   930 B           110 kB
+▲  ├   ├ /fr/colors/chinese
+▲  ├   ├ /fr/colors/japanese
+▲  ├   ├ /fr/colors/red
+▲  ├   └ [+139 more paths]
+▲  ├ ○ /ideas                               930 B           110 kB
+▲  ├ ● /ideas/[category]                    188 B           109 kB
+▲  ├   ├ /ideas/wedding
+▲  ├   ├ /ideas/branding
+▲  ├   ├ /ideas/interior
+▲  ├   └ [+2 more paths]
+▲  ├ ○ /ja                                  146 B           142 kB
+▲  ├ ● /ja/color/[slug]                     147 B           163 kB
+▲  ├   ├ /ja/color/cinnabar
+▲  ├   ├ /ja/color/tea-white
+▲  ├   ├ /ja/color/bamboo-green
+▲  ├   └ [+110 more paths]
+▲  ├ ● /ja/colors/[group]                   930 B           110 kB
+▲  ├   ├ /ja/colors/chinese
+▲  ├   ├ /ja/colors/japanese
+▲  ├   ├ /ja/colors/red
+▲  ├   └ [+139 more paths]
+▲  ├ ○ /privacy-policy                      188 B           109 kB
+▲  ├ ○ /pt                                  146 B           142 kB
+▲  ├ ● /pt/color/[slug]                     147 B           163 kB
+▲  ├   ├ /pt/color/cinnabar
+▲  ├   ├ /pt/color/tea-white
+▲  ├   ├ /pt/color/bamboo-green
+▲  ├   └ [+110 more paths]
+▲  ├ ● /pt/colors/[group]                   930 B           110 kB
+▲  ├   ├ /pt/colors/chinese
+▲  ├   ├ /pt/colors/japanese
+▲  ├   ├ /pt/colors/red
+▲  ├   └ [+139 more paths]
+▲  ├ ○ /robots.txt                          0 B                0 B
+▲  ├ ○ /scan                                2.15 kB         121 kB
+▲  ├ ○ /sitemap.xml                         0 B                0 B
+▲  ├ ○ /terms-of-service                    188 B           109 kB
+▲  ├ ○ /zh                                  146 B           142 kB
+▲  ├ ● /zh/color/[slug]                     146 B           163 kB
+▲  ├   ├ /zh/color/cinnabar
+▲  ├   ├ /zh/color/tea-white
+▲  ├   ├ /zh/color/bamboo-green
+▲  ├   └ [+110 more paths]
+▲  └ ● /zh/colors/[group]                   930 B           110 kB
+▲    ├ /zh/colors/chinese
+▲    ├ /zh/colors/japanese
+▲    ├ /zh/colors/red
+▲    └ [+139 more paths]
+▲  + First Load JS shared by all            105 kB
+▲  ├ chunks/1517-ec3935b09dc8b01b.js      50.3 kB
+▲  ├ chunks/4bd1b696-fc69504db865ca2d.js  53 kB
+▲  └ other shared chunks (total)          1.93 kB
+▲  ○  (Static)   prerendered as static content
+▲  ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+▲  ƒ  (Dynamic)  server-rendered on demand
+▲  Traced Next.js server files in: 109.94ms
+▲  Created all serverless functions in: 79.872ms
+▲  Collected static files (public/, static/, .next/static): 4.248ms
+▲  Build Completed in .vercel/output [12s]
+⚡️ Completed `npx vercel build`.
+⚡️ Invalid prerender config for /color/[slug]
+⚡️ Invalid prerender config for /color/[slug].rsc
+⚡️ Invalid prerender config for /colors/[group]
+⚡️ Invalid prerender config for /colors/[group].rsc
+⚡️ Invalid prerender config for /de/color/[slug]
+⚡️ Invalid prerender config for /de/color/[slug].rsc
+⚡️ Invalid prerender config for /de/colors/[group]
+⚡️ Invalid prerender config for /de/colors/[group].rsc
+⚡️ Invalid prerender config for /es/color/[slug]
+⚡️ Invalid prerender config for /es/color/[slug].rsc
+⚡️ Invalid prerender config for /es/colors/[group]
+⚡️ Invalid prerender config for /es/colors/[group].rsc
+⚡️ Invalid prerender config for /fr/color/[slug]
+⚡️ Invalid prerender config for /fr/color/[slug].rsc
+⚡️ Invalid prerender config for /fr/colors/[group]
+⚡️ Invalid prerender config for /fr/colors/[group].rsc
+⚡️ Invalid prerender config for /ideas/[category]
+⚡️ Invalid prerender config for /ideas/[category].rsc
+⚡️ Invalid prerender config for /ja/color/[slug]
+⚡️ Invalid prerender config for /ja/color/[slug].rsc
+⚡️ Invalid prerender config for /ja/colors/[group]
+⚡️ Invalid prerender config for /ja/colors/[group].rsc
+⚡️ Invalid prerender config for /pt/color/[slug]
+⚡️ Invalid prerender config for /pt/color/[slug].rsc
+⚡️ Invalid prerender config for /pt/colors/[group]
+⚡️ Invalid prerender config for /pt/colors/[group].rsc
+⚡️ Invalid prerender config for /zh/color/[slug]
+⚡️ Invalid prerender config for /zh/color/[slug].rsc
+⚡️ Invalid prerender config for /zh/colors/[group]
+⚡️ Invalid prerender config for /zh/colors/[group].rsc
+
+⚡️ Build Summary (@cloudflare/next-on-pages v1.13.16)
+⚡️ 
+⚡️ Edge Function Routes (7)
+⚡️   ┌ /api/analyze-color
+⚡️   ├ /api/generate-wallpaper
+⚡️   ├ /api/pinterest/auto-post
+⚡️   ├ /api/pinterest/feed
+⚡️   ├ /api/pinterest/post
+⚡️   ├ /combine/[slug]
+⚡️   └ /compare/[comparison]
+⚡️ 
+⚡️ Prerendered Routes (3609)
+⚡️   ┌ /
+⚡️   ├ /about
+⚡️   ├ /about.rsc
+⚡️   ├ /color/ai-iro
+⚡️   ├ /color/ai-iro.rsc
+⚡️   ├ /color/amber-glow
+⚡️   ├ /color/amber-glow.rsc
+⚡️   ├ /color/amber-sunset
+⚡️   ├ /color/amber-sunset.rsc
+⚡️   ├ /color/autumn-cicada-wing
+⚡️   ├ /color/autumn-cicada-wing.rsc
+⚡️   ├ /color/autumn-cliff
+⚡️   ├ /color/autumn-cliff.rsc
+⚡️   ├ /color/autumn-dew
+⚡️   ├ /color/autumn-dew.rsc
+⚡️   ├ /color/autumn-harvest
+⚡️   ├ /color/autumn-harvest.rsc
+⚡️   ├ /color/autumn-wheat
+⚡️   ├ /color/autumn-wheat.rsc
+⚡️   └ ... 3590 more
+⚡️ 
+⚡️ Other Static Assets (159)
+⚡️   ┌ /_app.rsc.json
+⚡️   ├ /_document.rsc.json
+⚡️   ├ /_error.rsc.json
+⚡️   ├ /404.html
+⚡️   └ ... 155 more
+
+⚡️ Build log saved to '.vercel/output/static/_worker.js/nop-build-log.json'
+⚡️ Generated '.vercel/output/static/_worker.js/index.js'.
+⚡️ Build completed in 2.89s

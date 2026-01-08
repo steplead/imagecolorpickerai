@@ -1,0 +1,169 @@
+
+> temp_app@0.1.0 build
+> next build
+
+   ▲ Next.js 15.1.7
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+ ⨯ ESLint: Plugin "" not found.
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/1848) ...
+   Generating static pages (462/1848) 
+   Generating static pages (924/1848) 
+   Generating static pages (1386/1848) 
+ ✓ Generating static pages (1848/1848)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    146 B           143 kB
+├ ○ /_not-found                          983 B           106 kB
+├ ○ /about                               140 B           115 kB
+├ ƒ /api/analyze-color                   153 B           105 kB
+├ ƒ /api/generate-wallpaper              153 B           105 kB
+├ ƒ /api/pinterest/auto-post             153 B           105 kB
+├ ƒ /api/pinterest/feed                  153 B           105 kB
+├ ƒ /api/pinterest/post                  153 B           105 kB
+├ ● /color/[slug]                        147 B           164 kB
+├   ├ /color/cinnabar
+├   ├ /color/tea-white
+├   ├ /color/bamboo-green
+├   └ [+110 more paths]
+├ ● /colors/[group]                      2.08 kB         112 kB
+├   ├ /colors/chinese
+├   ├ /colors/japanese
+├   ├ /colors/red
+├   └ [+139 more paths]
+├ ƒ /combine/[slug]                      2.06 kB         112 kB
+├ ƒ /compare/[comparison]                2.79 kB         149 kB
+├ ○ /contact                             135 B           110 kB
+├ ○ /de                                  147 B           143 kB
+├ ○ /de/about                            140 B           115 kB
+├ ● /de/color/[slug]                     147 B           164 kB
+├   ├ /de/color/cinnabar
+├   ├ /de/color/tea-white
+├   ├ /de/color/bamboo-green
+├   └ [+110 more paths]
+├ ● /de/colors/[group]                   2.08 kB         112 kB
+├   ├ /de/colors/chinese
+├   ├ /de/colors/japanese
+├   ├ /de/colors/red
+├   └ [+139 more paths]
+├ ○ /de/contact                          137 B           110 kB
+├ ○ /de/ideas                            143 B           126 kB
+├ ○ /de/privacy-policy                   3.14 kB         113 kB
+├ ○ /de/scan                             145 B           124 kB
+├ ○ /de/terms-of-service                 3.14 kB         113 kB
+├ ○ /es                                  146 B           143 kB
+├ ○ /es/about                            140 B           115 kB
+├ ● /es/color/[slug]                     145 B           164 kB
+├   ├ /es/color/cinnabar
+├   ├ /es/color/tea-white
+├   ├ /es/color/bamboo-green
+├   └ [+110 more paths]
+├ ● /es/colors/[group]                   2.08 kB         112 kB
+├   ├ /es/colors/chinese
+├   ├ /es/colors/japanese
+├   ├ /es/colors/red
+├   └ [+139 more paths]
+├ ○ /es/contact                          137 B           110 kB
+├ ○ /es/ideas                            143 B           126 kB
+├ ○ /es/privacy-policy                   3.14 kB         113 kB
+├ ○ /es/scan                             145 B           124 kB
+├ ○ /es/terms-of-service                 3.14 kB         113 kB
+├ ○ /fr                                  146 B           143 kB
+├ ○ /fr/about                            139 B           115 kB
+├ ● /fr/color/[slug]                     147 B           164 kB
+├   ├ /fr/color/cinnabar
+├   ├ /fr/color/tea-white
+├   ├ /fr/color/bamboo-green
+├   └ [+110 more paths]
+├ ● /fr/colors/[group]                   2.08 kB         112 kB
+├   ├ /fr/colors/chinese
+├   ├ /fr/colors/japanese
+├   ├ /fr/colors/red
+├   └ [+139 more paths]
+├ ○ /fr/contact                          136 B           110 kB
+├ ○ /fr/ideas                            143 B           126 kB
+├ ○ /fr/privacy-policy                   3.14 kB         113 kB
+├ ○ /fr/scan                             145 B           124 kB
+├ ○ /fr/terms-of-service                 3.14 kB         113 kB
+├ ○ /icon.png                            0 B                0 B
+├ ○ /ideas                               143 B           126 kB
+├ ● /ideas/[category]                    1.5 kB          111 kB
+├   ├ /ideas/wedding
+├   ├ /ideas/branding
+├   ├ /ideas/interior
+├   └ [+2 more paths]
+├ ○ /ja                                  146 B           143 kB
+├ ○ /ja/about                            140 B           115 kB
+├ ● /ja/color/[slug]                     147 B           164 kB
+├   ├ /ja/color/cinnabar
+├   ├ /ja/color/tea-white
+├   ├ /ja/color/bamboo-green
+├   └ [+110 more paths]
+├ ● /ja/colors/[group]                   2.08 kB         112 kB
+├   ├ /ja/colors/chinese
+├   ├ /ja/colors/japanese
+├   ├ /ja/colors/red
+├   └ [+139 more paths]
+├ ○ /ja/contact                          137 B           110 kB
+├ ○ /ja/ideas                            142 B           126 kB
+├ ○ /ja/privacy-policy                   3.14 kB         113 kB
+├ ○ /ja/scan                             145 B           124 kB
+├ ○ /ja/terms-of-service                 3.14 kB         113 kB
+├ ○ /manifest.webmanifest                0 B                0 B
+├ ○ /privacy-policy                      3.14 kB         113 kB
+├ ○ /pt                                  146 B           143 kB
+├ ○ /pt/about                            140 B           115 kB
+├ ● /pt/color/[slug]                     147 B           164 kB
+├   ├ /pt/color/cinnabar
+├   ├ /pt/color/tea-white
+├   ├ /pt/color/bamboo-green
+├   └ [+110 more paths]
+├ ● /pt/colors/[group]                   2.08 kB         112 kB
+├   ├ /pt/colors/chinese
+├   ├ /pt/colors/japanese
+├   ├ /pt/colors/red
+├   └ [+139 more paths]
+├ ○ /pt/contact                          136 B           110 kB
+├ ○ /pt/ideas                            142 B           126 kB
+├ ○ /pt/privacy-policy                   3.14 kB         113 kB
+├ ○ /pt/scan                             145 B           124 kB
+├ ○ /pt/terms-of-service                 3.14 kB         113 kB
+├ ○ /robots.txt                          0 B                0 B
+├ ○ /scan                                145 B           124 kB
+├ ○ /sitemap.xml                         0 B                0 B
+├ ○ /terms-of-service                    3.14 kB         113 kB
+├ ○ /widget                              2.1 kB          107 kB
+├ ○ /zh                                  146 B           143 kB
+├ ○ /zh/about                            140 B           115 kB
+├ ● /zh/color/[slug]                     146 B           164 kB
+├   ├ /zh/color/cinnabar
+├   ├ /zh/color/tea-white
+├   ├ /zh/color/bamboo-green
+├   └ [+110 more paths]
+├ ● /zh/colors/[group]                   2.08 kB         112 kB
+├   ├ /zh/colors/chinese
+├   ├ /zh/colors/japanese
+├   ├ /zh/colors/red
+├   └ [+139 more paths]
+├ ○ /zh/contact                          137 B           110 kB
+├ ○ /zh/ideas                            143 B           126 kB
+├ ○ /zh/privacy-policy                   3.14 kB         113 kB
+├ ○ /zh/scan                             145 B           124 kB
+└ ○ /zh/terms-of-service                 3.14 kB         113 kB
++ First Load JS shared by all            105 kB
+  ├ chunks/1517-ec3935b09dc8b01b.js      50.3 kB
+  ├ chunks/4bd1b696-fc69504db865ca2d.js  52.9 kB
+  └ other shared chunks (total)          1.94 kB
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

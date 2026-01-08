@@ -92,6 +92,9 @@ export default function Footer() {
                     </p>
                     <div className="flex flex-wrap justify-center gap-6 text-xs text-neutral-400">
                         <Link href="/about" className="hover:text-neutral-600 transition" title="About ImageColorPickerAI">About</Link>
+                        <Link href="https://image-color-picker-ai.gitbook.io/image-color-picker-ai-docs/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-600 transition" title="Read our Official Documentation">Docs</Link>
+                        <Link href="https://aquamobot.substack.com/p/decoding-history-why-we-built-an" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-600 transition" title="Read our Brand Story on Substack">Blog</Link>
+                        <Link href="https://dev.to/steplead/building-an-ai-powered-engine-for-traditional-color-preservation-4e3h" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-600 transition" title="Read our Engineering Story on Dev.to">Dev.to Story</Link>
                         <Link href="/contact" className="hover:text-neutral-600 transition" title="Contact Us">Contact</Link>
                         <Link href="/privacy-policy" className="hover:text-neutral-600 transition" title="Privacy Policy">Privacy Policy</Link>
                         <Link href="/terms-of-service" className="hover:text-neutral-600 transition" title="Terms of Service">Terms of Service</Link>

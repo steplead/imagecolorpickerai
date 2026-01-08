@@ -38,20 +38,12 @@ export const metadata = {
     description: "AI-powered color extraction and cultural mapping.",
     images: ["/og-image.png"],
   },
-  icons: {
-    icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/apple-icon.png',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/apple-icon.png',
-    },
-  },
+  /* icons handled automatically by src/app/icon.png */
   alternates: {
     canonical: '/',
     languages: {
       'en': '/',
-      'zh': '/zh',
+      'zh-Hans': '/zh',
       'ja': '/ja',
       'es': '/es',
       'fr': '/fr',
@@ -90,7 +82,7 @@ export default function RootLayout({ children }) {
         {/* AdSense Auto Ads - Replace with real ID when approved */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2230976194676399"
           crossOrigin="anonymous"
           strategy="lazyOnload"
         />

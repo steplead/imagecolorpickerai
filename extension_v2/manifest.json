@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Image Color Picker AI (V2)",
+    "short_name": "ColorPicker",
+    "version": "1.0.4",
+    "description": "Pick any color from any website and see its history, TCM palette, and accessibility score on ImageColorPickerAI.",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "logo.png",
+            "48": "logo.png",
+            "128": "logo.png"
+        }
+    },
+    "icons": {
+        "16": "logo.png",
+        "48": "logo.png",
+        "128": "logo.png"
+    }
+}

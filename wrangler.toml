@@ -2,3 +2,13 @@ name = "imagecolorpickerai"
 compatibility_date = "2024-11-18"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
+
+# Cache Rules for Cloudflare Pages
+# Note: Advanced caching requires setup in Cloudflare Dashboard
+# See: https://developers.cloudflare.com/pages/configuration/cache-rules/
+
+# Rate limiting setup (requires Cloudflare Dashboard configuration)
+# Recommended: Enable Rate Limiting for:
+# - /api/* paths: 100 requests per minute per IP
+# - /widget path: 60 requests per minute per IP
+# See: https://developers.cloudflare.com/rules/
