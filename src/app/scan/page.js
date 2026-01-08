@@ -6,6 +6,16 @@ export const metadata = {
     description: 'Professional AI Personal Color Analysis. Upload a selfie to discover your unique Traditional Chinese Color Aura match. 100% Free & No-sign up.',
     alternates: {
         canonical: '/scan',
+        languages: {
+            'en': '/scan',
+            'zh-Hans': '/zh/scan',
+            'ja': '/ja/scan',
+            'es': '/es/scan',
+            'fr': '/fr/scan',
+            'de': '/de/scan',
+            'pt': '/pt/scan',
+            'x-default': '/scan',
+        },
     },
     openGraph: {
         title: 'I found my Traditional Color Aura! What is yours?',
@@ -33,9 +43,59 @@ export default function PersonalColorPage() {
         }
     };
 
+    const howToSchema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Use AI Personal Color Analyst",
+        "description": "Learn how to discover your unique Traditional Chinese Color Aura using AI-powered face analysis",
+        "image": "https://imagecolorpickerai.com/images/how-to-scan.png",
+        "totalTime": "PT2M",
+        "estimatedCost": {
+            "@type": "MonetaryAmount",
+            "currency": "USD",
+            "value": "0"
+        },
+        "supply": [
+            {
+                "@type": "HowToSupply",
+                "name": "Digital photo of your face"
+            }
+        ],
+        "tool": [
+            {
+                "@type": "HowToTool",
+                "name": "Computer or smartphone with camera"
+            }
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Take or upload a clear photo",
+                "text": "Select a clear photo of your face. Good lighting and a neutral background work best for accurate color analysis.",
+                "image": "https://imagecolorpickerai.com/images/step1-upload.png",
+                "url": "https://imagecolorpickerai.com/scan#step1"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "AI analyzes your features",
+                "text": "Our AI analyzes your facial features, skin undertones, and overall coloring to determine your personal color harmony.",
+                "image": "https://imagecolorpickerai.com/images/step2-analyze.png",
+                "url": "https://imagecolorpickerai.com/scan#step2"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Get your color palette",
+                "text": "Receive your personalized Traditional Chinese Color Aura match based on thousands of years of color theory and aesthetics.",
+                "image": "https://imagecolorpickerai.com/images/step3-result.png",
+                "url": "https://imagecolorpickerai.com/scan#step3"
+            }
+        ]
+    };
+
     return (
         <main className="min-h-screen bg-neutral-50 flex flex-col items-center py-12 px-4 font-sans">
             <JsonLd data={appSchema} />
+            <JsonLd data={howToSchema} />
             <div className="max-w-xl w-full text-center mb-8">
                 <span className="inline-block py-1 px-3 rounded-full bg-red-100 text-red-800 text-xs font-bold tracking-widest uppercase mb-4">
                     New Viral Feature
