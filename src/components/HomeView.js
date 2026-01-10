@@ -411,7 +411,7 @@ export default function HomeView({ locale = 'en' }) {
 
             {/* SEO Headline (H1 Strategy) */}
             <div className="text-center mb-10 max-w-2xl px-4">
-                <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight mb-4 text-balance">
+                <h1 id="main-title" className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight mb-4 text-balance">
                     {t.title} <span className="text-red-600">AI</span> {t.titleSuffix}
                 </h1>
                 <p className="text-lg text-neutral-500 font-serif italic">

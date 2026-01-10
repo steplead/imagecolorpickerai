@@ -98,7 +98,7 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
         <div className="min-h-screen bg-neutral-50 p-4 py-12 font-sans">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-12 text-center md:text-left">
-                    <h1 className="text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
+                    <h1 id="collection-title" className="text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
                         {currentArchetype.title}
                     </h1>
                     <p className="text-lg text-neutral-500 max-w-2xl font-serif italic leading-relaxed">

@@ -2,7 +2,7 @@ import PersonalColorAnalyst from '../../../components/PersonalColorAnalyst';
 import JsonLd from '../../../components/JsonLd';
 
 export const metadata = {
-    title: 'Análise de Cor Pessoal com IA - Encontre sua Aura de Cor Tradicional | ImageColorPickerAI',
+    title: 'Análise Cor IA - Encontre Aura Tradicional | ImageColorPickerAI',
     description: 'Análise de cor pessoal profissional com IA. Carregue uma selfie para descobrir sua combinação única de aura de cor tradicional. 100% grátis e sem registro.',
     alternates: {
         canonical: '/pt/scan',

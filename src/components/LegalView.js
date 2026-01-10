@@ -78,7 +78,7 @@ export default function LegalView({ type = 'privacy', locale = 'en' }) {
                         <Shield className="w-6 h-6" />
                     </div>
                     <div>
-                        <h1 className="text-3xl font-bold text-neutral-900">{title}</h1>
+                        <h1 id="legal-title" className="text-3xl font-bold text-neutral-900">{title}</h1>
                         <p className="text-sm text-neutral-500 font-serif italic">{t.updated}</p>
                     </div>
                 </div>

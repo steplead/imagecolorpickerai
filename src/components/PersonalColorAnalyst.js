@@ -224,7 +224,7 @@ export default function PersonalColorAnalyst({ locale = 'en' }) {
                             <div className="absolute inset-0 z-20 bg-black/60 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center animate-in slide-in-from-bottom duration-700">
                                 <span className="text-amber-300 text-xs font-bold tracking-[0.2em] uppercase mb-2">{t.complete}</span>
                                 <h2 className="text-3xl font-bold text-white mb-1">{t.yourAura}</h2>
-                                <h1 className="text-5xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400 mb-6" style={{ textShadow: `0 0 20px ${result.aura.hex}66` }}>
+                                <h1 id="color-aura" className="text-5xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400 mb-6" style={{ textShadow: `0 0 20px ${result.aura.hex}66` }}>
                                     {result.aura.names?.[0] || result.aura.name}
                                 </h1>
 

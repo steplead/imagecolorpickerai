@@ -56,6 +56,7 @@ export const metadata = {
     statusBarStyle: 'default',
   },
   applicationName: 'ColorPicker',
+  manifest: '/manifest.json',
 };
 
 import Header from "@/components/Header";

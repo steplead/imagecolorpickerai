@@ -1,8 +1,8 @@
 import HomeView from '../../components/HomeView';
 
 export const metadata = {
-    title: 'Selector de Color de Imagen - Obtener Código Hexadecimal y Enciclopedia de Colores Tradicionales | ImageColorPickerAI',
-    description: 'Selector de color de imagen en línea gratuito. Extraiga códigos HEX, RGB, CMYK y descubra los significados de los colores tradicionales chinos y japoneses al instante. Potenciado por IA y sin registro.',
+    title: 'Selector Color Imagen - HEX & Enciclopedia Tradicional | ImageColorPickerAI',
+    description: 'Selector color imagen gratuito. Extrae códigos HEX, RGB, CMYK y descubre colores tradicionales chinos y japoneses. Potenciado por IA, sin registro.',
     alternates: {
         canonical: '/es',
         languages: {

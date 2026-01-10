@@ -1,7 +1,7 @@
 import IdeasHub from '../../../components/IdeasHub';
 
 export const metadata = {
-    title: 'Inspiración de Color e Ideas de Paletas - Guía de Diseño Tradicional | ImageColorPickerAI',
+    title: 'Inspiración Color & Ideas Paletas - Diseño Tradicional | ImageColorPickerAI',
     description: 'Inspiración de color curada para su próximo proyecto. Explore paletas tradicionales para bodas, branding y diseño de interiores. Guía de diseño profesional.',
     alternates: {
         canonical: '/es/ideas',

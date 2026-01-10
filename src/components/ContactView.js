@@ -117,7 +117,7 @@ export default function ContactView({ locale = 'en' }) {
         <main className="min-h-screen bg-neutral-50 px-4 py-16 font-sans">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
+                    <h1 id="contact-title" className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight mb-4">
                         {t.heroTitle}<span className="text-red-600">{t.heroAccent}</span>
                     </h1>
                     <p className="text-lg text-neutral-500 max-w-2xl mx-auto font-serif italic">

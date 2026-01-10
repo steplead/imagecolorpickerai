@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
 
     return {
         title: `Traditional Chinese Colors for ${catData.title} - Meaning & Palette | ImageColorPickerAI`,
-        description: `Curated ${catData.title.toLowerCase()} color inspiration. Explore ${getColorsForCategory(category).length} traditional Chinese colors with deep meanings and hex codes for your ${catData.title.toLowerCase()} projects.`,
+        description: `Explore ${getColorsForCategory(category).length} curated traditional Chinese colors for ${catData.title.toLowerCase()}. Meanings, hex codes & design inspiration.`,
         alternates: {
             canonical: `/ideas/${category}`,
         },

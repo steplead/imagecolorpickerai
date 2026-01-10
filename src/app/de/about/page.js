@@ -1,7 +1,7 @@
 import AboutView from '../../../components/AboutView';
 
 export const metadata = {
-    title: 'Über ImageColorPickerAI - Die Enzyklopädie der traditionellen Farben | ImageColorPickerAI',
+    title: 'Über ImageColorPickerAI - Enzyklopädie Traditioneller Farben | ImageColorPickerAI',
     description: 'Die Geschichte hinter ImageColorPickerAI. Die Brücke zwischen alter Farbkultur und moderner KI-Technologie.',
     alternates: {
         canonical: '/de/about',

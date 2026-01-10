@@ -113,7 +113,7 @@ export default function IdeasHub({ locale = 'en' }) {
                 <span className="inline-block py-1 px-3 rounded-full bg-indigo-100 text-indigo-800 text-xs font-bold tracking-widest uppercase mb-4">
                     {t.badge}
                 </span>
-                <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-6 tracking-tight">
+                <h1 id="ideas-title" className="text-4xl md:text-6xl font-bold text-neutral-900 mb-6 tracking-tight">
                     {t.titlePrefix}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
                         {locale === 'zh' ? '每个场景' : t.titleSuffix}

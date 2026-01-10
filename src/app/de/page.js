@@ -1,8 +1,8 @@
 import HomeView from '../../components/HomeView';
 
 export const metadata = {
-    title: 'Bild-Farbauswähler - Hex-Code erhalten & Enzyklopädie der traditionellen Farben | ImageColorPickerAI',
-    description: 'Kostenloser Online-Bild-Farbauswähler. Extrahieren Sie HEX-, RGB-, CMYK-Codes und entdecken Sie sofort die Bedeutung traditioneller chinesischer und japanischer Farben. KI-gestützt und ohne Anmeldung.',
+    title: 'Bild-Farbwähler - HEX-Code & Enzyklopädie Traditioneller Farben | ImageColorPickerAI',
+    description: 'Kostenloser Bild-Farbwähler. HEX-, RGB-, CMYK-Codes extrahieren & traditionelle Farben entdecken. KI-gestützt, keine Anmeldung nötig.',
     alternates: {
         canonical: '/de',
         languages: {

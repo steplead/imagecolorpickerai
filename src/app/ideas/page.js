@@ -1,7 +1,7 @@
 import IdeasHub from '../../components/IdeasHub';
 
 export const metadata = {
-    title: 'Color Inspiration & Palette Ideas - Traditional Chinese Design Guide | ImageColorPickerAI',
+    title: 'Color Inspiration & Palette Ideas - Traditional Design Guide | ImageColorPickerAI',
     description: 'Curated color inspiration for your next project. Explore traditional Chinese palettes for Weddings, Branding, and Interior Design. Professional design guide.',
     alternates: {
         canonical: '/ideas',

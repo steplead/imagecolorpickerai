@@ -1,0 +1,48 @@
+{
+  "name": "Image Color Picker AI - Traditional Color Encyclopedia",
+  "short_name": "ColorPickerAI",
+  "description": "Extract precise hex codes from images and discover traditional Chinese & Japanese color meanings. AI-powered color encyclopedia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple touch icon"
+    }
+  ],
+  "categories": ["utilities", "productivity", "design"],
+  "shortcuts": [
+    {
+      "name": "Pick Colors",
+      "short_name": "Color Picker",
+      "description": "Extract colors from images",
+      "url": "/",
+      "icons": [{ "src": "/icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "AI Color Analyst",
+      "short_name": "AI Analyst",
+      "description": "Find your personal color aura",
+      "url": "/scan",
+      "icons": [{ "src": "/icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Color Collections",
+      "short_name": "Collections",
+      "description": "Browse traditional colors",
+      "url": "/colors/chinese",
+      "icons": [{ "src": "/icon.png", "sizes": "96x96" }]
+    }
+  ]
+}

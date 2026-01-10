@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
 
     return {
         title: `${c1.name} vs ${c2.name} - Color Comparison & Hex Codes | ImageColorPickerAI`,
-        description: `Compare ${c1.name} (${c1.hex}) and ${c2.name} (${c2.hex}). Discover the differences in cultural meaning, aesthetics, and design applications for these traditional Chinese colors.`,
+        description: `Compare ${c1.name} (${c1.hex}) vs ${c2.name} (${c2.hex}). Explore cultural meanings, aesthetics & design uses for traditional Chinese colors.`,
     };
 }
 
