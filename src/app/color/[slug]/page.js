@@ -16,20 +16,24 @@ export async function generateMetadata({ params }) {
 
     const meta = getCollectionMetadata(color.collectionId);
 
+    // Optimized title length (under 60 characters for SEO)
+    const shortName = color.name.length > 20 ? color.name.split(' ')[0] : color.name;
+    const collectionShort = meta.name.length > 15 ? meta.name.split(' ')[0] : meta.name;
+
     return {
-        title: `${color.name} (${color.nativeName}) - Contrast Checker & ${meta.name} | Image Color Picker AI`,
+        title: `${shortName} (${color.nativeName}) - ${color.hex} | ${collectionShort} Color`,
         description: `${color.name} (${color.nativeName}, ${color.hex}) - ${color.meaning} Check WCAG accessibility contrast and color blindness simulation.`,
         alternates: {
-            canonical: `/color/${color.id}`,
+            canonical: `https://imagecolorpickerai.com/color/${color.id}`,
             languages: {
-                'en': `/color/${color.id}`,
-                'zh-Hans': `/zh/color/${color.id}`,
-                'ja': `/ja/color/${color.id}`,
-                'es': `/es/color/${color.id}`,
-                'fr': `/fr/color/${color.id}`,
-                'de': `/de/color/${color.id}`,
-                'pt': `/pt/color/${color.id}`,
-                'x-default': `/color/${color.id}`,
+                'en': `https://imagecolorpickerai.com/color/${color.id}`,
+                'zh-Hans': `https://imagecolorpickerai.com/zh/color/${color.id}`,
+                'ja': `https://imagecolorpickerai.com/ja/color/${color.id}`,
+                'es': `https://imagecolorpickerai.com/es/color/${color.id}`,
+                'fr': `https://imagecolorpickerai.com/fr/color/${color.id}`,
+                'de': `https://imagecolorpickerai.com/de/color/${color.id}`,
+                'pt': `https://imagecolorpickerai.com/pt/color/${color.id}`,
+                'x-default': `https://imagecolorpickerai.com/color/${color.id}`,
             },
         },
     };

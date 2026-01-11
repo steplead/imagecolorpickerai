@@ -1,0 +1,18 @@
+This is a placeholder for OG image.
+
+To create a proper OG image (1200x630px), use one of these methods:
+
+1. Online Tool: https://www.canva.com/templates/search/og-image/
+2. Figma/Sketch: Create 1200x630px design
+3. Command Line (requires ImageMagick):
+   convert -size 1200x630 xc:#E5E7EB \
+     -font Helvetica-Bold -pointsize 60 -fill "#1F2937" \
+     -gravity center -annotate 0 "Image Color Picker AI" \
+     -pointsize 30 -annotate +0+80 "Extract HEX • RGB • CMYK" \
+     og-image.png
+
+Recommended content:
+- Title: "Image Color Picker AI"
+- Subtitle: "Extract HEX • RGB • Traditional Colors"
+- Brand colors: Use your primary color
+- Size: 1200x630px (Facebook/Twitter standard)

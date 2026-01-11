@@ -3,17 +3,18 @@ import HomeView from '../../components/HomeView';
 export const metadata = {
     title: '图片取色器 - 专业的十六进制代码提取与传统色彩百科 | ImageColorPickerAI',
     description: '免费在线图片取色器。提取精确的十六进制代码、RGB，并立即发现中国和日本传统色彩配方。无需注册。',
+    keywords: '图片取色器, 十六进制取色, 颜色提取器, RGB转HEX, CMYK转换器, 中国传统颜色, 日本传统颜色, 配色方案生成器, 在线颜色工具',
     alternates: {
-        canonical: '/zh',
+        canonical: 'https://imagecolorpickerai.com/zh',
         languages: {
-            'en': '/',
-            'zh-Hans': '/zh',
-            'ja': '/ja',
-            'es': '/es',
-            'fr': '/fr',
-            'de': '/de',
-            'pt': '/pt',
-            'x-default': '/',
+            'en': 'https://imagecolorpickerai.com/',
+            'zh-Hans': 'https://imagecolorpickerai.com/zh',
+            'ja': 'https://imagecolorpickerai.com/ja',
+            'es': 'https://imagecolorpickerai.com/es',
+            'fr': 'https://imagecolorpickerai.com/fr',
+            'de': 'https://imagecolorpickerai.com/de',
+            'pt': 'https://imagecolorpickerai.com/pt',
+            'x-default': 'https://imagecolorpickerai.com/',
         },
     },
 };
@@ -50,11 +51,32 @@ export default function Page() {
         ]
     };
 
+    const webSiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ImageColorPickerAI",
+        "alternateName": "图片取色器AI",
+        "url": "https://imagecolorpickerai.com/zh",
+        "description": "免费在线图片取色器，AI驱动的中国和日本传统色彩百科",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://imagecolorpickerai.com/zh/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    };
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
             />
             <HomeView locale="zh" />
         </>

@@ -4,16 +4,16 @@ export const metadata = {
     title: 'Bild-Farbwähler - HEX-Code & Enzyklopädie Traditioneller Farben | ImageColorPickerAI',
     description: 'Kostenloser Bild-Farbwähler. HEX-, RGB-, CMYK-Codes extrahieren & traditionelle Farben entdecken. KI-gestützt, keine Anmeldung nötig.',
     alternates: {
-        canonical: '/de',
+        canonical: 'https://imagecolorpickerai.com/de',
         languages: {
-            'en': '/',
-            'zh-Hans': '/zh',
-            'ja': '/ja',
-            'es': '/es',
-            'fr': '/fr',
-            'de': '/de',
-            'pt': '/pt',
-            'x-default': '/',
+            'en': 'https://imagecolorpickerai.com/',
+            'zh-Hans': 'https://imagecolorpickerai.com/zh',
+            'ja': 'https://imagecolorpickerai.com/ja',
+            'es': 'https://imagecolorpickerai.com/es',
+            'fr': 'https://imagecolorpickerai.com/fr',
+            'de': 'https://imagecolorpickerai.com/de',
+            'pt': 'https://imagecolorpickerai.com/pt',
+            'x-default': 'https://imagecolorpickerai.com/',
         },
     },
 };
@@ -50,11 +50,32 @@ export default function Page() {
         ]
     };
 
+    const webSiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ImageColorPickerAI",
+        "alternateName": "Bild-Farbwähler KI",
+        "url": "https://imagecolorpickerai.com/de",
+        "description": "Kostenloser Online-Bild-Farbwähler mit KI-gesteuerter Enzyklopädie für traditionelle chinesische und japanische Farben",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://imagecolorpickerai.com/de/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    };
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
             />
             <HomeView locale="de" />
         </>

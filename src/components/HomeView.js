@@ -440,6 +440,9 @@ export default function HomeView({ locale = 'en' }) {
                                         alt="Image Color Picker AI - Pick Colors from Images"
                                         title="Pick Colors from this Image"
                                         className="w-full h-full object-contain max-h-[500px] shadow-sm rounded-lg"
+                                        loading="eager"
+                                        width="800"
+                                        height="600"
                                         onLoad={() => setTimeout(extractColors, 100)}
                                     />
                                 </figure>

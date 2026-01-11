@@ -42,8 +42,46 @@ export default function CombinationPage({ params }) {
     const contrast = getContrastRatio(color1.hex, color2.hex).toFixed(2);
     const wcag = getWCAGScore(contrast);
 
+    const howToSchema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": `How to Combine ${color1.name} and ${color2.name}`,
+        "description": `Learn how to effectively use ${color1.name} (${color1.hex}) and ${color2.name} (${color2.hex}) together in your designs`,
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Check Contrast Ratio",
+                "text": `Verify the contrast ratio of ${contrast}:1 meets WCAG accessibility standards for your use case`
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Choose Dominant Color",
+                "text": `Use ${color1.name} as your primary color for backgrounds and ${color2.name} for accents, or vice versa`
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Test Accessibility",
+                "text": `Ensure text readability with ${wcag} WCAG compliance rating when combining these colors`
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Apply in Design",
+                "text": `Use this color combination for UI elements, illustrations, or brand materials that benefit from ${color1.name} and ${color2.name} pairing`
+            }
+        ]
+    };
+
     return (
-        <div className="max-w-4xl mx-auto px-4">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+            />
+            <div className="max-w-4xl mx-auto px-4">
             {/* Header */}
             <div className="text-center mb-12">
                 <h1 className="text-3xl md:text-5xl font-black text-neutral-900 mb-4 capitalize">
@@ -120,5 +158,6 @@ export default function CombinationPage({ params }) {
                 <EmbedWidget />
             </div>
         </div>
+        </>
     );
 }

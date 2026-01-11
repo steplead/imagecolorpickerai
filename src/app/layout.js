@@ -5,17 +5,35 @@ import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata = {
   metadataBase: new URL('https://imagecolorpickerai.com'),
   title: "Image Color Picker - Professional Hex Code Extraction | ImageColorPickerAI",
   description: "Free online Image Color Picker. Extract precise Hex codes, RGB, and discover Traditional Chinese & Japanese color palettes instantly. No sign-up required.",
+  keywords: 'image color picker, hex color picker, color extractor, RGB to HEX, CMYK converter, traditional Chinese colors, Japanese colors, color palette generator, online color tool',
+  authors: [{ name: 'ImageColorPickerAI Team', url: 'https://imagecolorpickerai.com' }],
+  creator: 'ImageColorPickerAI',
+  publisher: 'ImageColorPickerAI',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     title: "Image Color Picker AI - Traditional Color Encyclopedia",
     description: "Extract precise hex codes and cultural history from any image using AI.",
@@ -66,6 +84,13 @@ import FryingBeansFooter from '@/components/FryingBeansFooter';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Resource Hints for Performance */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-neutral-50 text-neutral-900`}
         suppressHydrationWarning
@@ -86,6 +111,7 @@ export default function RootLayout({ children }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2230976194676399"
           crossOrigin="anonymous"
           strategy="lazyOnload"
+          fetchPriority="low"
         />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-3SWWDX8EVF"

@@ -207,6 +207,9 @@ export default function PersonalColorAnalyst({ locale = 'en' }) {
                             src={image}
                             alt="Analysis Subject"
                             className={`w-full h-full object-cover transition-all duration-1000 ${analyzing ? 'scale-110 blur-sm grayscale' : 'scale-100'}`}
+                            loading="eager"
+                            width="1024"
+                            height="1024"
                         />
 
                         {/* Scanning Overlay */}

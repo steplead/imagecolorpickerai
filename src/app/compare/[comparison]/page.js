@@ -22,6 +22,9 @@ export async function generateMetadata({ params }) {
     return {
         title: `${c1.name} vs ${c2.name} - Color Comparison & Hex Codes | ImageColorPickerAI`,
         description: `Compare ${c1.name} (${c1.hex}) vs ${c2.name} (${c2.hex}). Explore cultural meanings, aesthetics & design uses for traditional Chinese colors.`,
+        alternates: {
+            canonical: `https://imagecolorpickerai.com/compare/${comparison}`,
+        },
     };
 }
 
@@ -37,8 +40,46 @@ export default async function Page({ params }) {
 
     if (!c1 || !c2) return notFound();
 
+    const itemListSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": `${c1.name} vs ${c2.name} - Color Comparison`,
+        "description": `Compare ${c1.name} (${c1.hex}) and ${c2.name} (${c2.hex}) traditional Chinese colors`,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "Color",
+                    "name": c1.name,
+                    "alternateName": c1.chinese,
+                    "colorCode": c1.hex,
+                    "description": c1.meaning,
+                    "url": `https://imagecolorpickerai.com/color/${c1.id}`
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "Color",
+                    "name": c2.name,
+                    "alternateName": c2.chinese,
+                    "colorCode": c2.hex,
+                    "description": c2.meaning,
+                    "url": `https://imagecolorpickerai.com/color/${c2.id}`
+                }
+            }
+        ]
+    };
+
     return (
-        <div className="min-h-screen bg-neutral-50 p-4 py-12 font-sans">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
+            <div className="min-h-screen bg-neutral-50 p-4 py-12 font-sans">
             <div className="max-w-5xl mx-auto">
                 <Link href="/" className="inline-flex items-center text-sm text-neutral-400 hover:text-neutral-900 mb-8 transition">
                     <ArrowLeft className="w-4 h-4 mr-1" /> Back to Tool
@@ -129,5 +170,6 @@ export default async function Page({ params }) {
                 </div>
             </div>
         </div>
+        </>
     );
 }

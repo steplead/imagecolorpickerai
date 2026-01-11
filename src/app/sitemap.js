@@ -12,6 +12,7 @@ export default function sitemap() {
         '/ideas',
         '/about',
         '/contact',
+        '/widget',
         '/privacy-policy',
         '/terms-of-service',
     ].map((route) => ({
@@ -84,7 +85,7 @@ export default function sitemap() {
     const languages = ['zh', 'ja', 'es', 'fr', 'de', 'pt'];
 
     const localizedStaticRoutes = languages.flatMap(lang =>
-        ['', '/scan', '/ideas', '/about', '/contact', '/privacy-policy', '/terms-of-service'].map(route => ({
+        ['', '/scan', '/ideas', '/about', '/contact', '/widget', '/privacy-policy', '/terms-of-service'].map(route => ({
             url: `${baseUrl}/${lang}${route}`,
             lastModified: new Date().toISOString().split('T')[0],
             changeFrequency: 'daily',

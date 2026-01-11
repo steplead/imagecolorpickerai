@@ -94,8 +94,44 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
 
     const t = labels[locale] || labels.en;
 
+    // Generate CollectionPage + ItemList Schema
+    const collectionPageSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": `${currentArchetype.title} - ${decodedGroup} Color Collection`,
+        "description": currentArchetype.desc,
+        "url": `https://imagecolorpickerai.com${locale === 'en' ? '' : `/${locale}`}/colors/${decodedGroup}`,
+        "numberOfItems": colors.length,
+        "about": {
+            "@type": "Thing",
+            "name": `${decodedGroup} Traditional Colors`,
+            "description": `Collection of ${decodedGroup} colors from ${collectionMeta.name}`
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": colors.length,
+            "itemListElement": colors.slice(0, 20).map((color, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                    "@type": "Color",
+                    "name": color.name,
+                    "alternateName": color.chinese || color.name,
+                    "colorCode": color.hex,
+                    "description": color.meaning || `${color.name} traditional color`,
+                    "url": `https://imagecolorpickerai.com${locale === 'en' ? '' : `/${locale}`}/color/${color.id}`
+                }
+            }))
+        }
+    };
+
     return (
-        <div className="min-h-screen bg-neutral-50 p-4 py-12 font-sans">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+            />
+            <div className="min-h-screen bg-neutral-50 p-4 py-12 font-sans">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-12 text-center md:text-left">
                     <h1 id="collection-title" className="text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
@@ -158,5 +194,6 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
                 </div>
             </div>
         </div>
+        </>
     );
 }

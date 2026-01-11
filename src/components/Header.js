@@ -27,13 +27,13 @@ export default function Header() {
         else if (pathname.startsWith('/pt')) currentLocale = 'pt';
 
         const translations = {
-            en: { red: 'Imperial Red', blue: 'Misty Blue', green: 'Jade Valley', scan: 'AI Analyst' },
-            zh: { red: '中国红', blue: '雾霾蓝', green: '翡翠谷', scan: 'AI分析师' },
-            ja: { red: '帝国赤', blue: '霧色', green: '翡翠の谷', scan: 'AIアナリスト' },
-            es: { red: 'Rojo Imperial', blue: 'Azul Nebuloso', green: 'Valle de Jade', scan: 'Analista AI' },
-            fr: { red: 'Rouge Impérial', blue: 'Bleu Brumeux', green: 'Vallée de Jade', scan: 'Analyste IA' },
-            de: { red: 'Kaiserrot', blue: 'Nebelblau', green: 'Jadeland', scan: 'KI-Analyst' },
-            pt: { red: 'Vermelho Imperial', blue: 'Azul Nevoado', green: 'Vale de Jade', scan: 'Analista AI' },
+            en: { red: 'Imperial Red', blue: 'Misty Blue', green: 'Jade Valley', scan: 'AI Analyst', widget: 'Embed' },
+            zh: { red: '中国红', blue: '雾霾蓝', green: '翡翠谷', scan: 'AI分析师', widget: '嵌入' },
+            ja: { red: '帝国赤', blue: '霧色', green: '翡翠の谷', scan: 'AIアナリスト', widget: '埋め込み' },
+            es: { red: 'Rojo Imperial', blue: 'Azul Nebuloso', green: 'Valle de Jade', scan: 'Analista AI', widget: 'Incrustar' },
+            fr: { red: 'Rouge Impérial', blue: 'Bleu Brumeux', green: 'Vallée de Jade', scan: 'Analyste IA', widget: 'Intégrer' },
+            de: { red: 'Kaiserrot', blue: 'Nebelblau', green: 'Jadeland', scan: 'KI-Analyst', widget: 'Einbetten' },
+            pt: { red: 'Vermelho Imperial', blue: 'Azul Nevoado', green: 'Vale de Jade', scan: 'Analista AI', widget: 'Incorporar' },
         };
 
         const t = translations[currentLocale] || translations.en;
@@ -44,6 +44,7 @@ export default function Header() {
             { id: 'blue', name: t.blue, href: `${prefix}/colors/blue` },
             { id: 'green', name: t.green, href: `${prefix}/colors/green` },
             { id: 'scan', name: t.scan, href: `${prefix}/scan` },
+            { id: 'widget', name: t.widget, href: `${prefix}/widget` },
         ];
     };
 

@@ -1,39 +1,49 @@
 import EmbedWidget from '@/components/EmbedWidget';
-import { WebPageSchema, OrganizationSchema } from '@/components/JsonLd';
+import Link from 'next/link';
 
 export async function generateMetadata() {
     return {
-        title: 'Embed AI Color Picker Widget - Free Integration | Image Color Picker AI',
-        description: 'Add our AI-powered color picker to your website. Free iframe widget with attribution link. Perfect for designers, developers, and color enthusiasts.',
+        title: '嵌入AI取色器小工具 - 免费集成 | 图片取色器AI',
+        description: '将我们AI驱动的取色器添加到您的网站。免费的iframe小工具，附带归因链接。非常适合设计师、开发者和色彩爱好者。',
         alternates: {
-            canonical: 'https://imagecolorpickerai.com/widget',
+            canonical: 'https://imagecolorpickerai.com/zh/widget',
+            languages: {
+                'en': 'https://imagecolorpickerai.com/widget',
+                'zh-Hans': 'https://imagecolorpickerai.com/zh/widget',
+                'ja': 'https://imagecolorpickerai.com/ja/widget',
+                'es': 'https://imagecolorpickerai.com/es/widget',
+                'fr': 'https://imagecolorpickerai.com/fr/widget',
+                'de': 'https://imagecolorpickerai.com/de/widget',
+                'pt': 'https://imagecolorpickerai.com/pt/widget',
+                'x-default': 'https://imagecolorpickerai.com/widget',
+            },
         },
         openGraph: {
-            title: 'Embed AI Color Picker Widget - Free Integration',
-            description: 'Add our AI-powered color picker to your website. Free iframe widget with attribution.',
-            url: 'https://imagecolorpickerai.com/widget',
+            title: '嵌入AI取色器小工具 - 免费集成',
+            description: '将我们AI驱动的取色器添加到您的网站。免费的iframe小工具，附带归因链接。',
+            url: 'https://imagecolorpickerai.com/zh/widget',
             siteName: 'ImageColorPickerAI',
             images: [
                 {
-                    url: 'https://imagecolorpickerai.com/api/og/widget.png',
+                    url: 'https://imagecolorpickerai.com/api/og/widget-zh.png',
                     width: 1200,
                     height: 630,
                 }
             ],
-            locale: 'en_US',
+            locale: 'zh_CN',
             type: 'website',
         },
     };
 }
 
 export default function WidgetPage() {
-    const webPageSchema = WebPageSchema({
-        title: 'Embed AI Color Picker Widget - Free Integration',
-        description: 'Add our AI-powered color picker to your website. Free iframe widget with attribution.',
-        url: '/widget',
-    });
-
-    const orgSchema = OrganizationSchema();
+    const webPageSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "嵌入AI取色器小工具",
+        "description": "将我们AI驱动的取色器添加到您的网站。免费的iframe小工具，附带归因链接。",
+        "url": "https://imagecolorpickerai.com/zh/widget",
+    };
 
     return (
         <>
@@ -41,25 +51,21 @@ export default function WidgetPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
             />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-            />
             <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50 py-16 px-4 font-sans">
                 <div className="max-w-4xl mx-auto">
                     {/* Header */}
                     <div className="text-center mb-12">
                         <h1 className="text-5xl font-bold text-neutral-900 mb-4">
-                            Embed Our <span className="text-purple-600">AI Color Picker</span>
+                            嵌入我们的<span className="text-purple-600">AI取色器</span>
                         </h1>
                         <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-                            Add professional color analysis to your website in seconds. Free, open-source, and AI-powered.
+                            在几秒钟内为您的网站添加专业的色彩分析功能。免费、开源、AI驱动。
                         </p>
                     </div>
 
                     {/* Main Widget Embed */}
                     <div className="mb-12">
-                        <EmbedWidget />
+                        <EmbedWidget locale="zh" />
                     </div>
 
                     {/* Features Grid */}
@@ -70,9 +76,9 @@ export default function WidgetPage() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <h3 className="font-bold text-neutral-900 mb-2">AI-Powered</h3>
+                            <h3 className="font-bold text-neutral-900 mb-2">AI驱动</h3>
                             <p className="text-sm text-neutral-600">
-                                Advanced color analysis using machine learning. Extract palettes, meanings, and harmonies instantly.
+                                使用机器学习进行高级色彩分析。即时提取配色方案、含义和和谐组合。
                             </p>
                         </div>
 
@@ -82,9 +88,9 @@ export default function WidgetPage() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                                 </svg>
                             </div>
-                            <h3 className="font-bold text-neutral-900 mb-2">Easy Integration</h3>
+                            <h3 className="font-bold text-neutral-900 mb-2">轻松集成</h3>
                             <p className="text-sm text-neutral-600">
-                                Just copy and paste the iframe code. No API keys, no configuration, no maintenance.
+                                只需复制并粘贴iframe代码。无需API密钥，无需配置，无需维护。
                             </p>
                         </div>
 
@@ -94,22 +100,22 @@ export default function WidgetPage() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <h3 className="font-bold text-neutral-900 mb-2">100% Free</h3>
+                            <h3 className="font-bold text-neutral-900 mb-2">100%免费</h3>
                             <p className="text-sm text-neutral-600">
-                                Open-source and completely free. attribution link helps support our development.
+                                开源且完全免费。归因链接有助于支持我们的开发。
                             </p>
                         </div>
                     </div>
 
                     {/* Integration Examples */}
                     <div className="bg-white rounded-xl border border-purple-200 p-8 mb-12">
-                        <h2 className="text-2xl font-bold text-neutral-900 mb-6">Integration Examples</h2>
+                        <h2 className="text-2xl font-bold text-neutral-900 mb-6">集成示例</h2>
 
                         <div className="space-y-6">
                             <div>
-                                <h3 className="font-bold text-neutral-900 mb-2">Design Portfolio</h3>
+                                <h3 className="font-bold text-neutral-900 mb-2">设计作品集</h3>
                                 <p className="text-neutral-600 text-sm mb-2">
-                                    Let visitors extract colors from your project screenshots and case studies.
+                                    让访问者从您的项目截图和案例研究中提取颜色。
                                 </p>
                                 <code className="block bg-neutral-100 p-3 rounded text-xs font-mono">
                                     &lt;iframe src="https://imagecolorpickerai.com/widget" width="100%" height="500"&gt;&lt;/iframe&gt;
@@ -117,9 +123,9 @@ export default function WidgetPage() {
                             </div>
 
                             <div>
-                                <h3 className="font-bold text-neutral-900 mb-2">Design Blog</h3>
+                                <h3 className="font-bold text-neutral-900 mb-2">设计博客</h3>
                                 <p className="text-neutral-600 text-sm mb-2">
-                                    Add color analysis tools to your color theory and design tutorials.
+                                    在色彩理论和设计教程中添加色彩分析工具。
                                 </p>
                                 <code className="block bg-neutral-100 p-3 rounded text-xs font-mono">
                                     &lt;iframe src="https://imagecolorpickerai.com/widget" width="100%" height="500"&gt;&lt;/iframe&gt;
@@ -127,9 +133,9 @@ export default function WidgetPage() {
                             </div>
 
                             <div>
-                                <h3 className="font-bold text-neutral-900 mb-2">Agency Website</h3>
+                                <h3 className="font-bold text-neutral-900 mb-2">代理商网站</h3>
                                 <p className="text-neutral-600 text-sm mb-2">
-                                    Provide clients with instant color extraction from their brand assets.
+                                    为客户提供从品牌资产中即时提取颜色的功能。
                                 </p>
                                 <code className="block bg-neutral-100 p-3 rounded text-xs font-mono">
                                     &lt;iframe src="https://imagecolorpickerai.com/widget" width="100%" height="500"&gt;&lt;/iframe&gt;
@@ -141,17 +147,17 @@ export default function WidgetPage() {
                     {/* CTA */}
                     <div className="text-center">
                         <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-                            Ready to Add Color Intelligence to Your Site?
+                            准备好为您的网站添加色彩智能了吗？
                         </h2>
                         <p className="text-neutral-600 mb-6">
-                            Join thousands of designers, developers, and color enthusiasts using our widget.
+                            加入数千名使用我们小工具的设计师、开发者和色彩爱好者。
                         </p>
-                        <a
-                            href="/"
+                        <Link
+                            href="/zh"
                             className="inline-block px-8 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition shadow-sm"
                         >
-                            Try the Full Tool
-                        </a>
+                            试用完整工具
+                        </Link>
                     </div>
                 </div>
             </div>
