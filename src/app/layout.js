@@ -80,10 +80,29 @@ export const metadata = {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FryingBeansFooter from '@/components/FryingBeansFooter';
+import { headers } from 'next/headers';
 
-export default function RootLayout({ children }) {
+// Map URL prefix to <html lang>. Injected by middleware as x-pathname so the
+// root layout (the only place <html> can be defined) can render the correct
+// language for /zh, /ja, /es, /fr, /de, /pt.
+function resolveLang(pathname) {
+  if (!pathname) return 'en';
+  if (pathname.startsWith('/zh')) return 'zh';
+  if (pathname.startsWith('/ja')) return 'ja';
+  if (pathname.startsWith('/es')) return 'es';
+  if (pathname.startsWith('/fr')) return 'fr';
+  if (pathname.startsWith('/de')) return 'de';
+  if (pathname.startsWith('/pt')) return 'pt';
+  return 'en';
+}
+
+export default async function RootLayout({ children }) {
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '/';
+  const lang = resolveLang(pathname);
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         {/* Resource Hints for Performance */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

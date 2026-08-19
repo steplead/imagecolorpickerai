@@ -39,6 +39,16 @@ const PUBLIC_PATHS = [
   '/sitemap.xml',
 ];
 
+// Inject current pathname into the REQUEST headers so server components
+// (root layout for <html lang>, FryingBeansFooter for locale-aware internal
+// links) can read it via next/headers. Response headers are not visible to
+// server components, so this must be a request-header rewrite.
+function nextWithPathname(request, pathname) {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-pathname', pathname);
+  return NextResponse.next({ request: { headers: requestHeaders } });
+}
+
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   const referer = request.headers.get('referer') || request.headers.get('Referer');
@@ -46,7 +56,7 @@ export function middleware(request) {
   // Check if path is public (no protection needed)
   const isPublicPath = PUBLIC_PATHS.some(path => pathname.startsWith(path));
   if (isPublicPath) {
-    return NextResponse.next();
+    return nextWithPathname(request, pathname);
   }
 
   // Check if path needs protection
@@ -82,7 +92,7 @@ export function middleware(request) {
     // No referer present - could be direct access or API tool
     // Allow GET requests (direct access), block POST/PUT/DELETE (API calls)
     if (request.method === 'GET') {
-      return NextResponse.next();
+      return nextWithPathname(request, pathname);
     }
 
     // Block API calls without referer
@@ -97,7 +107,7 @@ export function middleware(request) {
   }
 
   // All other paths - allow
-  return NextResponse.next();
+  return nextWithPathname(request, pathname);
 }
 
 // Configure which paths the middleware should run on

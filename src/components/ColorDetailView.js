@@ -104,10 +104,20 @@ export function ColorDetailView({ params, locale = 'en' }) {
         : 'rgb(0,0,0)';
 
     // Generate Structured Data (Product Schema)
+    // Collection name localized per collection (Chinese/Japanese/Pantone/
+    // Nature) - the old hardcoded "(Traditional Chinese Color)" mislabeled
+    // Japanese & other collections. Fixed 2026-08-19.
+    const COLLECTION_SCHEMA_NAME = {
+        chinese: 'Traditional Chinese Color',
+        japanese: 'Traditional Japanese Color',
+        pantone: 'Pantone 2025 Color',
+        nature: 'Nature & Earth Color',
+    };
+    const collectionSchemaName = COLLECTION_SCHEMA_NAME[color.collectionId] || 'Traditional Color';
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": `${color.name} (Traditional Chinese Color)`,
+        "name": `${color.name} (${collectionSchemaName})`,
         "image": [
             `https://imagecolorpickerai.com/api/og/color?id=${color.id}`
         ],
@@ -134,7 +144,6 @@ export function ColorDetailView({ params, locale = 'en' }) {
                     <Breadcrumb
                         locale={locale}
                         items={[
-                            { name: 'Colors', href: '/colors' },
                             { name: collectionMeta.name, href: `/colors/${color.collectionId}` },
                             { name: `${color.name} (${color.nativeName})`, href: `/color/${color.id}` }
                         ]}
