@@ -23,7 +23,7 @@ export default function HomeView({ locale = 'en' }) {
         en: {
             title: "Image Color Picker",
             titleSuffix: "& Traditional Encyclopedia",
-            desc: "Extract precise Hex codes from any image and discover the cultural significance of Traditional Chinese and Japanese colors.",
+            desc: "Extract HEX, RGB and color palettes from any image instantly. Free AI-powered image color picker — no sign-up required.",
             upload: "Upload an Image to Pick Colors",
             pickSub: "Pick Hex, RGB, and CMYK from pixels",
             pickAgain: "Pick Again",
@@ -64,7 +64,7 @@ export default function HomeView({ locale = 'en' }) {
         zh: {
             title: "图片取色器",
             titleSuffix: "& 传统色彩百科",
-            desc: "从任何图像中提取精确的十六进制代码，并发现中国和日本传统色彩的文化意义。",
+            desc: "从任何图片中即时提取 HEX、RGB 和调色板。免费的 AI 图片取色器，无需注册。",
             upload: "上传图片以取色",
             pickSub: "从像素中提取 Hex、RGB 和 CMYK",
             pickAgain: "重新取色",
@@ -105,7 +105,7 @@ export default function HomeView({ locale = 'en' }) {
         ja: {
             title: "画像カラーピッカー",
             titleSuffix: "& 伝統色百科事典",
-            desc: "あらゆる画像から正確な16進コードを抽出し、伝統的な中国および日本の色の文化的重要性を発見します。",
+            desc: "あらゆる画像から HEX、RGB、カラーパレットを即座に抽出。無料の AI 画像カラーピッカー、登録不要。",
             upload: "画像をアップロードして色を選択",
             pickSub: "ピクセルからHex、RGB、CMYKを抽出",
             pickAgain: "再試行",
@@ -146,7 +146,7 @@ export default function HomeView({ locale = 'en' }) {
         es: {
             title: "Selector de Color de Imagen",
             titleSuffix: "& Enciclopedia Tradicional",
-            desc: "Extraiga códigos Hex precisos de cualquier imagen y descubra el significado cultural de los colores tradicionales chinos y japoneses.",
+            desc: "Extrae códigos HEX, RGB y paletas de colores de cualquier imagen al instante. Selector de color AI gratuito, sin registro.",
             upload: "Subir una imagen para elegir colores",
             pickSub: "Elija Hex, RGB y CMYK de los píxeles",
             pickAgain: "Elegir de nuevo",
@@ -187,7 +187,7 @@ export default function HomeView({ locale = 'en' }) {
         fr: {
             title: "Sélecteur de Couleur d'Image",
             titleSuffix: "& Encyclopédie Traditionnelle",
-            desc: "Extrayez des codes Hex précis de n'importe quelle image et découvrez la signification culturelle des couleurs traditionnelles chinoises et japonaises.",
+            desc: "Extrayez des codes HEX, RGB et des palettes de couleurs de n'importe quelle image instantanément. Sélecteur de couleurs IA gratuit, sans inscription.",
             upload: "Télécharger une image pour choisir des couleurs",
             pickSub: "Choisissez Hex, RGB et CMYK à partir des pixels",
             pickAgain: "Choisir à nouveau",
@@ -228,7 +228,7 @@ export default function HomeView({ locale = 'en' }) {
         de: {
             title: "Bild-Farbwähler",
             titleSuffix: "& Traditionelle Enzyklopädie",
-            desc: "Extrahieren Sie präzise Hex-Codes aus jedem Bild und entdecken Sie die kulturelle Bedeutung traditioneller chinesischer und japanischer Farben.",
+            desc: "Extrahieren Sie HEX-, RGB- und Farbpaletten aus jedem Bild sofort. Kostenloser KI-Farbwähler, ohne Anmeldung.",
             upload: "Ein Bild hochladen, um Farben auszuwählen",
             pickSub: "Wählen Sie Hex, RGB und CMYK aus Pixeln",
             pickAgain: "Erneut wählen",
@@ -269,7 +269,7 @@ export default function HomeView({ locale = 'en' }) {
         pt: {
             title: "Seletor de Cores de Imagem",
             titleSuffix: "& Enciclopédia Tradicional",
-            desc: "Extraia códigos Hex precisos de qualquer imagem e descubra o significado cultural das cores tradicionais chinesas e japonesas.",
+            desc: "Extraia códigos HEX, RGB e paletas de cores de qualquer imagem instantaneamente. Seletor de cores AI gratuito, sem cadastro.",
             upload: "Carregar uma imagem para escolher cores",
             pickSub: "Escolha Hex, RGB e CMYK dos pixels",
             pickAgain: "Escolher novamente",
@@ -409,10 +409,10 @@ export default function HomeView({ locale = 'en' }) {
     return (
         <div className="flex flex-col items-center min-h-screen p-4 sm:p-8 bg-neutral-50 text-neutral-800 font-sans">
 
-            {/* SEO Headline (H1 Strategy) */}
+            {/* SEO Headline (H1 Strategy) - primary intent: image color picker tool */}
             <div className="text-center mb-10 max-w-2xl px-4">
                 <h1 id="main-title" className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight mb-4 text-balance">
-                    {t.title} <span className="text-red-600">AI</span> {t.titleSuffix}
+                    {t.title} <span className="text-red-600">AI</span>
                 </h1>
                 <p className="text-lg text-neutral-500 font-serif italic">
                     {t.desc}
@@ -548,9 +548,6 @@ export default function HomeView({ locale = 'en' }) {
             {/* History Section */}
             <RecentPicks lastPick={match} />
 
-            {/* Social Gallery (Phase 16) */}
-            <PinterestGallery />
-
             {/* Phase 24: Viral Discovery Banner */}
             <section className="max-w-4xl mx-auto mt-16 px-4">
                 <Link
@@ -677,6 +674,9 @@ export default function HomeView({ locale = 'en' }) {
                     </button>
                 </div>
             </article>
+
+            {/* Social Gallery (Phase 16) - below core tool + encyclopedia content */}
+            <PinterestGallery />
 
             {/* Structured FAQ for SSR Audit */}
             <section className="max-w-xl mt-24 mb-24 pb-12 w-full px-4">

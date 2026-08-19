@@ -1,8 +1,8 @@
 import HomeView from '../components/HomeView';
 
 export const metadata = {
-  title: 'Image Color Picker - Extract Hex Codes from Any Image | ImageColorPickerAI',
-  description: 'Free online image color picker. Extract HEX, RGB, CMYK codes and discover Traditional Chinese and Japanese color meanings instantly. AI-powered and no signup.',
+  title: 'AI Image Color Picker - Extract Hex Codes From Any Image',
+  description: 'Free AI-powered image color picker: extract HEX, RGB and CMYK codes from any image instantly, no sign-up. Plus Traditional Chinese & Japanese color meanings.',
   keywords: 'image color picker, hex color picker, color extractor, RGB to HEX, CMYK converter, traditional Chinese colors, Japanese colors, color palette generator, online color tool',
   alternates: {
     canonical: 'https://imagecolorpickerai.com/',
