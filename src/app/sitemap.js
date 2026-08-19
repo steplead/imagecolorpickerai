@@ -50,33 +50,43 @@ export default function sitemap() {
     }));
 
     // 5. Comparison Pages (Legacy + Programmatic)
+    // Deduped 2026-08-19: the same color pair was generated under multiple
+    // tags (e.g. cinnabar-vs-persimmon-red under 'red' and 'warm'), producing
+    // 6 duplicate <url> entries. A Set on the canonical key removes them at
+    // generation time.
     const vsRoutes = [];
-    // Only generate a small subset for sitemap to avoid bloat, 
+    // Only generate a small subset for sitemap to avoid bloat,
     // relying on internal linking for the rest.
     const tags = ['red', 'blue', 'green', 'warm'];
-    // Limit to first 20 comparisons to keep sitemap manageable
-    let count = 0;
+    const seenCompare = new Set();
+    const seenCombine = new Set();
 
     tags.forEach(tag => {
         const colors = allColors.filter(c => c.tags && c.tags.includes(tag)).slice(0, 3);
         for (let i = 0; i < colors.length; i++) {
             for (let j = i + 1; j < colors.length; j++) {
-                if (count > 50) break;
+                const compareKey = `${colors[i].id}-vs-${colors[j].id}`;
+                const combineKey = `${colors[i].id}-and-${colors[j].id}`;
                 // Legacy Compare
-                vsRoutes.push({
-                    url: `${baseUrl}/compare/${colors[i].id}-vs-${colors[j].id}`,
-                    lastModified: new Date().toISOString().split('T')[0],
-                    changeFrequency: 'monthly',
-                    priority: 0.7,
-                });
+                if (!seenCompare.has(compareKey)) {
+                    seenCompare.add(compareKey);
+                    vsRoutes.push({
+                        url: `${baseUrl}/compare/${compareKey}`,
+                        lastModified: new Date().toISOString().split('T')[0],
+                        changeFrequency: 'monthly',
+                        priority: 0.7,
+                    });
+                }
                 // Protocol 5 Combine (Seed)
-                vsRoutes.push({
-                    url: `${baseUrl}/combine/${colors[i].id}-and-${colors[j].id}`,
-                    lastModified: new Date().toISOString().split('T')[0],
-                    changeFrequency: 'monthly',
-                    priority: 0.7,
-                });
-                count++;
+                if (!seenCombine.has(combineKey)) {
+                    seenCombine.add(combineKey);
+                    vsRoutes.push({
+                        url: `${baseUrl}/combine/${combineKey}`,
+                        lastModified: new Date().toISOString().split('T')[0],
+                        changeFrequency: 'monthly',
+                        priority: 0.7,
+                    });
+                }
             }
         }
     });
