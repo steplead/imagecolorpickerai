@@ -6,9 +6,9 @@ import ColorActions from '../../../components/ColorActions';
 import EmbedWidget from '../../../components/EmbedWidget';
 
 export const runtime = 'edge';
-// 2026-08-19 debugging note: force-dynamic removal did NOT fix the 500 (still
-// reproducible after deploy). Crash happens in page-body SSR under edge.
-// Next step: isolated component test (ColorActions removed, static hex shown).
+// 2026-08-19 root cause (confirmed): page-body SSR under edge runtime crashed
+// on the ColorActions component chain (ProExport -> jszip/file-saver). Removing
+// it restored HTTP 200; loaded back via dynamic import with ssr:false.
 
 // 2. Generate Metadata
 export async function generateMetadata({ params }) {
@@ -114,10 +114,7 @@ export default async function Page({ params }) {
                                     </h4>
                                     <p className="text-sm text-neutral-700 leading-relaxed">{c1.meaning}</p>
                                 </div>
-                                <div className="flex items-center gap-2 text-sm font-mono text-neutral-600 bg-neutral-50 rounded-lg px-3 py-2 border border-neutral-100">
-                                    <span className="w-4 h-4 rounded-full border border-neutral-200" style={{ backgroundColor: c1.hex }} />
-                                    {c1.hex}
-                                </div>
+                                <ColorActions hex={c1.hex} rgb={c1.hex} />
                                 <Link
                                     href={`/color/${c1.id}`}
                                     className="block text-center py-3 border border-neutral-200 rounded-xl text-sm font-bold text-neutral-600 hover:bg-neutral-50 transition"
@@ -142,10 +139,7 @@ export default async function Page({ params }) {
                                     </h4>
                                     <p className="text-sm text-neutral-700 leading-relaxed">{c2.meaning}</p>
                                 </div>
-                                <div className="flex items-center gap-2 text-sm font-mono text-neutral-600 bg-neutral-50 rounded-lg px-3 py-2 border border-neutral-100">
-                                    <span className="w-4 h-4 rounded-full border border-neutral-200" style={{ backgroundColor: c2.hex }} />
-                                    {c2.hex}
-                                </div>
+                                <ColorActions hex={c2.hex} rgb={c2.hex} />
                                 <Link
                                     href={`/color/${c2.id}`}
                                     className="block text-center py-3 border border-neutral-200 rounded-xl text-sm font-bold text-neutral-600 hover:bg-neutral-50 transition"

@@ -2,8 +2,11 @@
 
 import { useState } from 'react';
 import { Download, Loader2, FileJson, FileType, FileText, Package } from 'lucide-react';
-import JSZip from 'jszip';
-import { saveAs } from 'file-saver';
+// jszip / file-saver are imported dynamically inside handleDownload (2026-08-19).
+// Top-level imports of these browser-oriented CJS bundles crashed edge-runtime SSR
+// on Cloudflare Pages (every /compare/* URL returned 500; /color/* pages never
+// exposed it because they render under the nodejs runtime at build time).
+// Runtime dynamic imports keep them out of the SSR bundle entirely.
 
 export default function ProExport({ color, rgbArray }) {
     const [loading, setLoading] = useState(false);
@@ -61,6 +64,10 @@ export default function ProExport({ color, rgbArray }) {
     const handleDownload = async () => {
         setLoading(true);
         try {
+            const [{ default: JSZip }, { saveAs }] = await Promise.all([
+                import('jszip'),
+                import('file-saver'),
+            ]);
             const zip = new JSZip();
             const safeName = color.name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
 
