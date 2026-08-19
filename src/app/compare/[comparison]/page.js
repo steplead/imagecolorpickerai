@@ -5,11 +5,15 @@ import chineseColors from '../../../data/chineseColors.json';
 import ColorActions from '../../../components/ColorActions';
 import EmbedWidget from '../../../components/EmbedWidget';
 
-export const runtime = 'edge';
-// Note: `force-dynamic` removed (2026-08-19). It caused HTTP 500 on Cloudflare
-// Pages (next-on-pages) for every /compare/* URL while /combine/* (same edge
-// runtime, no force-dynamic) returned 200. The page renders static data, so
-// dynamic forcing is unnecessary; edge caching now applies like /combine.
+// 2026-08-19: Edge runtime removed. Every /compare/* URL returned HTTP 500 on
+// Cloudflare Pages while /combine/* (same page shape) returned 200. Diagnostics:
+// - force-dynamic removal alone did NOT fix it (still 500 after deploy)
+// - nonexistent slugs correctly return 404, so routing/metadata logic is fine
+// - the crash occurs while server-rendering the page body under the Edge runtime
+// The page serves static color data, so the default (nodejs) runtime is the
+// correct, fully-supported choice for Cloudflare Pages. Re-test under edge only
+// after identifying the specific component incompatibility.
+export const dynamic = 'auto';
 
 // 2. Generate Metadata
 export async function generateMetadata({ params }) {
