@@ -5,15 +5,10 @@ import chineseColors from '../../../data/chineseColors.json';
 import ColorActions from '../../../components/ColorActions';
 import EmbedWidget from '../../../components/EmbedWidget';
 
-// 2026-08-19: Edge runtime removed. Every /compare/* URL returned HTTP 500 on
-// Cloudflare Pages while /combine/* (same page shape) returned 200. Diagnostics:
-// - force-dynamic removal alone did NOT fix it (still 500 after deploy)
-// - nonexistent slugs correctly return 404, so routing/metadata logic is fine
-// - the crash occurs while server-rendering the page body under the Edge runtime
-// The page serves static color data, so the default (nodejs) runtime is the
-// correct, fully-supported choice for Cloudflare Pages. Re-test under edge only
-// after identifying the specific component incompatibility.
-export const dynamic = 'auto';
+export const runtime = 'edge';
+// 2026-08-19 debugging note: force-dynamic removal did NOT fix the 500 (still
+// reproducible after deploy). Crash happens in page-body SSR under edge.
+// Next step: isolated component test (ColorActions removed, static hex shown).
 
 // 2. Generate Metadata
 export async function generateMetadata({ params }) {
@@ -119,7 +114,10 @@ export default async function Page({ params }) {
                                     </h4>
                                     <p className="text-sm text-neutral-700 leading-relaxed">{c1.meaning}</p>
                                 </div>
-                                <ColorActions hex={c1.hex} rgb={c1.hex} />
+                                <div className="flex items-center gap-2 text-sm font-mono text-neutral-600 bg-neutral-50 rounded-lg px-3 py-2 border border-neutral-100">
+                                    <span className="w-4 h-4 rounded-full border border-neutral-200" style={{ backgroundColor: c1.hex }} />
+                                    {c1.hex}
+                                </div>
                                 <Link
                                     href={`/color/${c1.id}`}
                                     className="block text-center py-3 border border-neutral-200 rounded-xl text-sm font-bold text-neutral-600 hover:bg-neutral-50 transition"
@@ -144,7 +142,10 @@ export default async function Page({ params }) {
                                     </h4>
                                     <p className="text-sm text-neutral-700 leading-relaxed">{c2.meaning}</p>
                                 </div>
-                                <ColorActions hex={c2.hex} rgb={c2.hex} />
+                                <div className="flex items-center gap-2 text-sm font-mono text-neutral-600 bg-neutral-50 rounded-lg px-3 py-2 border border-neutral-100">
+                                    <span className="w-4 h-4 rounded-full border border-neutral-200" style={{ backgroundColor: c2.hex }} />
+                                    {c2.hex}
+                                </div>
                                 <Link
                                     href={`/color/${c2.id}`}
                                     className="block text-center py-3 border border-neutral-200 rounded-xl text-sm font-bold text-neutral-600 hover:bg-neutral-50 transition"
