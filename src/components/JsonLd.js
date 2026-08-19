@@ -71,13 +71,7 @@ export function ColorSchema({ color, collectionMeta }) {
                 "name": "Phonetic",
                 "value": color.phoneticName
             }
-        ],
-        "aggregateRating": color.rating ? {
-            "@type": "AggregateRating",
-            "ratingValue": color.rating,
-            "bestRating": "5",
-            "ratingCount": color.ratingCount || 1
-        } : undefined
+        ]
     };
 }
 

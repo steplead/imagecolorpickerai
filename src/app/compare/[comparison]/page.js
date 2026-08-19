@@ -6,7 +6,10 @@ import ColorActions from '../../../components/ColorActions';
 import EmbedWidget from '../../../components/EmbedWidget';
 
 export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+// Note: `force-dynamic` removed (2026-08-19). It caused HTTP 500 on Cloudflare
+// Pages (next-on-pages) for every /compare/* URL while /combine/* (same edge
+// runtime, no force-dynamic) returned 200. The page renders static data, so
+// dynamic forcing is unnecessary; edge caching now applies like /combine.
 
 // 2. Generate Metadata
 export async function generateMetadata({ params }) {

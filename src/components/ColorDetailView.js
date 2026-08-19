@@ -103,7 +103,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
         ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})`
         : 'rgb(0,0,0)';
 
-    // Generate Structured Data (Product Schema with Rating)
+    // Generate Structured Data (Product Schema)
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -116,41 +116,6 @@ export function ColorDetailView({ params, locale = 'en' }) {
             "@type": "Brand",
             "name": "ImageColorPickerAI"
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "124",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
-        "review": [
-            {
-                "@type": "Review",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                },
-                "author": {
-                    "@type": "Person",
-                    "name": "Designer"
-                },
-                "reviewBody": `Beautiful ${color.name} color! Perfect for traditional design projects.`
-            },
-            {
-                "@type": "Review",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                },
-                "author": {
-                    "@type": "Person",
-                    "name": "Artist"
-                },
-                "reviewBody": `The cultural meaning of ${color.nativeName} adds depth to my artwork. Highly recommended!`
-            }
-        ],
         "offers": {
             "@type": "Offer",
             "url": `https://imagecolorpickerai.com/color/${color.id}`,
