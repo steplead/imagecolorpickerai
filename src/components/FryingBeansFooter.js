@@ -16,7 +16,7 @@ import { getAllColors } from '@/utils/colorData';
  * the tracked fix for locale-aware footers.
  */
 const FOOTER_TITLE = 'Popular Colors';
-const FOOTER_SUBTITLE = 'Curated from the Traditional Color Encyclopedia';
+const FOOTER_SUBTITLE = 'Pick these colors from any image, or browse the full library';
 
 // Deterministic, representative picks (stable across renders and deploys).
 function pickRepresentativeColors() {

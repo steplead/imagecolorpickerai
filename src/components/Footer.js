@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Palette, Share2, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { Palette, Share2, Sparkles } from 'lucide-react';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -34,10 +34,16 @@ export default function Footer() {
                             <span className="font-bold text-xl tracking-tight text-neutral-900">ImageColorPicker<span className="text-red-600 italic">AI</span></span>
                         </Link>
                         <p className="text-sm text-neutral-500 leading-relaxed mb-6">
-                            The world's first AI-powered Traditional Color Encyclopedia. Extracting culture, history, and hex codes from every pixel.
+                            A free image color picker and traditional-color library. Pick exact hex codes from any photo and explore centuries of Chinese and Japanese color history.
                         </p>
                         <div className="flex gap-4">
-                            <a href="#" className="text-neutral-400 hover:text-neutral-600 transition" aria-label="Twitter">
+                            <a
+                                href="https://twitter.com/intent/tweet?url=https://imagecolorpickerai.com&text=ImageColorPickerAI"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-neutral-400 hover:text-neutral-600 transition"
+                                aria-label="Share on Twitter"
+                            >
                                 <Share2 className="w-5 h-5" />
                             </a>
                         </div>

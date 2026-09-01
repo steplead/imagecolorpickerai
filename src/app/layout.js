@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL('https://imagecolorpickerai.com'),
   title: "AI Image Color Picker - Extract Hex Codes From Any Image | ImageColorPickerAI",
-  description: "Free online Image Color Picker. Extract precise Hex codes, RGB, and discover Traditional Chinese & Japanese color palettes instantly. No sign-up required.",
+  description: "Free online image color picker. Upload a photo and get the exact HEX, RGB, and HSL value of any pixel — no sign-up required.",
   keywords: 'image color picker, hex color picker, color extractor, RGB to HEX, CMYK converter, traditional Chinese colors, Japanese colors, color palette generator, online color tool',
   authors: [{ name: 'ImageColorPickerAI Team', url: 'https://imagecolorpickerai.com' }],
   creator: 'ImageColorPickerAI',
@@ -36,7 +36,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Image Color Picker AI - Extract Hex Codes from Any Image",
-    description: "Extract HEX, RGB and CMYK codes from any image instantly with AI. Free, no sign-up.",
+    description: "Extract the exact HEX, RGB, and HSL value from any pixel. Free, no sign-up.",
     url: "https://imagecolorpickerai.com",
     siteName: "ImageColorPickerAI",
     images: [
@@ -53,7 +53,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Image Color Picker AI - Extract Hex Codes from Any Image",
-    description: "Free AI image color picker. Extract HEX, RGB and CMYK codes from any image.",
+    description: "Free online image color picker. Extract the exact HEX, RGB, and HSL value from any pixel.",
     images: ["/og-image.png"],
   },
   /* icons handled automatically by src/app/icon.png */

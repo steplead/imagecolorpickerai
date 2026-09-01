@@ -4,7 +4,7 @@
  */
 
 // Convert Hex to HSL
-function hexToHsl(hex) {
+export function hexToHsl(hex) {
     let r = 0, g = 0, b = 0;
     if (hex.length === 4) {
         r = "0x" + hex[1] + hex[1];

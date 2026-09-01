@@ -27,7 +27,7 @@ export default function Header() {
         else if (pathname.startsWith('/pt')) currentLocale = 'pt';
 
         const translations = {
-            en: { red: 'Imperial Red', blue: 'Misty Blue', green: 'Jade Valley', scan: 'AI Analyst', widget: 'Embed' },
+            en: { red: 'Imperial Red', blue: 'Misty Blue', green: 'Jade Valley', scan: 'Color DNA', widget: 'Embed' },
             zh: { red: '中国红', blue: '雾霾蓝', green: '翡翠谷', scan: 'AI分析师', widget: '嵌入' },
             ja: { red: '帝国赤', blue: '霧色', green: '翡翠の谷', scan: 'AIアナリスト', widget: '埋め込み' },
             es: { red: 'Rojo Imperial', blue: 'Azul Nebuloso', green: 'Valle de Jade', scan: 'Analista AI', widget: 'Incrustar' },
@@ -39,13 +39,20 @@ export default function Header() {
         const t = translations[currentLocale] || translations.en;
         const prefix = currentLocale === 'en' ? '' : `/${currentLocale}`;
 
-        return [
+        const links = [
             { id: 'red', name: t.red, href: `${prefix}/colors/red` },
             { id: 'blue', name: t.blue, href: `${prefix}/colors/blue` },
             { id: 'green', name: t.green, href: `${prefix}/colors/green` },
             { id: 'scan', name: t.scan, href: `${prefix}/scan` },
             { id: 'widget', name: t.widget, href: `${prefix}/widget` },
         ];
+
+        // English-only: surface the traditional-color library as a secondary nav.
+        if (currentLocale === 'en') {
+            links.push({ id: 'traditional', name: 'Traditional Colors', href: '/colors/chinese' });
+        }
+
+        return links;
     };
 
     const links = getLocalizedLinks(pathname);

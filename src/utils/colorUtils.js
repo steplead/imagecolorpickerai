@@ -5,7 +5,7 @@ import { getAllColors } from './colorData';
  * @param {string} hex - Hex code (e.g. #ff461f)
  * @returns {object} {r, g, b} or null
  */
-const hexToRgb = (hex) => {
+export const hexToRgb = (hex) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
@@ -47,8 +47,12 @@ export const findClosestColor = (userHex) => {
     return closestColor;
 };
 
-// Alias for backward compatibility if needed, but we will update callers
+// Alias kept for existing callers (HomeView non-English path)
 export const findClosestChineseColor = findClosestColor;
+
+// Clearer name for the homepage tool: matches across all collections
+// (chinese + japanese + pantone + nature) and lets the UI show the origin.
+export const findClosestTraditionalColor = findClosestColor;
 
 /**
  * Helper: Get Colors by Tag (For Category Pages)
