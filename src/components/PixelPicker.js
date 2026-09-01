@@ -17,8 +17,10 @@ import {
 import { findClosestTraditionalColor } from '../utils/colorUtils';
 
 const MAG_SAMPLE = 11; // odd -> has a centre pixel
-const MAG_SCALE = 14; // px per source pixel in the magnifier
-const MAG_SIZE = MAG_SAMPLE * MAG_SCALE; // 154
+const MAG_DESKTOP = 154; // px, desktop magnifier edge (unchanged)
+const MAG_MOBILE = 104; // px, mobile magnifier edge (96–112 range)
+const MAG_BREAKPOINT = 640; // px; viewport <= this uses the mobile size
+const MAG_GAP = 16; // px gap between cursor and magnifier when auto-flipping
 const HISTORY_KEY = 'picker_selected_history';
 const HISTORY_MAX = 8;
 
@@ -77,6 +79,11 @@ export default function PixelPicker() {
   const [copyError, setCopyError] = useState(''); // 'hex' | 'rgb' | 'hsl' | ''
   const [history, setHistory] = useState([]); // actual selected-color records
 
+  // Responsive magnifier: 154px on desktop, 104px on mobile (<= MAG_BREAKPOINT).
+  const [magSize, setMagSize] = useState(MAG_DESKTOP); // canvas internal edge
+  const [magPos, setMagPos] = useState(null); // { left, top } wrapper-local px
+  const magSizeRef = useRef(MAG_DESKTOP); // mirror of magSize for callbacks
+
   const imgRef = useRef(null);
   const wrapRef = useRef(null);
   const canvasRef = useRef(null); // offscreen, natural-resolution, for pixel reads
@@ -84,6 +91,7 @@ export default function PixelPicker() {
   const downRef = useRef(null); // pointerdown anchor for tap detection
   const rafRef = useRef(null); // magnifier rAF handle
   const pendingMagRef = useRef(null);
+  const lastMagSrcRef = useRef(null); // last sampled src coords, for redraw on resize
 
   // --- Selected-color history (genuine picked pixels, not traditional matches) ---
   useEffect(() => {
@@ -94,6 +102,29 @@ export default function PixelPicker() {
       /* ignore corrupt storage */
     }
   }, []);
+
+  // Pick the magnifier size from the viewport so mobile gets 96–112px while
+  // desktop keeps 154px. Re-evaluates on breakpoint crossings only.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia(`(max-width: ${MAG_BREAKPOINT}px)`);
+    const apply = () => {
+      const s = mq.matches ? MAG_MOBILE : MAG_DESKTOP;
+      magSizeRef.current = s;
+      setMagSize(s);
+    };
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, []);
+
+  // When the magnifier edge changes (breakpoint cross), the canvas bitmap is
+  // cleared by the new width/height attributes — redraw the last sampled pixel.
+  useEffect(() => {
+    if (status === 'ready' && lastMagSrcRef.current) {
+      drawMagnifier(lastMagSrcRef.current.x, lastMagSrcRef.current.y);
+    }
+  }, [magSize, status, drawMagnifier]);
 
   const pushHistory = useCallback((record) => {
     setHistory((prev) => {
@@ -126,22 +157,27 @@ export default function PixelPicker() {
   }, []);
 
   // Draw the 11x11 edge-safe magnifier centred on (srcX, srcY).
-  // Draws directly from the source canvas (no temp canvas allocation) so
-  // frequent pointer moves don't churn memory. clampSampleRect guarantees the
-  // source rect is fully inside the canvas, so getImageData never throws.
+  // Draw the 11x11 edge-safe magnifier centred on (srcX, srcY) at the current
+  // responsive size. Draws directly from the source canvas (no temp canvas
+  // allocation) so frequent pointer moves don't churn memory. clampSampleRect
+  // guarantees the source rect is fully inside the canvas, so getImageData never
+  // throws. magSizeRef carries the live edge so this stays correct after a
+  // breakpoint change without being re-created.
   const drawMagnifier = useCallback((srcX, srcY) => {
     const canvas = canvasRef.current;
     const mag = magRef.current;
     if (!canvas || !mag || canvas.width === 0) return;
+    const SIZE = magSizeRef.current;
+    const SCALE = SIZE / MAG_SAMPLE;
     const mctx = mag.getContext('2d');
-    mctx.clearRect(0, 0, MAG_SIZE, MAG_SIZE);
+    mctx.clearRect(0, 0, SIZE, SIZE);
     mctx.fillStyle = '#eee';
-    mctx.fillRect(0, 0, MAG_SIZE, MAG_SIZE);
+    mctx.fillRect(0, 0, SIZE, SIZE);
 
     const { sx, sy, sw, sh, destX, destY } = clampSampleRect(srcX, srcY, MAG_SAMPLE, canvas.width, canvas.height);
     mctx.imageSmoothingEnabled = false;
     try {
-      mctx.drawImage(canvas, sx, sy, sw, sh, destX * MAG_SCALE, destY * MAG_SCALE, sw * MAG_SCALE, sh * MAG_SCALE);
+      mctx.drawImage(canvas, sx, sy, sw, sh, destX * SCALE, destY * SCALE, sw * SCALE, sh * SCALE);
     } catch {
       return; // never happens thanks to clampSampleRect, but stay safe
     }
@@ -149,8 +185,8 @@ export default function PixelPicker() {
     // crosshair on the selected pixel
     const relX = srcX - sx;
     const relY = srcY - sy;
-    const px = (destX + relX) * MAG_SCALE + MAG_SCALE / 2;
-    const py = (destY + relY) * MAG_SCALE + MAG_SCALE / 2;
+    const px = (destX + relX) * SCALE + SCALE / 2;
+    const py = (destY + relY) * SCALE + SCALE / 2;
     mctx.strokeStyle = 'rgba(0,0,0,0.7)';
     mctx.lineWidth = 1;
     mctx.beginPath();
@@ -160,7 +196,9 @@ export default function PixelPicker() {
     mctx.lineTo(px, py + 6);
     mctx.stroke();
     mctx.strokeStyle = 'rgba(255,255,255,0.7)';
-    mctx.strokeRect(destX * MAG_SCALE - 0.5, destY * MAG_SCALE - 0.5, MAG_SAMPLE * MAG_SCALE, MAG_SAMPLE * MAG_SCALE);
+    mctx.strokeRect(destX * SCALE - 0.5, destY * SCALE - 0.5, MAG_SAMPLE * SCALE, MAG_SAMPLE * SCALE);
+
+    lastMagSrcRef.current = { x: srcX, y: srcY };
   }, []);
 
   const scheduleMagnifier = useCallback(
@@ -232,6 +270,11 @@ export default function PixelPicker() {
     const cy = Math.floor(h / 2);
     pickPixel(cx, cy);
     drawMagnifier(cx, cy);
+    // Place the loupe on the opposite side of the initial centre pick.
+    if (imgRef.current) {
+      const r = imgRef.current.getBoundingClientRect();
+      positionMagnifier(r.left + r.width / 2, r.top + r.height / 2);
+    }
     // Only now, after decode + canvas init succeeded, record success.
     track('image_picker_upload_success', {});
   }, [pickPixel, drawMagnifier]);
@@ -326,16 +369,40 @@ export default function PixelPicker() {
     return { x, y };
   };
 
+  // Place the magnifier box so it sits on the OPPOSITE side of the cursor,
+  // keeping the sampled pixel clear. This is what stops the mobile loupe from
+  // covering the area the user is trying to inspect/tap. Clamped inside the
+  // wrapper so it never spills off the image.
+  function positionMagnifier(clientX, clientY) {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const rect = wrap.getBoundingClientRect();
+    const size = magSizeRef.current;
+    const cx = clientX - rect.left;
+    const cy = clientY - rect.top;
+    let left = cx < rect.width / 2 ? cx + MAG_GAP : cx - MAG_GAP - size;
+    let top = cy < rect.height / 2 ? cy + MAG_GAP : cy - MAG_GAP - size;
+    left = Math.max(4, Math.min(left, rect.width - size - 4));
+    top = Math.max(4, Math.min(top, rect.height - size - 4));
+    setMagPos({ left, top });
+  }
+
   const onPointerDown = (e) => {
     downRef.current = { x: e.clientX, y: e.clientY, t: Date.now() };
     const p = pointerToPixel(e.clientX, e.clientY);
-    if (p) scheduleMagnifier(p.x, p.y); // hover preview only
+    if (p) {
+      scheduleMagnifier(p.x, p.y); // hover preview only
+      positionMagnifier(e.clientX, e.clientY);
+    }
   };
 
   const onPointerMove = (e) => {
     // Magnifier preview only — NO selection, NO analytics (prevents flooding).
     const p = pointerToPixel(e.clientX, e.clientY);
-    if (p) scheduleMagnifier(p.x, p.y);
+    if (p) {
+      scheduleMagnifier(p.x, p.y);
+      positionMagnifier(e.clientX, e.clientY);
+    }
   };
 
   const onPointerUp = (e) => {
@@ -348,7 +415,10 @@ export default function PixelPicker() {
     // Larger moves are page scrolls / drags and must NOT select a pixel.
     if (dist <= 10 && dt <= 600) {
       const p = pointerToPixel(e.clientX, e.clientY);
-      if (p) pickPixel(p.x, p.y);
+      if (p) {
+        positionMagnifier(e.clientX, e.clientY);
+        pickPixel(p.x, p.y);
+      }
     }
   };
 
@@ -477,12 +547,15 @@ export default function PixelPicker() {
               aria-label="Image color picking area. Click or tap to select a pixel, or use the arrow keys to move the cursor."
               onKeyDown={onKeyDown}
             />
-            {/* Magnifier */}
+            {/* Magnifier — size is responsive (mobile 104px / desktop 154px) and
+                it is auto-placed on the opposite side of the cursor so it never
+                covers the pixel being inspected. */}
             <div
-              className="absolute bottom-3 right-3 rounded-lg overflow-hidden shadow-lg ring-1 ring-black/10 pointer-events-none"
+              className="absolute rounded-lg overflow-hidden shadow-lg ring-1 ring-black/10 pointer-events-none"
+              style={magPos ? { left: magPos.left, top: magPos.top } : undefined}
               aria-hidden="true"
             >
-              <canvas ref={magRef} width={MAG_SIZE} height={MAG_SIZE} />
+              <canvas ref={magRef} width={magSize} height={magSize} />
             </div>
           </div>
 
