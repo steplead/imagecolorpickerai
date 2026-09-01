@@ -18,7 +18,9 @@ import { findClosestTraditionalColor } from '../utils/colorUtils';
 
 const MAG_SAMPLE = 11; // odd -> has a centre pixel
 const MAG_SCALE = 14; // px per source pixel in the magnifier
-const MAG_SIZE = MAG_SAMPLE * MAG_SCALE; // 154
+const MAG_DESKTOP = MAG_SAMPLE * MAG_SCALE; // 154 — desktop loupe
+const MAG_MOBILE = 104; // smaller loupe on phones so it doesn't cover the image
+const MAG_BREAKPOINT = 640; // px; viewport at/below this is treated as mobile
 const HISTORY_KEY = 'picker_selected_history';
 const HISTORY_MAX = 8;
 
@@ -81,9 +83,12 @@ export default function PixelPicker() {
   const wrapRef = useRef(null);
   const canvasRef = useRef(null); // offscreen, natural-resolution, for pixel reads
   const magRef = useRef(null); // visible magnifier
+  const magWrapRef = useRef(null); // loupe positioning wrapper (absolute within image area)
   const downRef = useRef(null); // pointerdown anchor for tap detection
   const rafRef = useRef(null); // magnifier rAF handle
   const pendingMagRef = useRef(null);
+  const [magSize, setMagSize] = useState(MAG_DESKTOP); // responsive loupe size (154 desktop / 104 mobile)
+  const magSizeRef = useRef(MAG_DESKTOP); // mirror for use inside stable callbacks
 
   // --- Selected-color history (genuine picked pixels, not traditional matches) ---
   useEffect(() => {
@@ -125,18 +130,22 @@ export default function PixelPicker() {
     return { x: cx, y: cy, hex, rgb: { r: data[0], g: data[1], b: data[2] }, hsl: hexToHsl(hex) };
   }, []);
 
-  // Draw the 11x11 edge-safe magnifier centred on (srcX, srcY).
-  // Draws directly from the source canvas (no temp canvas allocation) so
-  // frequent pointer moves don't churn memory. clampSampleRect guarantees the
-  // source rect is fully inside the canvas, so getImageData never throws.
+  // Draw the 11x11 edge-safe magnifier centred on (srcX, srcY) at the current
+  // responsive size. Draws directly from the source canvas (no temp canvas
+  // allocation) so frequent pointer moves don't churn memory. clampSampleRect
+  // guarantees the source rect is fully inside the canvas, so getImageData never
+  // throws. magSizeRef carries the live edge so this stays correct after a
+  // breakpoint change without being re-created.
   const drawMagnifier = useCallback((srcX, srcY) => {
     const canvas = canvasRef.current;
     const mag = magRef.current;
     if (!canvas || !mag || canvas.width === 0) return;
+    const size = mag.width; // actual canvas pixel size (set via width={magSize})
+    if (!size) return;
     const mctx = mag.getContext('2d');
-    mctx.clearRect(0, 0, MAG_SIZE, MAG_SIZE);
+    mctx.clearRect(0, 0, size, size);
     mctx.fillStyle = '#eee';
-    mctx.fillRect(0, 0, MAG_SIZE, MAG_SIZE);
+    mctx.fillRect(0, 0, size, size);
 
     const { sx, sy, sw, sh, destX, destY } = clampSampleRect(srcX, srcY, MAG_SAMPLE, canvas.width, canvas.height);
     mctx.imageSmoothingEnabled = false;
@@ -176,6 +185,56 @@ export default function PixelPicker() {
     },
     [drawMagnifier]
   );
+
+  // Position the loupe on the OPPOSITE side of the cursor so it never covers
+  // the sampled pixel. Coordinates are relative to the image-area container
+  // (wrapRef), which is the loupe's positioned ancestor.
+  const positionMagnifier = useCallback((clientX, clientY) => {
+    const wrap = wrapRef.current;
+    const mag = magWrapRef.current;
+    if (!wrap || !mag) return;
+    const size = magSizeRef.current;
+    const r = wrap.getBoundingClientRect();
+    let left = clientX - r.left < r.width / 2 ? r.width - size - 8 : 8;
+    let top = clientY - r.top < r.height / 2 ? r.height - size - 8 : 8;
+    // keep the loupe fully inside the container
+    left = Math.max(8, Math.min(left, Math.max(8, r.width - size - 8)));
+    top = Math.max(8, Math.min(top, Math.max(8, r.height - size - 8)));
+    mag.style.left = left + 'px';
+    mag.style.top = top + 'px';
+  }, []);
+
+  // Responsive loupe size: follow the viewport breakpoint. Declared AFTER
+  // positionMagnifier/drawMagnifier so nothing in its body reads an
+  // uninitialised const (no TDZ).
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${MAG_BREAKPOINT}px)`);
+    const apply = () => {
+      const next = mq.matches ? MAG_MOBILE : MAG_DESKTOP;
+      magSizeRef.current = next;
+      setMagSize(next);
+    };
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, []);
+
+  // Redraw + reposition the loupe when the size or image state changes. Placed
+  // AFTER drawMagnifier/positionMagnifier so the dependency array is evaluated
+  // only once those consts exist — this is the root-cause fix for the prior TDZ
+  // crash (the dependency array is read during render, before a later-declared
+  // const would be initialised).
+  useEffect(() => {
+    const p = pendingMagRef.current;
+    if (status === 'ready' && p) {
+      drawMagnifier(p.x, p.y);
+      const img = imgRef.current;
+      if (img) {
+        const r = img.getBoundingClientRect();
+        positionMagnifier(r.left + r.width / 2, r.top + r.height / 2);
+      }
+    }
+  }, [magSize, status, drawMagnifier, positionMagnifier]);
 
   // Committed selection: reads the pixel, shows it, matches a traditional color,
   // records history, and emits EXACTLY ONE analytics event. Never called from
@@ -232,9 +291,13 @@ export default function PixelPicker() {
     const cy = Math.floor(h / 2);
     pickPixel(cx, cy);
     drawMagnifier(cx, cy);
+    if (img) {
+      const r = img.getBoundingClientRect();
+      positionMagnifier(r.left + r.width / 2, r.top + r.height / 2);
+    }
     // Only now, after decode + canvas init succeeded, record success.
     track('image_picker_upload_success', {});
-  }, [pickPixel, drawMagnifier]);
+  }, [pickPixel, drawMagnifier, positionMagnifier]);
 
   const onImageError = useCallback(() => {
     setStatus('error');
@@ -329,13 +392,19 @@ export default function PixelPicker() {
   const onPointerDown = (e) => {
     downRef.current = { x: e.clientX, y: e.clientY, t: Date.now() };
     const p = pointerToPixel(e.clientX, e.clientY);
-    if (p) scheduleMagnifier(p.x, p.y); // hover preview only
+    if (p) {
+      scheduleMagnifier(p.x, p.y); // hover preview only
+      positionMagnifier(e.clientX, e.clientY);
+    }
   };
 
   const onPointerMove = (e) => {
     // Magnifier preview only — NO selection, NO analytics (prevents flooding).
     const p = pointerToPixel(e.clientX, e.clientY);
-    if (p) scheduleMagnifier(p.x, p.y);
+    if (p) {
+      scheduleMagnifier(p.x, p.y);
+      positionMagnifier(e.clientX, e.clientY);
+    }
   };
 
   const onPointerUp = (e) => {
@@ -348,7 +417,10 @@ export default function PixelPicker() {
     // Larger moves are page scrolls / drags and must NOT select a pixel.
     if (dist <= 10 && dt <= 600) {
       const p = pointerToPixel(e.clientX, e.clientY);
-      if (p) pickPixel(p.x, p.y);
+      if (p) {
+        pickPixel(p.x, p.y);
+        positionMagnifier(e.clientX, e.clientY);
+      }
     }
   };
 
@@ -372,6 +444,11 @@ export default function PixelPicker() {
     ny = Math.max(0, Math.min(ny, nat.h - 1));
     pickPixel(nx, ny);
     drawMagnifier(nx, ny);
+    const img = imgRef.current;
+    if (img) {
+      const r = img.getBoundingClientRect();
+      positionMagnifier(r.left + r.width / 2, r.top + r.height / 2);
+    }
   };
 
   const pickFromPalette = (hex) => {
@@ -477,12 +554,14 @@ export default function PixelPicker() {
               aria-label="Image color picking area. Click or tap to select a pixel, or use the arrow keys to move the cursor."
               onKeyDown={onKeyDown}
             />
-            {/* Magnifier */}
+            {/* Magnifier — positioned by JS (opposite the cursor) so it never covers the pick point */}
             <div
-              className="absolute bottom-3 right-3 rounded-lg overflow-hidden shadow-lg ring-1 ring-black/10 pointer-events-none"
+              ref={magWrapRef}
+              className="absolute rounded-lg overflow-hidden shadow-lg ring-1 ring-black/10 pointer-events-none"
+              style={{ left: 8, top: 8 }}
               aria-hidden="true"
             >
-              <canvas ref={magRef} width={MAG_SIZE} height={MAG_SIZE} />
+              <canvas ref={magRef} width={magSize} height={magSize} />
             </div>
           </div>
 
