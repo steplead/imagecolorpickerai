@@ -2,7 +2,7 @@ import HomeView from '../../components/HomeView';
 
 export const metadata = {
     title: 'Bild-Farbwähler - HEX-Code & Enzyklopädie Traditioneller Farben | ImageColorPickerAI',
-    description: 'Kostenloser Bild-Farbwähler. HEX-, RGB-, CMYK-Codes extrahieren & traditionelle Farben entdecken. KI-gestützt, keine Anmeldung nötig.',
+    description: 'Kostenloser Bild-Farbwähler. HEX-, RGB-, CMYK-Codes extrahieren & traditionelle Farben entdecken. Keine Anmeldung nötig.',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/de',
         languages: {
@@ -36,7 +36,7 @@ export default function Page() {
                 "name": "Ist dieser Farbwähler kostenlos?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Ja, ImageColorPickerAI ist ein 100% kostenloses Online-Tool mit unbegrenzten Uploads und Palettengenerierungen."
+                    "text": "Ja, ImageColorPickerAI ist ein kostenloses Online-Werkzeug, um Farben auszuwählen und Paletten zu erzeugen."
                 }
             },
             {
@@ -54,9 +54,9 @@ export default function Page() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ImageColorPickerAI",
-        "alternateName": "Bild-Farbwähler KI",
+        "alternateName": "Bild-Farbwähler",
         "url": "https://imagecolorpickerai.com/de",
-        "description": "Kostenloser Online-Bild-Farbwähler mit KI-gesteuerter Enzyklopädie für traditionelle chinesische und japanische Farben",
+        "description": "Kostenloser Online-Bild-Farbwähler mit Enzyklopädie für traditionelle chinesische und japanische Farben",
         "potentialAction": {
             "@type": "SearchAction",
             "target": {

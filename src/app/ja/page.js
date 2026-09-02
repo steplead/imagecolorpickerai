@@ -1,8 +1,8 @@
 import HomeView from '../../components/HomeView';
 
 export const metadata = {
-    title: 'AI画像カラーピッカー - 画像からHEXカラーコードを抽出',
-    description: '無料のオンライン画像カラーピッカー。HEX、RGB、CMYKコードを抽出し、中国と日本の伝統色の意味を即座に発見。AI搭載、登録不要。',
+    title: '画像カラーピッカー - 画像からHEXカラーコードを抽出',
+    description: '無料のオンライン画像カラーピッカー。HEX、RGB、CMYKコードを抽出し、中国と日本の伝統色の意味を即座に発見。登録不要。',
     keywords: '画像カラーピッカー, 16進数カラーピッカー, 色抽出器, RGBからHEX, CMYK変換, 中国の伝統色, 日本の伝統色, カラーパレットジェネレーター, オンラインカラーツール',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/ja',
@@ -37,7 +37,7 @@ export default function Page() {
                 "name": "このカラーピッカーは無料ですか？",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "はい、ImageColorPickerAIは無制限のアップロードとパレット生成を備えた100%無料のオンラインツールです。"
+                    "text": "はい、ImageColorPickerAIは、オンラインの無料カラーピッカーで、色の抽出とパレット生成ができます。"
                 }
             },
             {
@@ -55,9 +55,9 @@ export default function Page() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ImageColorPickerAI",
-        "alternateName": "画像カラーピッカーAI",
+        "alternateName": "画像カラーピッカー",
         "url": "https://imagecolorpickerai.com/ja",
-        "description": "無料のオンライン画像カラーピッカー、AI搭載の中国と日本の伝統色百科事典",
+        "description": "無料のオンライン画像カラーピッカー、中国と日本の伝統色百科事典",
         "potentialAction": {
             "@type": "SearchAction",
             "target": {

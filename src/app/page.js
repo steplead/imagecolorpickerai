@@ -63,7 +63,7 @@ export default function Home() {
         name: 'Is this image color picker free to use?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. The picker runs entirely in your browser — there is no sign-up and no limit on how many images you can open in a session.',
+          text: 'Yes. The picker runs entirely in your browser — there is no sign-up, and you can open and pick colors from your images as you work.',
         },
       },
       {
@@ -97,7 +97,7 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'ImageColorPickerAI',
-    alternateName: 'Image Color Picker AI',
+    alternateName: 'Image Color Picker',
     url: 'https://imagecolorpickerai.com',
     description:
       'Free online image color picker that extracts HEX, RGB, and HSL from any image and links to traditional color meanings.',

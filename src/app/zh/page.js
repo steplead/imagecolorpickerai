@@ -37,7 +37,7 @@ export default function Page() {
                 "name": "这个取色器免费吗？",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "是的，ImageColorPickerAI是一个100%免费的在线工具，具有无限上传和调色板生成功能。"
+                    "text": "是的，ImageColorPickerAI是一个免费的在线取色与调色板生成工具。"
                 }
             },
             {
@@ -55,9 +55,9 @@ export default function Page() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ImageColorPickerAI",
-        "alternateName": "图片取色器AI",
+        "alternateName": "图片取色器",
         "url": "https://imagecolorpickerai.com/zh",
-        "description": "免费在线图片取色器，AI驱动的中国和日本传统色彩百科",
+        "description": "免费在线图片取色器，中国和日本传统色彩百科",
         "potentialAction": {
             "@type": "SearchAction",
             "target": {

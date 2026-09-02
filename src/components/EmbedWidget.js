@@ -40,7 +40,7 @@ export default function EmbedWidget() {
                 <div>
                     <h3 className="text-lg font-bold text-purple-900">Embed This Color Picker</h3>
                     <p className="text-sm text-purple-600">
-                        Add AI-powered color analysis to your website
+                        Add color analysis to your website
                     </p>
                 </div>
             </div>
