@@ -27,13 +27,13 @@ export default function Header() {
         else if (pathname.startsWith('/pt')) currentLocale = 'pt';
 
         const translations = {
-            en: { red: 'Imperial Red', blue: 'Misty Blue', green: 'Jade Valley', scan: 'Color DNA', widget: 'Embed' },
-            zh: { red: '中国红', blue: '雾霾蓝', green: '翡翠谷', scan: 'AI分析师', widget: '嵌入' },
-            ja: { red: '帝国赤', blue: '霧色', green: '翡翠の谷', scan: 'AIアナリスト', widget: '埋め込み' },
-            es: { red: 'Rojo Imperial', blue: 'Azul Nebuloso', green: 'Valle de Jade', scan: 'Analista AI', widget: 'Incrustar' },
-            fr: { red: 'Rouge Impérial', blue: 'Bleu Brumeux', green: 'Vallée de Jade', scan: 'Analyste IA', widget: 'Intégrer' },
-            de: { red: 'Kaiserrot', blue: 'Nebelblau', green: 'Jadeland', scan: 'KI-Analyst', widget: 'Einbetten' },
-            pt: { red: 'Vermelho Imperial', blue: 'Azul Nevoado', green: 'Vale de Jade', scan: 'Analista AI', widget: 'Incorporar' },
+            en: { red: 'Imperial Red', blue: 'Misty Blue', green: 'Jade Valley', scan: 'Color Scan', widget: 'Embed' },
+            zh: { red: '中国红', blue: '雾霾蓝', green: '翡翠谷', scan: '色彩分析师', widget: '嵌入' },
+            ja: { red: '帝国赤', blue: '霧色', green: '翡翠の谷', scan: 'カラーアナリスト', widget: '埋め込み' },
+            es: { red: 'Rojo Imperial', blue: 'Azul Nebuloso', green: 'Valle de Jade', scan: 'Analista de Color', widget: 'Incrustar' },
+            fr: { red: 'Rouge Impérial', blue: 'Bleu Brumeux', green: 'Vallée de Jade', scan: 'Analyste Couleur', widget: 'Intégrer' },
+            de: { red: 'Kaiserrot', blue: 'Nebelblau', green: 'Jadeland', scan: 'Farb-Analyst', widget: 'Einbetten' },
+            pt: { red: 'Vermelho Imperial', blue: 'Azul Nevoado', green: 'Vale de Jade', scan: 'Analista de Cor', widget: 'Incorporar' },
         };
 
         const t = translations[currentLocale] || translations.en;
@@ -62,7 +62,7 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
                 {/* Logo Only (Proportional Size) */}
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group transition-all" title="Image Color Picker AI - Home">
+                <Link href="/" className="flex items-center gap-2 group transition-all" title="Image Color Picker - Home">
                     <div className="bg-neutral-900 p-1.5 rounded-lg text-white group-hover:bg-red-600 transition-colors">
                         <Palette className="w-5 h-5" />
                     </div>

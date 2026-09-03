@@ -2,7 +2,7 @@ import HomeView from '../../components/HomeView';
 
 export const metadata = {
     title: 'Sélecteur de Couleur d\'Image - Obtenir le Code Hex et Encyclopédie des Couleurs Traditionnelles | ImageColorPickerAI',
-    description: 'Sélecteur de couleur d\'image en ligne gratuit. Extrayez les codes HEX, RGB, CMYK et découvrez instantanément les significations des couleurs traditionnelles chinoises et japonaises. Propulsé par l\'IA et sans inscription.',
+    description: 'Sélecteur de couleur d\'image en ligne gratuit. Extrayez les codes HEX, RGB, CMYK et découvrez instantanément les significations des couleurs traditionnelles chinoises et japonaises. Sans inscription.',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/fr',
         languages: {
@@ -36,7 +36,7 @@ export default function Page() {
                 "name": "Ce sélecteur de couleur est-il gratuit ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Oui, ImageColorPickerAI est un outil en ligne 100% gratuit avec des téléchargements et des générations de palettes illimités."
+                    "text": "Oui, ImageColorPickerAI est un outil en ligne gratuit pour choisir des couleurs et générer des palettes."
                 }
             },
             {
@@ -54,9 +54,9 @@ export default function Page() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ImageColorPickerAI",
-        "alternateName": "Sélecteur de Couleur d'Image IA",
+        "alternateName": "Sélecteur de Couleur d'Image",
         "url": "https://imagecolorpickerai.com/fr",
-        "description": "Sélecteur de couleur d'image en ligne gratuit avec encyclopédie des couleurs traditionnelles chinoises et japonaises propulsée par l'IA",
+        "description": "Sélecteur de couleur d'image en ligne gratuit avec encyclopédie des couleurs traditionnelles chinoises et japonaises",
         "potentialAction": {
             "@type": "SearchAction",
             "target": {

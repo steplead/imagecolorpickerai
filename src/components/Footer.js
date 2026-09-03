@@ -15,7 +15,7 @@ export default function Footer() {
 
     const tools = [
         { name: 'Color Picker', href: '/' },
-        { name: 'AI Personal Analyst', href: '/scan' },
+        { name: 'Personal Color Analyst', href: '/scan' },
         { name: 'Color Comparison', href: '/compare/imperial-red-vs-cinnabar' },
         { name: 'Idea Hub', href: '/ideas/fashion' },
     ];
@@ -27,7 +27,7 @@ export default function Footer() {
 
                     {/* Brand Column */}
                     <div className="col-span-1 md:col-span-1">
-                        <Link href="/" className="flex items-center gap-2 mb-4 group" title="Image Color Picker AI - Home Catalog">
+                        <Link href="/" className="flex items-center gap-2 mb-4 group" title="Image Color Picker - Home Catalog">
                             <div className="bg-neutral-900 p-1.5 rounded-lg group-hover:bg-red-900 transition-colors">
                                 <Palette className="w-5 h-5 text-white" />
                             </div>
@@ -86,7 +86,7 @@ export default function Footer() {
                             className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 text-white rounded-lg text-sm font-medium hover:bg-neutral-800 transition shadow-sm"
                         >
                             <Sparkles className="w-4 h-4 text-amber-400" />
-                            Try Personal Analyst
+                            Try the Color Analyst
                         </Link>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-neutral-50 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-neutral-400">
-                        &copy; {currentYear} ImageColorPickerAI. All rights reserved. Built for designers, historians, and AI enthusiasts.
+                        &copy; {currentYear} ImageColorPickerAI. All rights reserved. Built for designers, historians, and color enthusiasts.
                     </p>
                     <div className="flex flex-wrap justify-center gap-6 text-xs text-neutral-400">
                         <Link href="/about" className="hover:text-neutral-600 transition" title="About ImageColorPickerAI">About</Link>

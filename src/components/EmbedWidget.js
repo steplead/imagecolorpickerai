@@ -19,7 +19,7 @@ export default function EmbedWidget() {
   width="100%"
   height="500"
   style="border: 1px solid #e5e5e5; border-radius: 12px;"
-  title="AI Color Picker by ImageColorPickerAI">
+  title="Image Color Picker by ImageColorPickerAI">
 </iframe>
 <p style="text-align: center; margin-top: 8px; font-size: 12px; color: #666;">
   Powered by <a href="https://imagecolorpickerai.com" target="_blank" rel="noopener">ImageColorPickerAI</a>
@@ -40,7 +40,7 @@ export default function EmbedWidget() {
                 <div>
                     <h3 className="text-lg font-bold text-purple-900">Embed This Color Picker</h3>
                     <p className="text-sm text-purple-600">
-                        Add AI-powered color analysis to your website
+                        Add color analysis to your website
                     </p>
                 </div>
             </div>
@@ -71,8 +71,7 @@ export default function EmbedWidget() {
             <div className="mt-4 p-4 bg-white/50 rounded-lg">
                 <p className="text-xs text-purple-700 leading-relaxed">
                     <strong>Why embed?</strong> Your visitors get a professional color picker,
-                    and you support open-source development. The widget includes a subtle attribution
-                    link that helps others discover this tool.
+                    and help others discover this tool. The widget includes a subtle attribution link back to this tool.
                 </p>
             </div>
 

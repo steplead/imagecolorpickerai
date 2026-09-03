@@ -2,7 +2,7 @@ import HomeView from '../../components/HomeView';
 
 export const metadata = {
     title: 'Selector Color Imagen - HEX & Enciclopedia Tradicional | ImageColorPickerAI',
-    description: 'Selector color imagen gratuito. Extrae códigos HEX, RGB, CMYK y descubre colores tradicionales chinos y japoneses. Potenciado por IA, sin registro.',
+    description: 'Selector color imagen gratuito. Extrae códigos HEX, RGB, CMYK y descubre colores tradicionales chinos y japoneses. Sin registro.',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/es',
         languages: {
@@ -36,7 +36,7 @@ export default function Page() {
                 "name": "¿Es gratis este selector de color?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, ImageColorPickerAI es una herramienta en línea 100% gratuita con subidas y generaciones de paletas ilimitadas."
+                    "text": "Sí, ImageColorPickerAI es una herramienta en línea gratuita para elegir colores y generar paletas."
                 }
             },
             {
@@ -54,9 +54,9 @@ export default function Page() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ImageColorPickerAI",
-        "alternateName": "Selector de Color de Imagen AI",
+        "alternateName": "Selector de Color de Imagen",
         "url": "https://imagecolorpickerai.com/es",
-        "description": "Selector de color de imagen gratuito en línea con enciclopedia de colores tradicionales chinos y japoneses impulsada por IA",
+        "description": "Selector de color de imagen gratuito en línea con enciclopedia de colores tradicionales chinos y japoneses",
         "potentialAction": {
             "@type": "SearchAction",
             "target": {
