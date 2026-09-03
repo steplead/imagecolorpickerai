@@ -15,7 +15,7 @@ export default function Footer() {
 
     const tools = [
         { name: 'Color Picker', href: '/' },
-        { name: 'Personal Color Analyst', href: '/scan' },
+        { name: 'Color Style Scan', href: '/scan' },
         { name: 'Color Comparison', href: '/compare/imperial-red-vs-cinnabar' },
         { name: 'Idea Hub', href: '/ideas/fashion' },
     ];
@@ -86,7 +86,7 @@ export default function Footer() {
                             className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 text-white rounded-lg text-sm font-medium hover:bg-neutral-800 transition shadow-sm"
                         >
                             <Sparkles className="w-4 h-4 text-amber-400" />
-                            Try the Color Analyst
+                            Try Color Style Scan
                         </Link>
                     </div>
                 </div>

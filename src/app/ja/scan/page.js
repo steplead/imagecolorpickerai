@@ -2,8 +2,8 @@ import PersonalColorAnalyst from '../../../components/PersonalColorAnalyst';
 import JsonLd from '../../../components/JsonLd';
 
 export const metadata = {
-    title: 'AIパーソナルカラー分析 - あなたの伝統的なオーラを見つける | ImageColorPickerAI',
-    description: 'プロフェッショナルなAIパーソナルカラー分析。自撮りをアップロードして、あなただけの伝統色オーラを見つけましょう。100%無料、登録不要。',
+    title: 'カラースタイルスキャン - あなたの伝統色を見つける | ImageColorPickerAI',
+    description: '任意の画像をアップロードして、あなただけの伝統色パレットを発見。無料で使えて、登録不要。',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/ja/scan',
         languages: {
@@ -23,8 +23,8 @@ export default function Page() {
     const howToSchema = {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        "name": "AIパーソナルカラーアンティストの使い方",
-        "description": "AI顔色分析を使用して独自の伝統的な中国の色オーラを見つける方法を学ぶ",
+        "name": "カラースタイルスキャンの使い方",
+        "description": "任意の画像をパーソナライズされた伝統色パレットに変える方法を学ぶ",
         "image": "https://imagecolorpickerai.com/images/how-to-scan.png",
         "totalTime": "PT2M",
         "estimatedCost": {
@@ -35,7 +35,7 @@ export default function Page() {
         "supply": [
             {
                 "@type": "HowToSupply",
-                "name": "Digital photo of your face"
+                "name": "任意の画像（写真、イラスト、スクリーンショット）",
             }
         ],
         "tool": [
@@ -47,22 +47,22 @@ export default function Page() {
         "step": [
             {
                 "@type": "HowToStep",
-                "name": "鮮明な写真を撮影またはアップロード",
-                "text": "鮮明な顔の写真を選択してください。良好な照明とニュートラルな背景が、正確な色分析に最適です。",
+                "name": "画像をアップロード",
+                "text": "明るい照明とニュートラルな背景の鮮明な画像を選ぶと、最も良い色抽出ができます。",
                 "image": "https://imagecolorpickerai.com/images/step1-upload.png",
                 "url": "https://imagecolorpickerai.com/ja/scan#step1"
             },
             {
                 "@type": "HowToStep",
-                "name": "AIが特徴を分析",
-                "text": "AIが顔の特徴、肌のアンダートーン、全体的な色彩を分析して、個人の色彩調和を判断します。",
+                "name": "色彩を読み取り",
+                "text": "画像から主要な色とパレットを抽出し、あなたの個人的な色彩調和を構成します。",
                 "image": "https://imagecolorpickerai.com/images/step2-analyze.png",
                 "url": "https://imagecolorpickerai.com/ja/scan#step2"
             },
             {
                 "@type": "HowToStep",
                 "name": "カラーパレットを取得",
-                "text": "数千年の色理論と美学に基づいて、個人向けの伝統的な中国の色オーラマッチを受け取ります。",
+                "text": "数千年の色彩理論と美学に基づいて、あなた専用の伝統色パレットを生成します。",
                 "image": "https://imagecolorpickerai.com/images/step3-result.png",
                 "url": "https://imagecolorpickerai.com/ja/scan#step3"
             }

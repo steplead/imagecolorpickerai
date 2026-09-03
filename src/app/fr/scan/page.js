@@ -2,8 +2,8 @@ import PersonalColorAnalyst from '../../../components/PersonalColorAnalyst';
 import JsonLd from '../../../components/JsonLd';
 
 export const metadata = {
-    title: 'Analyse Couleur IA - Trouvez Aura Traditionnelle | ImageColorPickerAI',
-    description: 'Analyse couleur IA. Téléchargez un selfie pour découvrir votre aura traditionnelle unique. 100% gratuit, sans inscription.',
+    title: 'Scan de Style de Couleur - Trouvez votre Palette Traditionnelle | ImageColorPickerAI',
+    description: 'Importez une image pour découvrir votre palette de couleurs traditionnelle personnalisée. Gratuit, sans inscription.',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/fr/scan',
         languages: {
@@ -23,8 +23,8 @@ export default function Page() {
     const howToSchema = {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        "name": "Comment utiliser le Analyste de Couleur Personnel IA",
-        "description": "Découvrez comment trouver votre aura de couleur traditionnelle chinoise unique en utilisant l'analyse faciale par IA",
+        "name": "Comment utiliser le Scan de Style de Couleur",
+        "description": "Découvrez comment transformer n'importe quelle image en palette de couleurs traditionnelle personnalisée",
         "image": "https://imagecolorpickerai.com/images/how-to-scan.png",
         "totalTime": "PT2M",
         "estimatedCost": {
@@ -35,7 +35,7 @@ export default function Page() {
         "supply": [
             {
                 "@type": "HowToSupply",
-                "name": "Digital photo of your face"
+                "name": "Toute image (photo, illustration ou capture d'écran)"
             }
         ],
         "tool": [
@@ -47,22 +47,22 @@ export default function Page() {
         "step": [
             {
                 "@type": "HowToStep",
-                "name": "Prendre ou télécharger une photo claire",
-                "text": "Sélectionnez une photo claire de votre visage. Un bon éclairage et un fond neutre fonctionnent le mieux pour une analyse précise des couleurs.",
+                "name": "Importez une image",
+                "text": "Choisissez une image claire avec un bon éclairage et un fond neutre pour la meilleure extraction de couleurs.",
                 "image": "https://imagecolorpickerai.com/images/step1-upload.png",
                 "url": "https://imagecolorpickerai.com/fr/scan#step1"
             },
             {
                 "@type": "HowToStep",
-                "name": "L'IA analyse vos caractéristiques",
-                "text": "Notre IA analyse vos traits faciaux, vos tons de peau et votre coloration globale pour déterminer votre harmonie de couleurs personnelle.",
+                "name": "Nous lisons vos couleurs",
+                "text": "Nous extrayons les couleurs dominantes et la palette de votre image pour créer votre harmonie de couleurs personnelle.",
                 "image": "https://imagecolorpickerai.com/images/step2-analyze.png",
                 "url": "https://imagecolorpickerai.com/fr/scan#step2"
             },
             {
                 "@type": "HowToStep",
                 "name": "Obtenez votre palette de couleurs",
-                "text": "Recevez votre correspondance d'aura de couleur traditionnelle chinoise personnalisée basée sur des milliers d'années de théorie et d'esthétique des couleurs.",
+                "text": "Recevez votre palette de couleurs traditionnelle personnalisée basée sur des milliers d'années de théorie et d'esthétique des couleurs.",
                 "image": "https://imagecolorpickerai.com/images/step3-result.png",
                 "url": "https://imagecolorpickerai.com/fr/scan#step3"
             }

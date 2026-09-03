@@ -15,20 +15,20 @@ export default function PersonalColorAnalyst({ locale = 'en' }) {
 
     const labels = {
         en: {
-            title: "Upload a Selfie",
-            desc: "Ensure good lighting. We'll analyze your undertones to find your color match.",
+            title: "Upload an Image",
+            desc: "Good lighting helps. We'll read the colors in your image to suggest a matching palette.",
             btnSelect: "Select Photo",
-            btnReveal: "Reveal My Aura",
-            analyzing: "Reading Aura...",
+            btnReveal: "Reveal My Palette",
+            analyzing: "Reading colors...",
             complete: "Analysis Complete",
-            yourAura: "Your Aura is",
+            yourAura: "Your Palette is",
             meaning: "Global Meaning",
             tryAgain: "Try Again",
             tip: "Choose diverse photo"
         },
         zh: {
-            title: "上传一张自拍",
-            desc: "确保光线充足。我们将分析您的肤色底色以找到您的颜色匹配。",
+            title: "上传一张图片",
+            desc: "光线充足效果更好。我们将读取您图片中的色彩，为您推荐合适的配色。",
             btnSelect: "选择照片",
             btnReveal: "揭晓我的色彩图谱",
             analyzing: "正在读取图谱...",
@@ -39,61 +39,61 @@ export default function PersonalColorAnalyst({ locale = 'en' }) {
             tip: "尝试不同的光线"
         },
         ja: {
-            title: "自撮りをアップロード",
-            desc: "照明が十分であることを確認してください。アンダートーンを分析して、あなたにぴったりの色を見つけます。",
+            title: "画像をアップロード",
+            desc: "明るい照明があると効果的です。画像内の色を読み取り、ぴったりの伝統色を提案します。",
             btnSelect: "写真を選択",
-            btnReveal: "オーラを明らかにする",
-            analyzing: "オーラを読み取り中...",
+            btnReveal: "パレットを明らかにする",
+            analyzing: "色を読み取り中...",
             complete: "分析完了",
-            yourAura: "あなたのオーラは",
+            yourAura: "あなたのパレットは",
             meaning: "グローバルな意味",
             tryAgain: "もう一度",
             tip: "別の写真を選択"
         },
         es: {
-            title: "Sube un Selfie",
-            desc: "Asegúrate de tener buena iluminación. Analizaremos tus matices para encontrar tu combinación de colores.",
+            title: "Sube una imagen",
+            desc: "Buena iluminación ayuda. Leeremos los colores de tu imagen para sugerir una combinación.",
             btnSelect: "Seleccionar foto",
-            btnReveal: "Revelar mi aura",
-            analyzing: "Leyendo aura...",
+            btnReveal: "Revelar mi paleta",
+            analyzing: "Leyendo colores...",
             complete: "Análisis completo",
-            yourAura: "Tu aura es",
+            yourAura: "Tu paleta es",
             meaning: "Significado global",
             tryAgain: "Intentar de nuevo",
             tip: "Elegir foto diversa"
         },
         fr: {
-            title: "Téléchargez un selfie",
-            desc: "Assurez-vous d'avoir un bon éclairage. Nous analyserons vos sous-tons pour trouver votre correspondance de couleur.",
+            title: "Téléchargez une image",
+            desc: "Un bon éclairage aide. Nous lirons les couleurs de votre image pour suggérer une palette.",
             btnSelect: "Sélectionner une photo",
-            btnReveal: "Révéler mon aura",
-            analyzing: "Lecture de l'aura...",
+            btnReveal: "Révéler ma palette",
+            analyzing: "Lecture des couleurs...",
             complete: "Analyse terminée",
-            yourAura: "Votre aura est",
+            yourAura: "Votre palette est",
             meaning: "Signification globale",
             tryAgain: "Réessayer",
             tip: "Choisir une autre photo"
         },
         de: {
-            title: "Lade ein Selfie hoch",
-            desc: "Achte auf gute Beleuchtung. Wir analysieren deine Untertöne, um dein Farbergebnis zu finden.",
+            title: "Lade ein Bild hoch",
+            desc: "Gute Beleuchtung hilft. Wir lesen die Farben deines Bildes, um eine passende Palette vorzuschlagen.",
             btnSelect: "Foto auswählen",
-            btnReveal: "Meine Aura enthüllen",
-            analyzing: "Aura wird gelesen...",
+            btnReveal: "Meine Palette enthüllen",
+            analyzing: "Farben werden gelesen...",
             complete: "Analyse abgeschlossen",
-            yourAura: "Deine Aura ist",
+            yourAura: "Deine Palette ist",
             meaning: "Globale Bedeutung",
             tryAgain: "Erneut versuchen",
             tip: "Anderes Foto wählen"
         },
         pt: {
-            title: "Carregue uma selfie",
-            desc: "Garanta uma boa iluminação. Analisaremos seus tons para encontrar sua combinação de cores.",
+            title: "Carregue uma imagem",
+            desc: "Boa iluminação ajuda. Leremos as cores da sua imagem para sugerir uma combinação.",
             btnSelect: "Selecionar foto",
-            btnReveal: "Revelar minha aura",
-            analyzing: "Lendo aura...",
+            btnReveal: "Revelar minha paleta",
+            analyzing: "Lendo cores...",
             complete: "Análise concluída",
-            yourAura: "Sua aura é",
+            yourAura: "Sua paleta é",
             meaning: "Significado global",
             tryAgain: "Tentar novamente",
             tip: "Escolher outra foto"
@@ -115,19 +115,19 @@ export default function PersonalColorAnalyst({ locale = 'en' }) {
         }
     };
 
-    // 2. The "Aura" Algorithm
+    // 2. The Color Palette Algorithm
     const analyzeAura = () => {
         if (!imgRef.current) return;
         setAnalyzing(true);
 
-        // Simulate "AI Thinking" time for UX drama
+        // Brief delay for UX feedback
         setTimeout(() => {
             try {
                 const colorThief = new ColorThief();
                 const dominantColor = colorThief.getColor(imgRef.current); // [r, g, b]
 
                 // Convert to simplistic "Season" (Warm vs Cool)
-                // R > B usually indicates Warm/Neutral skin tones
+                // R > B usually indicates warm-leaning palettes
                 const [r, g, b] = dominantColor;
                 const isWarm = r > b;
 
@@ -157,8 +157,8 @@ export default function PersonalColorAnalyst({ locale = 'en' }) {
                     aura: match,
                     season: isWarm ? 'Autumn/Spring (Warm)' : 'Winter/Summer (Cool)',
                     desc: isWarm
-                        ? "Your skin radiates a golden warmth. Your aura aligns with the vitality of the earth and sun."
-                        : "Your skin holds a porcelain cool elegance. Your aura aligns with the tranquility of water and moon."
+                    ? "Your palette leans warm and vibrant, echoing earth and sun."
+                    : "Your palette leans cool and serene, echoing water and moon."
                 });
 
             } catch (err) {

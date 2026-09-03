@@ -2,8 +2,8 @@ import PersonalColorAnalyst from '../../components/PersonalColorAnalyst';
 import JsonLd from '../../components/JsonLd';
 
 export const metadata = {
-    title: 'AI Color Analysis - Find Your Traditional Color Aura | ImageColorPickerAI',
-    description: 'Professional AI Personal Color Analysis. Upload a selfie to discover your unique Traditional Chinese Color Aura match. 100% Free & No-sign up.',
+    title: 'Color Style Scan - Find Your Traditional Color Palette | ImageColorPickerAI',
+    description: 'Upload any image to discover your personal traditional color palette. Free to use, no sign-up.',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/scan',
         languages: {
@@ -18,7 +18,7 @@ export const metadata = {
         },
     },
     openGraph: {
-        title: 'I found my Traditional Color Aura! What is yours?',
+        title: 'I found my color palette! What is yours?',
         description: 'Discover your unique color match from 588 traditional shades.',
         images: ['/images/share-card-preview.jpg'], // Placeholder for viral card
     },
@@ -28,7 +28,7 @@ export default function PersonalColorPage() {
     const appSchema = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "AI Personal Color Analyst",
+        "name": "Color Style Scan",
         "applicationCategory": "DesignApplication",
         "operatingSystem": "Web",
         "offers": {
@@ -41,8 +41,8 @@ export default function PersonalColorPage() {
     const howToSchema = {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        "name": "How to Use AI Personal Color Analyst",
-        "description": "Learn how to discover your unique Traditional Chinese Color Aura using AI-powered face analysis",
+        "name": "How to Use Color Style Scan",
+        "description": "Learn how to turn any image into a personalized traditional color palette",
         "image": "https://imagecolorpickerai.com/images/how-to-scan.png",
         "totalTime": "PT2M",
         "estimatedCost": {
@@ -53,7 +53,7 @@ export default function PersonalColorPage() {
         "supply": [
             {
                 "@type": "HowToSupply",
-                "name": "Digital photo of your face"
+                "name": "Any image (photo, artwork, or screenshot)"
             }
         ],
         "tool": [
@@ -65,22 +65,22 @@ export default function PersonalColorPage() {
         "step": [
             {
                 "@type": "HowToStep",
-                "name": "Take or upload a clear photo",
-                "text": "Select a clear photo of your face. Good lighting and a neutral background work best for accurate color analysis.",
+                "name": "Upload an image",
+                "text": "Choose a clear image with good lighting and a neutral background for the best color extraction.",
                 "image": "https://imagecolorpickerai.com/images/step1-upload.png",
                 "url": "https://imagecolorpickerai.com/scan#step1"
             },
             {
                 "@type": "HowToStep",
-                "name": "AI analyzes your features",
-                "text": "Our AI analyzes your facial features, skin undertones, and overall coloring to determine your personal color harmony.",
+                "name": "We read your colors",
+                "text": "We extract the dominant colors and palette from your image to build your personal color harmony.",
                 "image": "https://imagecolorpickerai.com/images/step2-analyze.png",
                 "url": "https://imagecolorpickerai.com/scan#step2"
             },
             {
                 "@type": "HowToStep",
                 "name": "Get your color palette",
-                "text": "Receive your personalized Traditional Chinese Color Aura match based on thousands of years of color theory and aesthetics.",
+                "text": "Receive your personalized traditional color palette based on thousands of years of color theory and aesthetics.",
                 "image": "https://imagecolorpickerai.com/images/step3-result.png",
                 "url": "https://imagecolorpickerai.com/scan#step3"
             }
@@ -96,13 +96,13 @@ export default function PersonalColorPage() {
                     New Viral Feature
                 </span>
                 <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
-                    What is your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-600">Color Aura</span>?
+                    What is your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-600">color style</span>?
                 </h1>
                 <p className="text-lg text-neutral-600 font-serif italic">
                     "The face is the mirror of the soul, and color is its language."
                 </p>
                 <p className="text-sm text-neutral-400 mt-2">
-                    Our AI analyzes your skin tone harmony to find your perfect Traditional Chinese Color match.
+                    Upload an image and we'll turn its colors into a personal traditional color palette you can use anywhere.
                 </p>
             </div>
 
@@ -111,7 +111,7 @@ export default function PersonalColorPage() {
 
             {/* Privacy Section */}
             <div className="max-w-md mt-12 text-center text-xs text-neutral-400">
-                <p>🔒 Privacy First: Analysis happens 100% on your device.</p>
+                <p>🔒 Private: your image is processed right in your browser.</p>
                 <p>Your photos are never uploaded to our servers.</p>
             </div>
         </main>
