@@ -168,7 +168,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
                                 <div>
                                     <h1 id="color-name" className="text-4xl font-bold text-neutral-900 mb-2">{color.name}</h1>
-                                    <p className="text-xl font-serif text-neutral-500 italic">{color.nativeName} ({color.phoneticName})</p>
+                                    <p className="text-xl font-serif text-neutral-500 italic">{color.nativeName}{color.phoneticName ? ` (${color.phoneticName})` : ''}</p>
                                 </div>
                                 <div className="flex flex-col md:items-end">
                                     <span className="text-3xl font-mono font-bold text-neutral-800 tracking-wider">{color.hex}</span>

@@ -161,13 +161,13 @@ export default async function CombinationPage({ params }) {
             {/* Individual Links */}
             <div className="flex justify-center gap-6 mb-12">
                 <Link
-                    href={`/color/${color1.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/color/${color1.id}`}
                     className="px-6 py-3 bg-white border border-neutral-200 rounded-xl hover:bg-neutral-50 font-bold"
                 >
                     View {color1.name} Details
                 </Link>
                 <Link
-                    href={`/color/${color2.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/color/${color2.id}`}
                     className="px-6 py-3 bg-white border border-neutral-200 rounded-xl hover:bg-neutral-50 font-bold"
                 >
                     View {color2.name} Details
