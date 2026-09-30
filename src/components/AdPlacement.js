@@ -34,8 +34,6 @@ export default function AdPlacement({ slot, format = 'auto', responsive = 'true'
 
     return (
         <div className={`w-full overflow-hidden my-8 ${className}`}>
-            <span className="block text-[10px] text-neutral-300 uppercase tracking-widest mb-2 text-center">Advertisement</span>
-
             {/* Ad Container with Skeleton */}
             <div className={`relative min-h-[100px] w-full bg-neutral-50 rounded-xl border border-neutral-100 flex items-center justify-center transition-opacity duration-500 ${adLoaded ? 'opacity-100' : 'opacity-80'}`}>
                 {!adLoaded && (

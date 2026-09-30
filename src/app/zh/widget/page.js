@@ -1,6 +1,8 @@
 import EmbedWidget from '@/components/EmbedWidget';
 import Link from 'next/link';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export async function generateMetadata() {
     return {
         title: '嵌入AI取色器小工具 - 免费集成 | 图片取色器AI',
@@ -18,21 +20,7 @@ export async function generateMetadata() {
                 'x-default': 'https://imagecolorpickerai.com/widget',
             },
         },
-        openGraph: {
-            title: '嵌入AI取色器小工具 - 免费集成',
-            description: '将我们AI驱动的取色器添加到您的网站。免费的iframe小工具，附带归因链接。',
-            url: 'https://imagecolorpickerai.com/zh/widget',
-            siteName: 'ImageColorPickerAI',
-            images: [
-                {
-                    url: 'https://imagecolorpickerai.com/api/og/widget-zh.png',
-                    width: 1200,
-                    height: 630,
-                }
-            ],
-            locale: 'zh_CN',
-            type: 'website',
-        },
+        ...socialMeta({ title: '嵌入AI取色器小工具 - 免费集成 | 图片取色器AI', description: '将我们AI驱动的取色器添加到您的网站。免费的iframe小工具，附带归因链接。非常适合设计师、开发者和色彩爱好者。', path: '/zh/widget' }),
     };
 }
 

@@ -1,8 +1,11 @@
 import LegalView from '../../../components/LegalView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: '服务条款 - ImageColorPickerAI',
     description: '使用 ImageColorPickerAI 的条款和条件。专业的取色与 AI 生成服务。',
+    ...socialMeta({ title: '服务条款 - ImageColorPickerAI', description: '使用 ImageColorPickerAI 的条款和条件。专业的取色与 AI 生成服务。', path: '/zh/terms-of-service' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/zh/terms-of-service',
         languages: {

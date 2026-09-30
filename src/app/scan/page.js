@@ -1,5 +1,6 @@
 import PersonalColorAnalyst from '../../components/PersonalColorAnalyst';
 import JsonLd from '../../components/JsonLd';
+import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
     title: 'Color Style Scan - Find Your Traditional Color Palette | ImageColorPickerAI',
@@ -17,11 +18,9 @@ export const metadata = {
             'x-default': 'https://imagecolorpickerai.com/scan',
         },
     },
-    openGraph: {
-        title: 'I found my color palette! What is yours?',
-        description: 'Discover your unique color match from 588 traditional shades.',
-        images: ['/images/share-card-preview.jpg'], // Placeholder for viral card
-    },
+    // og:image switched to /og-image.png: the previous share-card image
+    // (/images/share-card-preview.jpg) does not exist on disk (404).
+    ...socialMeta({ title: 'Color Style Scan - Find Your Traditional Color Palette | ImageColorPickerAI', description: 'Upload any image to discover your personal traditional color palette. Free to use, no sign-up.', path: '/scan' }),
 };
 
 export default function PersonalColorPage() {

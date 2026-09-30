@@ -1,8 +1,11 @@
 import HomeView from '../../components/HomeView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: 'Seletor Cores Imagem - HEX & Enciclopédia Tradicional | ImageColorPickerAI',
     description: 'Seletor cores imagem gratuito. Extraia códigos HEX, RGB, CMYK e descubra cores tradicionais chinesas e japonesas. Sem registro.',
+    ...socialMeta({ title: 'Seletor Cores Imagem - HEX & Enciclopédia Tradicional | ImageColorPickerAI', description: 'Seletor cores imagem gratuito. Extraia códigos HEX, RGB, CMYK e descubra cores tradicionais chinesas e japonesas. Sem registro.', path: '/pt' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/pt',
         languages: {

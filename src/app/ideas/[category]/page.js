@@ -4,6 +4,7 @@ import { ArrowRight, ArrowLeft } from 'lucide-react';
 import JsonLd from '../../../components/JsonLd';
 import { IDEA_CATEGORIES, getColorsForCategory } from '../../../utils/ideaUtils';
 import EmbedWidget from '../../../components/EmbedWidget';
+import { socialMeta } from '@/lib/socialMeta';
 
 // 1. Generate Static Paths for all Categories
 export async function generateStaticParams() {
@@ -22,6 +23,11 @@ export async function generateMetadata({ params }) {
     return {
         title: `Traditional Chinese Colors for ${catData.title} - Meaning & Palette | ImageColorPickerAI`,
         description: `Explore ${getColorsForCategory(category).length} curated traditional Chinese colors for ${catData.title.toLowerCase()}. Meanings, hex codes & design inspiration.`,
+        ...socialMeta({
+            title: `Traditional Chinese Colors for ${catData.title} - Meaning & Palette | ImageColorPickerAI`,
+            description: `Explore ${getColorsForCategory(category).length} curated traditional Chinese colors for ${catData.title.toLowerCase()}. Meanings, hex codes & design inspiration.`,
+            path: `/ideas/${category}`,
+        }),
         alternates: {
             canonical: `/ideas/${category}`,
         },

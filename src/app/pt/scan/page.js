@@ -1,9 +1,12 @@
 import PersonalColorAnalyst from '../../../components/PersonalColorAnalyst';
 import JsonLd from '../../../components/JsonLd';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: 'Scan de Estilo de Cor - Encontre sua Paleta Tradicional | ImageColorPickerAI',
     description: 'Carregue qualquer imagem para descobrir sua paleta de cores tradicional personalizada. Grátis, sem registro.',
+    ...socialMeta({ title: 'Scan de Estilo de Cor - Encontre sua Paleta Tradicional | ImageColorPickerAI', description: 'Carregue qualquer imagem para descobrir sua paleta de cores tradicional personalizada. Grátis, sem registro.', path: '/pt/scan' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/pt/scan',
         languages: {

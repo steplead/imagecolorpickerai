@@ -1,8 +1,11 @@
 import IdeasHub from '../../../components/IdeasHub';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: 'Inspiración Color & Ideas Paletas - Diseño Tradicional | ImageColorPickerAI',
     description: 'Inspiración de color curada para su próximo proyecto. Explore paletas tradicionales para bodas, branding y diseño de interiores. Guía de diseño profesional.',
+    ...socialMeta({ title: 'Inspiración Color & Ideas Paletas - Diseño Tradicional | ImageColorPickerAI', description: 'Inspiración de color curada para su próximo proyecto. Explore paletas tradicionales para bodas, branding y diseño de interiores. Guía de diseño profesional.', path: '/es/ideas' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/es/ideas',
         languages: {

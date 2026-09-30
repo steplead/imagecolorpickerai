@@ -1,9 +1,9 @@
 import HomeView from '../components/HomeView';
 
 export const metadata = {
-  title: 'Image Color Picker – Pick HEX, RGB & HSL From Any Image',
+  title: 'Colors From Image & Hex Code From Image – Free Color Picker',
   description:
-    'Upload an image and pick HEX, RGB, and HSL colors from any pixel. Free, no sign-up, and processed directly in your browser.',
+    'Free online color picker — get colors from image and the hex code from image in one click, with HEX, RGB & HSL values, palette, and one-click copy.',
   keywords:
     'image color picker, hex color picker, color extractor, pick color from image, rgb to hex, hsl color picker, color palette from image, online color tool',
   alternates: {
@@ -20,9 +20,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'Image Color Picker – Pick HEX, RGB & HSL From Any Image',
+    title: 'Colors From Image & Hex Code From Image – Free Color Picker',
     description:
-      'Upload an image and pick HEX, RGB, and HSL colors from any pixel. Free, no sign-up, and processed directly in your browser.',
+      'Free online color picker — get colors from image and the hex code from image in one click, with HEX, RGB & HSL values, palette, and one-click copy.',
     url: 'https://imagecolorpickerai.com',
     siteName: 'ImageColorPickerAI',
     images: [
@@ -38,9 +38,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Image Color Picker – Pick HEX, RGB & HSL From Any Image',
+    title: 'Colors From Image & Hex Code From Image – Free Color Picker',
     description:
-      'Upload an image and pick HEX, RGB, and HSL colors from any pixel. Free, no sign-up, and processed directly in your browser.',
+      'Free online color picker — get colors from image and the hex code from image in one click, with HEX, RGB & HSL values, palette, and one-click copy.',
     images: ['/og-image.png'],
   },
 };

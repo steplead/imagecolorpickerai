@@ -1,8 +1,11 @@
 import ContactView from '../../../components/ContactView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: 'Kontaktieren Sie uns - Feedback & Support | ImageColorPickerAI',
     description: 'Kontaktieren Sie das Team von ImageColorPickerAI. Melden Sie Fehler, schlagen Sie Funktionen vor oder fordern Sie eine Zusammenarbeit an.',
+    ...socialMeta({ title: 'Kontaktieren Sie uns - Feedback & Support | ImageColorPickerAI', description: 'Kontaktieren Sie das Team von ImageColorPickerAI. Melden Sie Fehler, schlagen Sie Funktionen vor oder fordern Sie eine Zusammenarbeit an.', path: '/de/contact' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/de/contact',
         languages: {

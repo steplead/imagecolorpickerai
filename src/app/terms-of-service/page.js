@@ -1,8 +1,11 @@
 import LegalView from '../../components/LegalView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: 'Terms of Service - ImageColorPickerAI',
     description: 'The terms and conditions for using ImageColorPickerAI. Professional color extraction and AI generation services.',
+    ...socialMeta({ title: 'Terms of Service - ImageColorPickerAI', description: 'The terms and conditions for using ImageColorPickerAI. Professional color extraction and AI generation services.', path: '/terms-of-service' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/terms-of-service',
         languages: {

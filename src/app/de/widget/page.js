@@ -1,6 +1,8 @@
 import EmbedWidget from '@/components/EmbedWidget';
 import Link from 'next/link';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export async function generateMetadata() {
     return {
         title: 'KI-Farbwähler-Widget Einbetten - Kostenlose Integration | ImageColorPickerAI',
@@ -18,15 +20,7 @@ export async function generateMetadata() {
                 'x-default': 'https://imagecolorpickerai.com/widget',
             },
         },
-        openGraph: {
-            title: 'KI-Farbwähler-Widget Einbetten - Kostenlose Integration',
-            description: 'Fügen Sie unseren KI-gesteuerten Farbwähler zu Ihrer Website hinzu.',
-            url: 'https://imagecolorpickerai.com/de/widget',
-            siteName: 'ImageColorPickerAI',
-            images: [{ url: 'https://imagecolorpickerai.com/api/og/widget-de.png', width: 1200, height: 630 }],
-            locale: 'de_DE',
-            type: 'website',
-        },
+        ...socialMeta({ title: 'KI-Farbwähler-Widget Einbetten - Kostenlose Integration | ImageColorPickerAI', description: 'Fügen Sie unseren KI-gesteuerten Farbwähler zu Ihrer Website hinzu. Kostenloses iframe-Widget mit Attributionslink. Perfekt für Designer, Entwickler und Farbfans.', path: '/de/widget' }),
     };
 }
 

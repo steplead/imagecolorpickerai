@@ -1,5 +1,6 @@
 import { getColorById, getAllColors, getCollectionMetadata } from '../../../utils/colorData';
 import { ColorDetailView } from '../../../components/ColorDetailView';
+import { socialMeta } from '@/lib/socialMeta';
 
 // 1. Generate Static Params for all 500+ colors (Global)
 export async function generateStaticParams() {
@@ -23,6 +24,11 @@ export async function generateMetadata({ params }) {
     return {
         title: `${shortName} (${color.nativeName}) - ${color.hex} | ${collectionShort} Color`,
         description: `${color.name} (${color.nativeName}, ${color.hex}) - ${color.meaning} Check WCAG accessibility contrast and color blindness simulation.`,
+        ...socialMeta({
+            title: `${shortName} (${color.nativeName}) - ${color.hex} | ${collectionShort} Color`,
+            description: `${color.name} (${color.nativeName}, ${color.hex}) - ${color.meaning} Check WCAG accessibility contrast and color blindness simulation.`,
+            path: `/color/${color.id}`,
+        }),
         alternates: {
             canonical: `https://imagecolorpickerai.com/color/${color.id}`,
             languages: {

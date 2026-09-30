@@ -1,8 +1,11 @@
 import HomeView from '../../components/HomeView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: 'Sélecteur de Couleur d\'Image - Obtenir le Code Hex et Encyclopédie des Couleurs Traditionnelles | ImageColorPickerAI',
     description: 'Sélecteur de couleur d\'image en ligne gratuit. Extrayez les codes HEX, RGB, CMYK et découvrez instantanément les significations des couleurs traditionnelles chinoises et japonaises. Sans inscription.',
+    ...socialMeta({ title: 'Sélecteur de Couleur d\'Image - Obtenir le Code Hex et Encyclopédie des Couleurs Traditionnelles | ImageColorPickerAI', description: 'Sélecteur de couleur d\'image en ligne gratuit. Extrayez les codes HEX, RGB, CMYK et découvrez instantanément les significations des couleurs traditionnelles chinoises et japonaises. Sans inscription.', path: '/fr' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/fr',
         languages: {

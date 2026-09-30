@@ -1,6 +1,8 @@
 import EmbedWidget from '@/components/EmbedWidget';
 import { WebPageSchema, OrganizationSchema } from '@/components/JsonLd';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export async function generateMetadata() {
     return {
         title: 'Embed AI Color Picker Widget - Free Integration | Image Color Picker AI',
@@ -8,21 +10,7 @@ export async function generateMetadata() {
         alternates: {
             canonical: 'https://imagecolorpickerai.com/widget',
         },
-        openGraph: {
-            title: 'Embed AI Color Picker Widget - Free Integration',
-            description: 'Add our AI-powered color picker to your website. Free iframe widget with attribution.',
-            url: 'https://imagecolorpickerai.com/widget',
-            siteName: 'ImageColorPickerAI',
-            images: [
-                {
-                    url: 'https://imagecolorpickerai.com/api/og/widget.png',
-                    width: 1200,
-                    height: 630,
-                }
-            ],
-            locale: 'en_US',
-            type: 'website',
-        },
+        ...socialMeta({ title: 'Embed AI Color Picker Widget - Free Integration | Image Color Picker AI', description: 'Add our AI-powered color picker to your website. Free iframe widget with attribution link. Perfect for designers, developers, and color enthusiasts.', path: '/widget' }),
     };
 }
 

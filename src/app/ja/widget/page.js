@@ -1,6 +1,8 @@
 import EmbedWidget from '@/components/EmbedWidget';
 import Link from 'next/link';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export async function generateMetadata() {
     return {
         title: '埋め込みAIカラーピッカーウィジェット - 無料統合 | ImageColorPickerAI',
@@ -18,15 +20,7 @@ export async function generateMetadata() {
                 'x-default': 'https://imagecolorpickerai.com/widget',
             },
         },
-        openGraph: {
-            title: '埋め込みAIカラーピッカーウィジェット - 無料統合',
-            description: 'AI搭載カラーピッカーをあなたのウェブサイトに追加。無料iframeウィジェット。',
-            url: 'https://imagecolorpickerai.com/ja/widget',
-            siteName: 'ImageColorPickerAI',
-            images: [{ url: 'https://imagecolorpickerai.com/api/og/widget-ja.png', width: 1200, height: 630 }],
-            locale: 'ja_JP',
-            type: 'website',
-        },
+        ...socialMeta({ title: '埋め込みAIカラーピッカーウィジェット - 無料統合 | ImageColorPickerAI', description: 'AI搭載カラーピッカーをあなたのウェブサイトに追加。無料iframeウィジェット、帰属リンク付き。デザイナー、開発者、カラー愛好家に最適。', path: '/ja/widget' }),
     };
 }
 

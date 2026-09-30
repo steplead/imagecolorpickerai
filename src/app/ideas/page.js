@@ -1,8 +1,10 @@
 import IdeasHub from '../../components/IdeasHub';
+import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
     title: 'Color Inspiration & Palette Ideas - Traditional Design Guide | ImageColorPickerAI',
     description: 'Curated color inspiration for your next project. Explore traditional Chinese palettes for Weddings, Branding, and Interior Design. Professional design guide.',
+    ...socialMeta({ title: 'Color Inspiration & Palette Ideas - Traditional Design Guide | ImageColorPickerAI', description: 'Curated color inspiration for your next project. Explore traditional Chinese palettes for Weddings, Branding, and Interior Design. Professional design guide.', path: '/ideas' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/ideas',
         languages: {

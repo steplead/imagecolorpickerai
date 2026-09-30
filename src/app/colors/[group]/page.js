@@ -1,5 +1,6 @@
 import { getAllColors } from '../../../utils/colorData';
 import { ColorsCollectionView } from '../../../components/ColorsCollectionView';
+import { socialMeta } from '@/lib/socialMeta';
 
 // 1. Generate Static Params for all Tags + Collections
 export async function generateStaticParams() {
@@ -53,6 +54,7 @@ export async function generateMetadata({ params }) {
     return {
         title: meta.title,
         description: meta.description,
+        ...socialMeta({ title: meta.title, description: meta.description, path: `/colors/${group.toLowerCase()}` }),
         alternates: {
             canonical: `/colors/${group.toLowerCase()}`,
             languages: {

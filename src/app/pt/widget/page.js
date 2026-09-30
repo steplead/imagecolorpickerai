@@ -1,6 +1,8 @@
 import EmbedWidget from '@/components/EmbedWidget';
 import Link from 'next/link';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export async function generateMetadata() {
     return {
         title: 'Incorporar Widget de Seleção de Cores IA - Integração Gratuita | ImageColorPickerAI',
@@ -18,15 +20,7 @@ export async function generateMetadata() {
                 'x-default': 'https://imagecolorpickerai.com/widget',
             },
         },
-        openGraph: {
-            title: 'Incorporar Widget de Seleção de Cores IA - Integração Gratuita',
-            description: 'Adicione nosso seletor de cores alimentado por IA ao seu site.',
-            url: 'https://imagecolorpickerai.com/pt/widget',
-            siteName: 'ImageColorPickerAI',
-            images: [{ url: 'https://imagecolorpickerai.com/api/og/widget-pt.png', width: 1200, height: 630 }],
-            locale: 'pt_PT',
-            type: 'website',
-        },
+        ...socialMeta({ title: 'Incorporar Widget de Seleção de Cores IA - Integração Gratuita | ImageColorPickerAI', description: 'Adicione nosso seletor de cores alimentado por IA ao seu site. Widget iframe gratuito com link de atribuição. Perfeito para designers, desenvolvedores e entusiastas de cores.', path: '/pt/widget' }),
     };
 }
 

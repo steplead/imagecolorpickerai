@@ -1,8 +1,10 @@
 import AboutView from '../../components/AboutView';
+import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
-    title: 'About ImageColorPickerAI - The Traditional Color Encyclopedia',
+    title: 'About ImageColorPickerAI – Free Image Color Picker',
     description: 'The story behind ImageColorPickerAI. Bridging ancient color culture with modern AI technology.',
+    ...socialMeta({ title: 'About ImageColorPickerAI – Free Image Color Picker', description: 'The story behind ImageColorPickerAI. Bridging ancient color culture with modern AI technology.', path: '/about' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/about',
         languages: {

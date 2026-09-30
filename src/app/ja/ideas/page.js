@@ -1,8 +1,11 @@
 import IdeasHub from '../../../components/IdeasHub';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: '色のインスピレーションとパレットのアイデア - 日本の伝統デザインガイド | ImageColorPickerAI',
     description: '次のプロジェクトのための厳選された色のインスピレーション。結婚式、ブランディング、インテリアデザインのための伝統的な中国・日本のパレットを探索。',
+    ...socialMeta({ title: '色のインスピレーションとパレットのアイデア - 日本の伝統デザインガイド | ImageColorPickerAI', description: '次のプロジェクトのための厳選された色のインスピレーション。結婚式、ブランディング、インテリアデザインのための伝統的な中国・日本のパレットを探索。', path: '/ja/ideas' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/ja/ideas',
         languages: {

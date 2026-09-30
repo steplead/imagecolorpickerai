@@ -13,7 +13,7 @@ import PixelPicker from '../components/PixelPicker';
 
 // English-only tool-first copy for the redesigned homepage.
 const EN_DESC =
-  'Free online image color picker. Upload an image and read the exact HEX, RGB, and HSL value of any pixel — no sign-up, processed in your browser.';
+  'Upload any image and get colors from an image in one click — our picker lets you find the hex code from an image and gives you HEX, RGB and HSL values, a full palette, and one-click copy. This free image color picker runs entirely in your browser.';
 
 const EN_FAQ = [
   {
@@ -348,7 +348,7 @@ function EnglishHome() {
           id="main-title"
           className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight mb-4 text-balance"
         >
-          Image Color Picker
+          Colors From Image & Hex Code From Image
         </h1>
         <p className="text-lg text-neutral-500 font-serif italic">{EN_DESC}</p>
       </div>

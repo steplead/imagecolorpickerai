@@ -1,8 +1,11 @@
 import HomeView from '../../components/HomeView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: '图片取色器 - 专业的十六进制代码提取与传统色彩百科 | ImageColorPickerAI',
     description: '免费在线图片取色器。提取精确的十六进制代码、RGB，并立即发现中国和日本传统色彩配方。无需注册。',
+    ...socialMeta({ title: '图片取色器 - 专业的十六进制代码提取与传统色彩百科 | ImageColorPickerAI', description: '免费在线图片取色器。提取精确的十六进制代码、RGB，并立即发现中国和日本传统色彩配方。无需注册。', path: '/zh' }),
     keywords: '图片取色器, 十六进制取色, 颜色提取器, RGB转HEX, CMYK转换器, 中国传统颜色, 日本传统颜色, 配色方案生成器, 在线颜色工具',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/zh',

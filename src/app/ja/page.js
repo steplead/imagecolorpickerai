@@ -1,8 +1,11 @@
 import HomeView from '../../components/HomeView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: '画像カラーピッカー - 画像からHEXカラーコードを抽出',
     description: '無料のオンライン画像カラーピッカー。HEX、RGB、CMYKコードを抽出し、中国と日本の伝統色の意味を即座に発見。登録不要。',
+    ...socialMeta({ title: '画像カラーピッカー - 画像からHEXカラーコードを抽出', description: '無料のオンライン画像カラーピッカー。HEX、RGB、CMYKコードを抽出し、中国と日本の伝統色の意味を即座に発見。登録不要。', path: '/ja' }),
     keywords: '画像カラーピッカー, 16進数カラーピッカー, 色抽出器, RGBからHEX, CMYK変換, 中国の伝統色, 日本の伝統色, カラーパレットジェネレーター, オンラインカラーツール',
     alternates: {
         canonical: 'https://imagecolorpickerai.com/ja',

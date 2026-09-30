@@ -1,6 +1,23 @@
 import { getColorById, getCollectionMetadata } from '../../../../utils/colorData';
 import { ColorDetailView } from '../../../../components/ColorDetailView';
-export { generateStaticParams, generateMetadata } from '../../../color/[slug]/page';
+import { generateMetadata as enGenerateMetadata } from '../../../color/[slug]/page';
+
+export { generateStaticParams } from '../../../color/[slug]/page';
+
+// og:url must carry this locale's own path prefix; the shared EN
+// generateMetadata hardcodes the EN route.
+export async function generateMetadata(props) {
+    const meta = await enGenerateMetadata(props);
+    const { slug } = await props.params;
+    if (!slug) return meta;
+    return {
+        ...meta,
+        openGraph: {
+            ...(meta.openGraph || {}),
+            url: `https://imagecolorpickerai.com/fr/color/${slug}`,
+        },
+    };
+}
 
 export default async function FrColorPage({ params }) {
     const resolvedParams = await params;

@@ -1,8 +1,11 @@
 import AboutView from '../../../components/AboutView';
 
+import { socialMeta } from '@/lib/socialMeta';
+
 export const metadata = {
     title: 'Über ImageColorPickerAI - Enzyklopädie Traditioneller Farben | ImageColorPickerAI',
     description: 'Die Geschichte hinter ImageColorPickerAI. Die Brücke zwischen alter Farbkultur und moderner KI-Technologie.',
+    ...socialMeta({ title: 'Über ImageColorPickerAI - Enzyklopädie Traditioneller Farben | ImageColorPickerAI', description: 'Die Geschichte hinter ImageColorPickerAI. Die Brücke zwischen alter Farbkultur und moderner KI-Technologie.', path: '/de/about' }),
     alternates: {
         canonical: 'https://imagecolorpickerai.com/de/about',
         languages: {
