@@ -1,6 +1,6 @@
 [
     {
-        "id": "n-earth-01",
+        "id": "deep-moss",
         "name": "Deep Moss",
         "nativeName": "深苔绿",
         "hex": "#354a21",
@@ -40,7 +40,7 @@
         ]
     },
     {
-        "id": "n-sky-01",
+        "id": "morning-mist",
         "name": "Morning Mist",
         "nativeName": "晨雾白",
         "hex": "#e0e0d0",
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "id": "n-earth-02",
+        "id": "terracotta-clay",
         "name": "Terracotta Clay",
         "nativeName": "陶土红",
         "hex": "#c17c5f",

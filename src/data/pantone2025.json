@@ -1,6 +1,6 @@
 [
     {
-        "id": "p-2025-01",
+        "id": "future-dusk",
         "name": "Future Dusk",
         "nativeName": "未来暮色",
         "hex": "#483b51",
@@ -40,7 +40,7 @@
         ]
     },
     {
-        "id": "p-2025-03",
+        "id": "ray-flower",
         "name": "Ray Flower",
         "nativeName": "射线花黄",
         "hex": "#f7d046",
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "id": "p-2025-04",
+        "id": "sunset-coral",
         "name": "Sunset Coral",
         "nativeName": "日落珊瑚",
         "hex": "#ff6b6b",
