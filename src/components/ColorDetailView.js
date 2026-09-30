@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import JsonLd from './JsonLd';
 import { notFound } from 'next/navigation';
+import fs from 'node:fs';
+import path from 'node:path';
 import { Copy, Download, Share2, Palette, Info, Tag } from 'lucide-react';
 import { getColorById, getCollectionMetadata, getRelatedColors } from '../utils/colorData';
 import WallpaperGenerator from './WallpaperGenerator';
@@ -14,6 +16,20 @@ import AdPlacement from './AdPlacement';
 import ColorAccessibility from './ColorAccessibility';
 import EmbedWidget from './EmbedWidget';
 import Breadcrumb from './Breadcrumb';
+
+// Ids that actually ship a texture under /images/colors/<id>.webp. Resolved
+// once at build time (this component only renders in prerendered SSG routes).
+const COLOR_TEXTURE_IDS = (() => {
+    try {
+        return new Set(
+            fs.readdirSync(path.join(process.cwd(), 'public', 'images', 'colors'))
+                .filter((f) => f.endsWith('.webp'))
+                .map((f) => f.slice(0, -'.webp'.length))
+        );
+    } catch {
+        return new Set();
+    }
+})();
 
 export function ColorDetailView({ params, locale = 'en' }) {
     const color = getColorById(params.slug);
@@ -114,12 +130,25 @@ export function ColorDetailView({ params, locale = 'en' }) {
         nature: 'Nature & Earth Color',
     };
     const collectionSchemaName = COLLECTION_SCHEMA_NAME[color.collectionId] || 'Traditional Color';
+
+    // Product.image used to point at /api/og/color?id=... which does not exist
+    // (every /api/og/* route 404s), i.e. structured data advertised a broken
+    // image on all 113 color pages. The per-color texture under
+    // /images/colors/<id>.webp is a real 200, but it only ships for the Chinese
+    // collection today (85 of 113); the hero <img> degrades via a client-side
+    // onError, structured data cannot. So resolve the file at build time and
+    // fall back to the site image when it is absent, rather than emitting a
+    // fresh 404 for the other 28 colors.
+    const colorImageUrl = COLOR_TEXTURE_IDS.has(color.id)
+        ? `https://imagecolorpickerai.com/images/colors/${color.id}.webp`
+        : 'https://imagecolorpickerai.com/og-image.png';
+
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
         "name": `${color.name} (${collectionSchemaName})`,
         "image": [
-            `https://imagecolorpickerai.com/api/og/color?id=${color.id}`
+            colorImageUrl
         ],
         "description": color.meaning,
         "brand": {

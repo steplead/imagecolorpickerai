@@ -159,7 +159,7 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
                             ></div>
                             <div className="p-4">
                                 <h3 className="font-bold text-neutral-900 text-lg group-hover:text-red-900 transition">{color.name}</h3>
-                                <p className="text-sm font-serif text-neutral-500 italic mb-2">{color.nativeName} ({color.phoneticName})</p>
+                                <p className="text-sm font-serif text-neutral-500 italic mb-2">{color.nativeName}{color.phoneticName ? ` (${color.phoneticName})` : ''}</p>
                                 <div className="flex justify-between items-center mt-4">
                                     <span className="font-mono text-xs text-neutral-400 bg-neutral-50 px-2 py-1 rounded">{color.hex}</span>
                                     <ArrowRight className="w-4 h-4 text-neutral-300 group-hover:text-red-600 transition" />
