@@ -143,6 +143,15 @@ export function ColorDetailView({ params, locale = 'en' }) {
         ? `https://imagecolorpickerai.com/images/colors/${color.id}.webp`
         : 'https://imagecolorpickerai.com/og-image.png';
 
+    // Hero <img> guard: only render the texture <img> (and the framework-derived
+    // <link rel="preload" as="image">) when the file actually exists. Without a
+    // file the hero already degrades to the color swatch behind it — that is
+    // what users see today, because the old unconditional <img> 404'd and was
+    // removed client-side by onError. Pointing the slot at og-image.png instead
+    // would replace the swatch with the branded social card, so the img is
+    // omitted rather than repointed.
+    const hasTexture = COLOR_TEXTURE_IDS.has(color.id);
+
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -186,11 +195,15 @@ export function ColorDetailView({ params, locale = 'en' }) {
                                 className="absolute inset-0 z-0"
                                 style={{ backgroundColor: color.hex }}
                             />
-                            {/* Optimized Texture Image - Guarded Client Component */}
-                            <ColorTexture
-                                src={`/images/colors/${color.id}.webp`}
-                                alt={`${color.name} - ${collectionMeta.name} Texture`}
-                            />
+                            {/* Optimized Texture Image - Guarded Client Component.
+                                Rendered only when a real texture ships for this
+                                color (see hasTexture above); the swatch shows otherwise. */}
+                            {hasTexture && (
+                                <ColorTexture
+                                    src={`/images/colors/${color.id}.webp`}
+                                    alt={`${color.name} - ${collectionMeta.name} Texture`}
+                                />
+                            )}
                         </div>
 
                         <div className="p-8">
