@@ -1,5 +1,6 @@
 import { getAllColors, getColorBySlug } from '@/utils/colorData';
 import { getContrastRatio, getWCAGScore } from '@/utils/colorMetrics';
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import AdPlacement from '@/components/AdPlacement';
 import AccessibilityBadge from '@/components/AccessibilityBadge';
@@ -10,34 +11,54 @@ export const runtime = 'edge';
 // Protocol 5: Static Generation of Combinations is too large (250k pages).
 // We will use generateStaticParams for a "curated" set, or rely on ISR/SSR.
 // For now, we will allow dynamic rendering but cache heavily.
+//
+// 2026-09-30: this route used to answer HTTP 200 for ANY slug, with an
+// "Invalid combination URL" body plus a self-referencing canonical and an
+// invented title built from the raw slug — an unbounded soft-404 farm that
+// actively invited Google to index junk. Resolution now happens before render
+// and an unresolvable pair returns notFound(), matching /compare/[comparison].
+
+// Resolve "<colorA>-and-<colorB>" to a color pair, or null when the slug is not
+// a valid pair of colours that exist in the database.
+function resolvePair(slug) {
+    if (!slug) return null;
+    const parts = slug.split('-and-');
+    if (parts.length !== 2) return null;
+
+    const color1 = getColorBySlug(parts[0]);
+    const color2 = getColorBySlug(parts[1]);
+    if (!color1 || !color2) return null;
+
+    return { color1, color2 };
+}
 
 export async function generateMetadata({ params }) {
-    const slug = params.slug; // e.g., "red-and-blue"
-    const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const { slug } = await params; // e.g., "cinnabar-and-persimmon-red"
+    const pair = resolvePair(slug);
+
+    // Invalid pair: no canonical and no invented title. The page 404s, so the
+    // 404 document should not advertise this slug as a canonical URL.
+    if (!pair) return { title: 'Color Combination' };
+
+    const { color1, color2 } = pair;
+    const title = `${color1.name} and ${color2.name}`;
 
     return {
         title: `${title} - Color Combination | ImageColorPickerAI`,
         description: `See how ${title} look together. Check contrast ratio, accessibility score, and design examples for this color pairing.`,
         alternates: {
             canonical: `https://imagecolorpickerai.com/combine/${slug}`,
-        }
+        },
     };
 }
 
-export default function CombinationPage({ params }) {
-    const slug = params.slug;
-    const parts = slug.split('-and-');
+export default async function CombinationPage({ params }) {
+    const { slug } = await params;
+    const pair = resolvePair(slug);
 
-    if (parts.length !== 2) {
-        return <div className="p-12 text-center">Invalid combination URL. Format: /combine/color1-and-color2</div>;
-    }
+    if (!pair) return notFound();
 
-    const color1 = getColorBySlug(parts[0]);
-    const color2 = getColorBySlug(parts[1]);
-
-    if (!color1 || !color2) {
-        return <div className="p-12 text-center">One or both colors not found in our database.</div>;
-    }
+    const { color1, color2 } = pair;
 
     const contrast = getContrastRatio(color1.hex, color2.hex).toFixed(2);
     const wcag = getWCAGScore(contrast);

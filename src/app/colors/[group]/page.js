@@ -8,6 +8,13 @@ export async function generateStaticParams() {
     const colors = getAllColors();
 
     colors.forEach(c => {
+        // collectionId must be seeded too. 'pantone' is a real collection (4
+        // colours, GROUP_META entry, localized meta) but no colour carries a
+        // 'pantone' *tag*, so tagging alone never generated the page while
+        // sitemap.js still listed /colors/pantone for all 7 locales -> 7 URLs
+        // in the sitemap returned 404. 'nature' only worked by coincidence
+        // (it happens to also be a tag).
+        if (c.collectionId) allGroups.add(c.collectionId.toLowerCase());
         if (c.tags) c.tags.forEach(t => allGroups.add(t.toLowerCase()));
     });
 

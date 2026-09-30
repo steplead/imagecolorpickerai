@@ -30,11 +30,20 @@ export function getRandomColors(count = 10) {
 
 // Protocol 5: Combination Engine - Finding color pairs
 // This is used for generating pages like /combine/imperial-red-and-deep-blue
+//
+// Accepts BOTH identifier forms, because the two producers disagree:
+//   - sitemap.js builds /combine/<id>-and-<id>  (e.g. sky-blue-and-glaze-blue)
+//   - the combine page links by hyphenated name
+// These differ for 11 of 113 colors (sky-blue vs sky-blue-after-rain,
+// p-2025-01 vs future-dusk, ...), so the name-only lookup silently failed on
+// those and the page fell back to a 200 "color not found" body. No id collides
+// with a different color's name-slug, so id-first is unambiguous.
 export function getColorBySlug(slug) {
-    // Basic lookup. Improve with exact match if needed.
-    // Assuming slug is lowercase english name parameterized
-    return ALL_COLORS.find(c =>
-        c.name.toLowerCase().replace(/\s+/g, '-') === slug
+    if (!slug) return undefined;
+    const key = slug.toLowerCase();
+    return (
+        ALL_COLORS.find(c => c.id === key) ||
+        ALL_COLORS.find(c => c.name.toLowerCase().replace(/\s+/g, '-') === key)
     );
 }
 
