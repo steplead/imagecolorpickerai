@@ -16,8 +16,8 @@ export default function Footer() {
     const tools = [
         { name: 'Color Picker', href: '/' },
         { name: 'Color Style Scan', href: '/scan' },
-        { name: 'Color Comparison', href: '/compare/imperial-red-vs-cinnabar' },
-        { name: 'Idea Hub', href: '/ideas/fashion' },
+        { name: 'Color Comparison', href: '/compare/cinnabar-vs-rouge' },
+        { name: 'Idea Hub', href: '/ideas' },
     ];
 
     return (
