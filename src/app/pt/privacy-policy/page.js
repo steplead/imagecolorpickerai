@@ -3,6 +3,8 @@ import LegalView from '../../../components/LegalView';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Política de Privacidade - ImageColorPickerAI',
     description: 'Nosso compromisso com a sua privacidade. Saiba como lidamos com seus dados e imagens ao usar o ImageColorPickerAI.',
     ...socialMeta({ title: 'Política de Privacidade - ImageColorPickerAI', description: 'Nosso compromisso com a sua privacidade. Saiba como lidamos com seus dados e imagens ao usar o ImageColorPickerAI.', path: '/pt/privacy-policy' }),

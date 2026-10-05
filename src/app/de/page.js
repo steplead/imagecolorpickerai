@@ -3,6 +3,8 @@ import HomeView from '../../components/HomeView';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Bild-Farbwähler - HEX-Code & Enzyklopädie Traditioneller Farben | ImageColorPickerAI',
     description: 'Kostenloser Bild-Farbwähler. HEX-, RGB-, CMYK-Codes extrahieren & traditionelle Farben entdecken. Keine Anmeldung nötig.',
     ...socialMeta({ title: 'Bild-Farbwähler - HEX-Code & Enzyklopädie Traditioneller Farben | ImageColorPickerAI', description: 'Kostenloser Bild-Farbwähler. HEX-, RGB-, CMYK-Codes extrahieren & traditionelle Farben entdecken. Keine Anmeldung nötig.', path: '/de' }),

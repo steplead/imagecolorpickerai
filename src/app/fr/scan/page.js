@@ -4,6 +4,8 @@ import JsonLd from '../../../components/JsonLd';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Scan de Style de Couleur - Trouvez votre Palette Traditionnelle | ImageColorPickerAI',
     description: 'Importez une image pour découvrir votre palette de couleurs traditionnelle personnalisée. Gratuit, sans inscription.',
     ...socialMeta({ title: 'Scan de Style de Couleur - Trouvez votre Palette Traditionnelle | ImageColorPickerAI', description: 'Importez une image pour découvrir votre palette de couleurs traditionnelle personnalisée. Gratuit, sans inscription.', path: '/fr/scan' }),

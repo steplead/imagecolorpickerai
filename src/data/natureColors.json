@@ -78,5 +78,276 @@
             "orange",
             "earth"
         ]
+    },
+    {
+        "id": "olive",
+        "name": "Olive",
+        "nativeName": "",
+        "hex": "#808000",
+        "r": 128,
+        "g": 128,
+        "b": 0,
+        "c": 0,
+        "m": 0,
+        "y": 100,
+        "k": 50,
+        "meaning": "Muted yellow-green tones evoking peace, restraint, and the quiet of olive groves. A versatile neutral-green that grounds warm and cool palettes alike.",
+        "tags": [
+            "nature",
+            "green",
+            "earth",
+            "olive"
+        ]
+    },
+    {
+        "id": "sea-green",
+        "name": "Sea Green",
+        "nativeName": "",
+        "hex": "#2E8B57",
+        "r": 46,
+        "g": 139,
+        "b": 87,
+        "c": 67,
+        "m": 0,
+        "y": 37,
+        "k": 45,
+        "meaning": "Balanced blue-green hues suggesting shallow coastal waters and tumbled sea glass. Calm and restorative without turning cold.",
+        "tags": [
+            "nature",
+            "green",
+            "ocean"
+        ]
+    },
+    {
+        "id": "steel-blue",
+        "name": "Steel Blue",
+        "nativeName": "",
+        "hex": "#4682B4",
+        "r": 70,
+        "g": 130,
+        "b": 180,
+        "c": 61,
+        "m": 28,
+        "y": 0,
+        "k": 29,
+        "meaning": "Cool, metallic blue-gray suggesting polished steel and overcast skies. Steady and professional rather than playful.",
+        "tags": [
+            "nature",
+            "blue",
+            "cool"
+        ]
+    },
+    {
+        "id": "cadet-blue",
+        "name": "Cadet Blue",
+        "nativeName": "",
+        "hex": "#5F9EA0",
+        "r": 95,
+        "g": 158,
+        "b": 160,
+        "c": 41,
+        "m": 1,
+        "y": 0,
+        "k": 37,
+        "meaning": "Pale blue-green tones evoking cadet uniforms and a calm, scholarly air. Quiet enough to sit behind body text.",
+        "tags": [
+            "nature",
+            "blue",
+            "cool"
+        ]
+    },
+    {
+        "id": "pine-green",
+        "name": "Pine Green",
+        "nativeName": "",
+        "hex": "#01796F",
+        "r": 1,
+        "g": 121,
+        "b": 111,
+        "c": 99,
+        "m": 0,
+        "y": 8,
+        "k": 53,
+        "meaning": "Deep, resinous green recalling pine needles and shaded evergreen forest. Anchors a palette with natural authority.",
+        "tags": [
+            "nature",
+            "green",
+            "forest"
+        ]
+    },
+    {
+        "id": "sienna",
+        "name": "Sienna",
+        "nativeName": "",
+        "hex": "#A0522D",
+        "r": 160,
+        "g": 82,
+        "b": 45,
+        "c": 0,
+        "m": 49,
+        "y": 72,
+        "k": 37,
+        "meaning": "Warm reddish-brown earth tones evoking raw pigment and sun-baked clay. Adds organic weight to any composition.",
+        "tags": [
+            "nature",
+            "brown",
+            "earth"
+        ]
+    },
+    {
+        "id": "chocolate",
+        "name": "Chocolate",
+        "nativeName": "",
+        "hex": "#D2691E",
+        "r": 210,
+        "g": 105,
+        "b": 30,
+        "c": 0,
+        "m": 50,
+        "y": 86,
+        "k": 18,
+        "meaning": "Rich warm brown tones evoking cocoa, soil, and quiet comfort. A dependable anchor for earthy schemes.",
+        "tags": [
+            "nature",
+            "brown",
+            "earth"
+        ]
+    },
+    {
+        "id": "tan",
+        "name": "Tan",
+        "nativeName": "",
+        "hex": "#D2B48C",
+        "r": 210,
+        "g": 180,
+        "b": 140,
+        "c": 0,
+        "m": 14,
+        "y": 33,
+        "k": 18,
+        "meaning": "Light brown-beige neutral tones suggesting sand, leather, and open plains. A safe, breathable background hue.",
+        "tags": [
+            "nature",
+            "brown",
+            "sand"
+        ]
+    },
+    {
+        "id": "sandy-brown",
+        "name": "Sandy Brown",
+        "nativeName": "",
+        "hex": "#F4A460",
+        "r": 244,
+        "g": 164,
+        "b": 96,
+        "c": 0,
+        "m": 33,
+        "y": 61,
+        "k": 4,
+        "meaning": "Warm sandy orange-browns evoking beach dunes and sunlit shoreline. Lively yet still within the earth family.",
+        "tags": [
+            "nature",
+            "brown",
+            "sand",
+            "earth"
+        ]
+    },
+    {
+        "id": "burly-wood",
+        "name": "Burly Wood",
+        "nativeName": "",
+        "hex": "#DEB887",
+        "r": 222,
+        "g": 184,
+        "b": 135,
+        "c": 0,
+        "m": 17,
+        "y": 39,
+        "k": 13,
+        "meaning": "Pale woody tan tones suggesting unfinished timber and gentle domestic warmth. Soft enough for large surfaces.",
+        "tags": [
+            "nature",
+            "brown",
+            "wood"
+        ]
+    },
+    {
+        "id": "khaki",
+        "name": "Khaki",
+        "nativeName": "",
+        "hex": "#F0E68C",
+        "r": 240,
+        "g": 230,
+        "b": 140,
+        "c": 0,
+        "m": 4,
+        "y": 42,
+        "k": 6,
+        "meaning": "Light yellow-brown neutral tones evoking field cloth and dry summer grass. A muted bridge between green and brown.",
+        "tags": [
+            "nature",
+            "brown",
+            "sand",
+            "earth"
+        ]
+    },
+    {
+        "id": "dark-khaki",
+        "name": "Dark Khaki",
+        "nativeName": "",
+        "hex": "#BDB76B",
+        "r": 189,
+        "g": 183,
+        "b": 107,
+        "c": 0,
+        "m": 3,
+        "y": 43,
+        "k": 26,
+        "meaning": "Muted olive-tan shades suggesting durable twill and autumn undergrowth. Deeper than khaki but equally restrained.",
+        "tags": [
+            "nature",
+            "brown",
+            "sand",
+            "earth"
+        ]
+    },
+    {
+        "id": "salmon",
+        "name": "Salmon",
+        "nativeName": "",
+        "hex": "#FA8072",
+        "r": 250,
+        "g": 128,
+        "b": 114,
+        "c": 0,
+        "m": 49,
+        "y": 54,
+        "k": 2,
+        "meaning": "Soft pink-orange tones evoking river salmon, coral, and gentle warmth. A welcoming accent that pairs with both cool and warm palettes.",
+        "tags": [
+            "nature",
+            "pink",
+            "coral"
+        ]
+    },
+    {
+        "id": "orchid",
+        "name": "Orchid",
+        "nativeName": "",
+        "hex": "#DA70D6",
+        "r": 218,
+        "g": 112,
+        "b": 214,
+        "c": 0,
+        "m": 49,
+        "y": 2,
+        "k": 15,
+        "meaning": "Light purple-pink tones evoking orchid blooms and quiet elegance. A gentle floral accent for refined compositions.",
+        "tags": [
+            "nature",
+            "purple",
+            "pink",
+            "flower"
+        ]
     }
 ]

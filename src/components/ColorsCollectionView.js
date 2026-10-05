@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { getColorsByTag } from '../utils/colorUtils';
-import { getCollectionMetadata } from '../utils/colorData';
+import { getCollectionMetadata, getCollection } from '../utils/colorData';
 import AdPlacement from './AdPlacement';
 import EmbedWidget from './EmbedWidget';
 
@@ -11,7 +11,11 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
     if (!group) return notFound();
 
     const decodedGroup = decodeURIComponent(group).toLowerCase();
-    const colors = getColorsByTag(decodedGroup);
+    // Nature collection: only show the actual nature-library colours, not the
+    // chinese/japanese colours that merely carry a 'nature' tag. See Batch 14.
+    const colors = decodedGroup === 'nature'
+        ? getCollection('nature')
+        : getColorsByTag(decodedGroup);
 
     if (!colors || colors.length === 0) {
         notFound();
@@ -41,7 +45,7 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
             desc: "Distanced and ethereal shades of morning fog, mountain ice, and the quiet stillness of high-altitude clouds."
         },
         nature: {
-            title: "Wild Flora & Moss",
+            title: "Nature & Earth Tones",
             desc: "Earth-toned pigments derived from the roots, leaves, and minerals of the ancient landscape."
         }
     };

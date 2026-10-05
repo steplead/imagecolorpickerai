@@ -5,6 +5,8 @@ import { socialMeta } from '@/lib/socialMeta';
 
 export async function generateMetadata() {
     return {
+        robots: { index: false, follow: true },
+
         title: '埋め込みAIカラーピッカーウィジェット - 無料統合 | ImageColorPickerAI',
         description: 'AI搭載カラーピッカーをあなたのウェブサイトに追加。無料iframeウィジェット、帰属リンク付き。デザイナー、開発者、カラー愛好家に最適。',
         alternates: {

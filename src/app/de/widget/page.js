@@ -5,6 +5,8 @@ import { socialMeta } from '@/lib/socialMeta';
 
 export async function generateMetadata() {
     return {
+        robots: { index: false, follow: true },
+
         title: 'KI-Farbwähler-Widget Einbetten - Kostenlose Integration | ImageColorPickerAI',
         description: 'Fügen Sie unseren KI-gesteuerten Farbwähler zu Ihrer Website hinzu. Kostenloses iframe-Widget mit Attributionslink. Perfekt für Designer, Entwickler und Farbfans.',
         alternates: {

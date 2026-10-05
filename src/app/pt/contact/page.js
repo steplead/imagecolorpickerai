@@ -3,6 +3,8 @@ import ContactView from '../../../components/ContactView';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Contate-nos - Feedback e Suporte | ImageColorPickerAI',
     description: 'Entre em contato com a equipe do ImageColorPickerAI. Relate bugs, sugira recursos ou solicite colaboração.',
     ...socialMeta({ title: 'Contate-nos - Feedback e Suporte | ImageColorPickerAI', description: 'Entre em contato com a equipe do ImageColorPickerAI. Relate bugs, sugira recursos ou solicite colaboração.', path: '/pt/contact' }),

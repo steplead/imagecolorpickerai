@@ -155,7 +155,7 @@ export default async function Page({ params }) {
                 <div className="mt-16 bg-neutral-900 rounded-3xl p-10 text-white text-center">
                     <h3 className="text-2xl font-bold mb-4">Design Verdict</h3>
                     <p className="text-neutral-400 max-w-2xl mx-auto leading-relaxed mb-8">
-                        While **{c1.name}** brings a sense of {c1.meaning.split('.')[0].toLowerCase()}, **{c2.name}** offers a more {c2.meaning.split('.')[0].toLowerCase()} atmosphere. Pair them together for a balanced traditional aesthetic, or choose the one that aligns best with your project's emotional core.
+                        While <strong>{c1.name}</strong> brings a sense of {c1.meaning.split('.')[0].toLowerCase()}, <strong>{c2.name}</strong> leans toward {c2.meaning.split('.')[0].toLowerCase()}. Pair them together for a balanced traditional aesthetic, or choose the one that aligns best with your project's emotional core.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <div className="flex items-center gap-3 bg-white/10 px-6 py-3 rounded-2xl backdrop-blur-sm">

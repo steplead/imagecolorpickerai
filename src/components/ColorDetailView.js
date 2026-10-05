@@ -41,10 +41,24 @@ export function ColorDetailView({ params, locale = 'en' }) {
     // Get Metadata for UI labels
     const collectionMeta = getCollectionMetadata(color.collectionId);
 
+    // Map collectionId -> cultural-label word per locale. Default must NOT fall
+    // back to 'Chinese' — that mislabeled Pantone/Nature pages (see p-2025-02).
+    const CULTURAL_LABELS = {
+        en: { chinese: 'Chinese', japanese: 'Kanji', pantone: 'Pantone', nature: 'Nature' },
+        zh: { chinese: '中文', japanese: '日文', pantone: '潘通', nature: '自然' },
+        ja: { chinese: '中国語', japanese: '漢字', pantone: 'パントン', nature: '自然' },
+        es: { chinese: 'Chino', japanese: 'Kanji', pantone: 'Pantone', nature: 'Naturaleza' },
+        fr: { chinese: 'Chinois', japanese: 'Kanji', pantone: 'Pantone', nature: 'Nature' },
+        de: { chinese: 'Chinesisch', japanese: 'Kanji', pantone: 'Pantone', nature: 'Natur' },
+        pt: { chinese: 'Chinês', japanese: 'Kanji', pantone: 'Pantone', nature: 'Natureza' },
+    };
+    const culturalLabel = (loc, collectionId) =>
+        (CULTURAL_LABELS[loc] || CULTURAL_LABELS.en)[collectionId] || 'Traditional';
+
     // Dynamic Labels based on locale and collection
     const labels = {
         en: {
-            meaning: `Cultural Meaning (${color.collectionId === 'japanese' ? 'Kanji' : 'Chinese'})`,
+            meaning: `Cultural Meaning (${culturalLabel('en', color.collectionId)})`,
             related: 'Related Harmony',
             love: 'Love this color?',
             guide: `Get the complete ${collectionMeta.name} Swatch Guide.`,
@@ -53,7 +67,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
             cluster: 'More colors in this category'
         },
         zh: {
-            meaning: `文化背景 (${color.collectionId === 'japanese' ? '日文' : '中文'})`,
+            meaning: `文化背景 (${culturalLabel('zh', color.collectionId)})`,
             related: '相关配色',
             love: '喜欢这个颜色吗？',
             guide: `获取完整的 ${collectionMeta.name} 设计指南。`,
@@ -62,7 +76,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
             cluster: '此类别的更多颜色'
         },
         ja: {
-            meaning: `文化的背景 (${color.collectionId === 'japanese' ? '漢字' : '中国語'})`,
+            meaning: `文化的背景 (${culturalLabel('ja', color.collectionId)})`,
             related: '関連配色',
             love: 'この色が気に入りましたか？',
             guide: `完全な ${collectionMeta.name} スウォッチガイドを入手。`,
@@ -71,7 +85,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
             cluster: 'このカテゴリーの他の色'
         },
         es: {
-            meaning: `Significado Cultural (${color.collectionId === 'japanese' ? 'Kanji' : 'Chino'})`,
+            meaning: `Significado Cultural (${culturalLabel('es', color.collectionId)})`,
             related: 'Armonía Relacionada',
             love: '¿Te encanta este color?',
             guide: `Obtenga la guía completa de muestras de ${collectionMeta.name}.`,
@@ -80,7 +94,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
             cluster: 'Más colores en esta categoría'
         },
         fr: {
-            meaning: `Signification Culturelle (${color.collectionId === 'japanese' ? 'Kanji' : 'Chinois'})`,
+            meaning: `Signification Culturelle (${culturalLabel('fr', color.collectionId)})`,
             related: 'Harmonie Associée',
             love: 'Vous aimez cette couleur ?',
             guide: `Obtenez le guide complet des échantillons ${collectionMeta.name}.`,
@@ -89,7 +103,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
             cluster: 'Plus de couleurs dans cette catégorie'
         },
         de: {
-            meaning: `Kulturelle Bedeutung (${color.collectionId === 'japanese' ? 'Kanji' : 'Chinesisch'})`,
+            meaning: `Kulturelle Bedeutung (${culturalLabel('de', color.collectionId)})`,
             related: 'Verwandte Harmonie',
             love: 'Lieben Sie diese Farbe?',
             guide: `Holen Sie sich den vollständigen ${collectionMeta.name} Farbmuster-Leitfaden.`,
@@ -98,7 +112,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
             cluster: 'Weitere Farben in dieser Kategorie'
         },
         pt: {
-            meaning: `Significado Cultural (${color.collectionId === 'japanese' ? 'Kanji' : 'Chinês'})`,
+            meaning: `Significado Cultural (${culturalLabel('pt', color.collectionId)})`,
             related: 'Harmonia Relacionada',
             love: 'Adora esta cor?',
             guide: `Obtenha o guia completo de amostras de ${collectionMeta.name}.`,

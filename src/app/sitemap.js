@@ -133,54 +133,21 @@ export default function sitemap() {
         }
     });
 
-    // 6. Multilingual Expansion (ZH/JA/ES/FR/DE/PT)
-    const languages = ['zh', 'ja', 'es', 'fr', 'de', 'pt'];
-
-    const localizedStaticRoutes = languages.flatMap(lang =>
-        ['', '/scan', '/ideas', '/about', '/contact', '/widget', '/privacy-policy', '/terms-of-service'].map(route => ({
-            url: `${baseUrl}/${lang}${route}`,
-            lastModified: REV.hub,
-            priority: route === '' ? 0.9 : 0.8,
-        }))
-    );
-
-    const zhRoutes = [
-        ...colorRoutes.map(r => ({ ...r, url: r.url.replace('/color/', '/zh/color/') })),
-        ...collectionRoutes.map(r => ({ ...r, url: r.url.replace('/colors/', '/zh/colors/') }))
-    ];
-    const jaRoutes = [
-        ...colorRoutes.map(r => ({ ...r, url: r.url.replace('/color/', '/ja/color/') })),
-        ...collectionRoutes.map(r => ({ ...r, url: r.url.replace('/colors/', '/ja/colors/') }))
-    ];
-    const esRoutes = [
-        ...colorRoutes.map(r => ({ ...r, url: r.url.replace('/color/', '/es/color/') })),
-        ...collectionRoutes.map(r => ({ ...r, url: r.url.replace('/colors/', '/es/colors/') }))
-    ];
-    const frRoutes = [
-        ...colorRoutes.map(r => ({ ...r, url: r.url.replace('/color/', '/fr/color/') })),
-        ...collectionRoutes.map(r => ({ ...r, url: r.url.replace('/colors/', '/fr/colors/') }))
-    ];
-    const deRoutes = [
-        ...colorRoutes.map(r => ({ ...r, url: r.url.replace('/color/', '/de/color/') })),
-        ...collectionRoutes.map(r => ({ ...r, url: r.url.replace('/colors/', '/de/colors/') }))
-    ];
-    const ptRoutes = [
-        ...colorRoutes.map(r => ({ ...r, url: r.url.replace('/color/', '/pt/color/') })),
-        ...collectionRoutes.map(r => ({ ...r, url: r.url.replace('/colors/', '/pt/colors/') }))
-    ];
+    // [2026-09-30 → 2026-10-05] Locale direction A (convergence), final step.
+    // ALL locale template routes are now withdrawn from the sitemap:
+    //   - the 702 collection/color locale URLs were removed 2026-09-30
+    //   - the 48 static locale routes (6 langs x {home, scan, ideas, about,
+    //     contact, widget, privacy-policy, terms-of-service}) are removed here
+    // They remain HTTP 200 and now carry <meta name="robots" content="noindex">
+    // (added to the 48 template page.js files), so Google drops them from the
+    // index instead of re-crawling them through internal links.
+    // Canonical→EN convergence is a separate, later round and is NOT done here.
 
     return [
         ...routes,
-        ...localizedStaticRoutes,
         ...collectionRoutes,
         ...ideaRoutes,
         ...colorRoutes,
         ...vsRoutes,
-        ...zhRoutes,
-        ...jaRoutes,
-        ...esRoutes,
-        ...frRoutes,
-        ...deRoutes,
-        ...ptRoutes
     ];
 }

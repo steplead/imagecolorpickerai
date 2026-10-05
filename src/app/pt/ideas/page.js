@@ -3,6 +3,8 @@ import IdeasHub from '../../../components/IdeasHub';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Inspiração Cores & Ideias Paletas - Design Tradicional | ImageColorPickerAI',
     description: 'Inspiração cores curadas. Explore paletas tradicionais para casamentos, marcas e design de interiores. Guia profissional.',
     ...socialMeta({ title: 'Inspiração Cores & Ideias Paletas - Design Tradicional | ImageColorPickerAI', description: 'Inspiração cores curadas. Explore paletas tradicionais para casamentos, marcas e design de interiores. Guia profissional.', path: '/pt/ideas' }),

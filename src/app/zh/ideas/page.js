@@ -3,6 +3,8 @@ import IdeasHub from '../../../components/IdeasHub';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: '配色灵感与方案创意 - 传统中国设计指南 | ImageColorPickerAI',
     description: '为您的下一个项目精心挑选的配方案灵感。探索专为婚礼、品牌和室内设计打造的中国传统色。专业级设计指南。',
     ...socialMeta({ title: '配色灵感与方案创意 - 传统中国设计指南 | ImageColorPickerAI', description: '为您的下一个项目精心挑选的配方案灵感。探索专为婚礼、品牌和室内设计打造的中国传统色。专业级设计指南。', path: '/zh/ideas' }),

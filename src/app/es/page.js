@@ -3,6 +3,8 @@ import HomeView from '../../components/HomeView';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Selector Color Imagen - HEX & Enciclopedia Tradicional | ImageColorPickerAI',
     description: 'Selector color imagen gratuito. Extrae códigos HEX, RGB, CMYK y descubre colores tradicionales chinos y japoneses. Sin registro.',
     ...socialMeta({ title: 'Selector Color Imagen - HEX & Enciclopedia Tradicional | ImageColorPickerAI', description: 'Selector color imagen gratuito. Extrae códigos HEX, RGB, CMYK y descubre colores tradicionales chinos y japoneses. Sin registro.', path: '/es' }),

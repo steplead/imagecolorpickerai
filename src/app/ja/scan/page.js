@@ -4,6 +4,8 @@ import JsonLd from '../../../components/JsonLd';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'カラースタイルスキャン - あなたの伝統色を見つける | ImageColorPickerAI',
     description: '任意の画像をアップロードして、あなただけの伝統色パレットを発見。無料で使えて、登録不要。',
     ...socialMeta({ title: 'カラースタイルスキャン - あなたの伝統色を見つける | ImageColorPickerAI', description: '任意の画像をアップロードして、あなただけの伝統色パレットを発見。無料で使えて、登録不要。', path: '/ja/scan' }),

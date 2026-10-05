@@ -5,6 +5,8 @@ import { socialMeta } from '@/lib/socialMeta';
 
 export async function generateMetadata() {
     return {
+        robots: { index: false, follow: true },
+
         title: '嵌入AI取色器小工具 - 免费集成 | 图片取色器AI',
         description: '将我们AI驱动的取色器添加到您的网站。免费的iframe小工具，附带归因链接。非常适合设计师、开发者和色彩爱好者。',
         alternates: {

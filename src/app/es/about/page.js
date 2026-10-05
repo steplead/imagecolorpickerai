@@ -3,6 +3,8 @@ import AboutView from '../../../components/AboutView';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Sobre ImageColorPickerAI - Enciclopedia Color Tradicional | ImageColorPickerAI',
     description: 'La historia detrás de ImageColorPickerAI. Uniendo la cultura del color antiguo con la tecnología de IA moderna.',
     ...socialMeta({ title: 'Sobre ImageColorPickerAI - Enciclopedia Color Tradicional | ImageColorPickerAI', description: 'La historia detrás de ImageColorPickerAI. Uniendo la cultura del color antiguo con la tecnología de IA moderna.', path: '/es/about' }),

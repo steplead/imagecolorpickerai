@@ -4,6 +4,8 @@ import JsonLd from '../../../components/JsonLd';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
+    robots: { index: false, follow: true },
+
     title: 'Escaneo de Estilo de Color - Encuentra tu Paleta Tradicional | ImageColorPickerAI',
     description: 'Sube cualquier imagen para descubrir tu paleta de colores tradicional personalizada. Gratis, sin registro.',
     ...socialMeta({ title: 'Escaneo de Estilo de Color - Encuentra tu Paleta Tradicional | ImageColorPickerAI', description: 'Sube cualquier imagen para descubrir tu paleta de colores tradicional personalizada. Gratis, sin registro.', path: '/es/scan' }),

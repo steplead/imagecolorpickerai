@@ -5,6 +5,8 @@ import { socialMeta } from '@/lib/socialMeta';
 
 export async function generateMetadata() {
     return {
+        robots: { index: false, follow: true },
+
         title: 'Intégrer le Widget Sélecteur de Couleur IA - Intégration Gratuite | ImageColorPickerAI',
         description: 'Ajoutez notre sélecteur de couleur alimenté par l\'IA à votre site web. Widget iframe gratuit avec lien d\'attribution. Parfait pour les designers, développeurs et passionnés de couleurs.',
         alternates: {
