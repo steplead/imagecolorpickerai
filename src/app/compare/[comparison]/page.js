@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRightLeft, Palette, Info } from 'lucide-react';
-import chineseColors from '../../../data/chineseColors.json';
+import { getColorById } from '../../../utils/colorData';
 import ColorActions from '../../../components/ColorActions';
 import EmbedWidget from '../../../components/EmbedWidget';
 
@@ -16,8 +16,8 @@ export async function generateMetadata({ params }) {
     const parts = comparison.split('-vs-');
     if (parts.length !== 2) return { title: 'Color Comparison' };
 
-    const c1 = chineseColors.find(c => c.id === parts[0]);
-    const c2 = chineseColors.find(c => c.id === parts[1]);
+    const c1 = getColorById(parts[0]);
+    const c2 = getColorById(parts[1]);
 
     if (!c1 || !c2) return { title: 'Color Comparison' };
 
@@ -27,6 +27,7 @@ export async function generateMetadata({ params }) {
         alternates: {
             canonical: `https://imagecolorpickerai.com/compare/${comparison}`,
         },
+        robots: { index: false, follow: true },
     };
 }
 
@@ -37,8 +38,8 @@ export default async function Page({ params }) {
 
     if (parts.length !== 2) return notFound();
 
-    const c1 = chineseColors.find(c => c.id === parts[0]);
-    const c2 = chineseColors.find(c => c.id === parts[1]);
+    const c1 = getColorById(parts[0]);
+    const c2 = getColorById(parts[1]);
 
     if (!c1 || !c2) return notFound();
 
