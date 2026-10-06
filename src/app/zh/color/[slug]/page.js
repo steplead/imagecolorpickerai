@@ -16,6 +16,11 @@ export async function generateMetadata(props) {
             ...(meta.openGraph || {}),
             url: `https://imagecolorpickerai.com/zh/color/${slug}`,
         },
+        // Locale direction A (convergence, 2026-09-30): noindex + clear the
+        // inherited EN alternates (canonical + 7 hreflang) so this page stops
+        // declaring itself an "English alternate" in the sitemap cluster.
+        alternates: {},
+        robots: { index: false, follow: true },
     };
 }
 
@@ -53,7 +58,7 @@ export default async function ZhColorPage({ params }) {
             {
                 "@type": "ListItem",
                 "position": 4,
-                "name": `${color.name} (${color.nativeName})`
+                "name": `${color.name}${color.nativeName ? ` (${color.nativeName})` : ''}`
             }
         ]
     };

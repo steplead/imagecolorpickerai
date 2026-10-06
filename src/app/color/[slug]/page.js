@@ -21,12 +21,22 @@ export async function generateMetadata({ params }) {
     const shortName = color.name.length > 20 ? color.name.split(' ')[0] : color.name;
     const collectionShort = meta.name.length > 15 ? meta.name.split(' ')[0] : meta.name;
 
+    // Native-name guard: standard colours (e.g. W3C/X11 nature hues) ship with
+    // nativeName: "" — the old template rendered "Olive ()" inside <title> and
+    // <meta description>, leaking empty parentheses into SERP snippets. Drop the
+    // parenthetical entirely when there is no native name instead of emitting ().
+    const nativeParens = color.nativeName ? ` (${color.nativeName})` : '';
+    const nativeHexParens = color.nativeName ? ` (${color.nativeName}, ${color.hex})` : ` (${color.hex})`;
+
+    const title = `${shortName}${nativeParens} - ${color.hex} | ${collectionShort} Color`;
+    const description = `${color.name}${nativeHexParens} - ${color.meaning} Check WCAG accessibility contrast and color blindness simulation.`;
+
     return {
-        title: `${shortName} (${color.nativeName}) - ${color.hex} | ${collectionShort} Color`,
-        description: `${color.name} (${color.nativeName}, ${color.hex}) - ${color.meaning} Check WCAG accessibility contrast and color blindness simulation.`,
+        title,
+        description,
         ...socialMeta({
-            title: `${shortName} (${color.nativeName}) - ${color.hex} | ${collectionShort} Color`,
-            description: `${color.name} (${color.nativeName}, ${color.hex}) - ${color.meaning} Check WCAG accessibility contrast and color blindness simulation.`,
+            title,
+            description,
             path: `/color/${color.id}`,
         }),
         alternates: {

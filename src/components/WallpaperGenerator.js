@@ -86,7 +86,7 @@ export default function WallpaperGenerator({ colorName, hex, chinese }) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     imageUrl,
-                    title: `${chinese} (${colorName}) - Traditional Chinese Color Art`,
+                    title: `${colorName}${chinese ? ` (${chinese})` : ''} - Traditional Chinese Color Art`,
                     description: `An aesthetic ${STYLES[style].name} wallpaper inspired by the traditional Chinese color ${chinese} (${colorName}). Generated with AI on ImageColorPickerAI.com`,
                     link: pageUrl
                 })
@@ -113,7 +113,7 @@ export default function WallpaperGenerator({ colorName, hex, chinese }) {
             </div>
 
             <p className="text-sm text-neutral-500 mb-6 font-serif italic">
-                Create a unique masterpiece inspired by the soul of {chinese} ({colorName}).
+                Create a unique masterpiece inspired by the soul of {colorName}{chinese ? ` (${chinese})` : ''}.
             </p>
 
             {/* Style Selector */}

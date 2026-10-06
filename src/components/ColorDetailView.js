@@ -197,7 +197,7 @@ export function ColorDetailView({ params, locale = 'en' }) {
                         locale={locale}
                         items={[
                             { name: collectionMeta.name, href: `/colors/${color.collectionId}` },
-                            { name: `${color.name} (${color.nativeName})`, href: `/color/${color.id}` }
+                            { name: `${color.name}${color.nativeName ? ` (${color.nativeName})` : ''}`, href: `/color/${color.id}` }
                         ]}
                     />
 

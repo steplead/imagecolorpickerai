@@ -16,6 +16,10 @@ export async function generateMetadata(props) {
             ...(meta.openGraph || {}),
             url: `https://imagecolorpickerai.com/pt/color/${slug}`,
         },
+        // Locale direction A (convergence, 2026-09-30): noindex + clear the
+        // inherited EN alternates (canonical + 7 hreflang).
+        alternates: {},
+        robots: { index: false, follow: true },
     };
 }
 
@@ -53,7 +57,7 @@ export default async function PtColorPage({ params }) {
             {
                 "@type": "ListItem",
                 "position": 4,
-                "name": `${color.name} (${color.nativeName})`
+                "name": `${color.name}${color.nativeName ? ` (${color.nativeName})` : ''}`
             }
         ]
     };

@@ -99,7 +99,7 @@ export default function ProExport({ color, rgbArray }) {
 
             // 3. Create README (The Story)
             const readme = `
-${color.name} (${color.nativeName})
+${color.name}${color.nativeName ? ` (${color.nativeName})` : ''}
 --------------------------------------------------
 HEX: ${color.hex}
 RGB: ${r}, ${g}, ${b}
