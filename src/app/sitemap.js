@@ -92,34 +92,23 @@ export default function sitemap() {
         priority: 0.9,
     }));
 
-    // 5. Comparison Pages (Legacy + Programmatic)
-    // Deduped 2026-08-19: the same color pair was generated under multiple
-    // tags (e.g. cinnabar-vs-persimmon-red under 'red' and 'warm'), producing
-    // 6 duplicate <url> entries. A Set on the canonical key removes them at
-    // generation time.
+    // 5. Combination Pages (Protocol 5 Combine, programmatic)
+    // Compare pages carry robots:noindex (set in the route) and are reached via
+    // internal links, so they are intentionally excluded from the sitemap to
+    // avoid "submitted but noindexed" conflicts in GSC. Dedup on the canonical
+    // key removes duplicate <url> entries generated under multiple tags.
     const vsRoutes = [];
     // Only generate a small subset for sitemap to avoid bloat,
     // relying on internal linking for the rest.
     const tags = ['red', 'blue', 'green', 'warm'];
-    const seenCompare = new Set();
     const seenCombine = new Set();
 
     tags.forEach(tag => {
         const colors = allColors.filter(c => c.tags && c.tags.includes(tag)).slice(0, 3);
         for (let i = 0; i < colors.length; i++) {
             for (let j = i + 1; j < colors.length; j++) {
-                const compareKey = `${colors[i].id}-vs-${colors[j].id}`;
                 const combineKey = `${colors[i].id}-and-${colors[j].id}`;
                 const pairLastModified = pairRev(colors[i], colors[j]);
-                // Legacy Compare
-                if (!seenCompare.has(compareKey)) {
-                    seenCompare.add(compareKey);
-                    vsRoutes.push({
-                        url: `${baseUrl}/compare/${compareKey}`,
-                        lastModified: pairLastModified,
-                        priority: 0.7,
-                    });
-                }
                 // Protocol 5 Combine (Seed)
                 if (!seenCombine.has(combineKey)) {
                     seenCombine.add(combineKey);
