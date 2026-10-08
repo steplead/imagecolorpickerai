@@ -40,9 +40,9 @@ export default function Header() {
         const prefix = currentLocale === 'en' ? '' : `/${currentLocale}`;
 
         const links = [
-            { id: 'red', name: t.red, href: `${prefix}/colors/red` },
-            { id: 'blue', name: t.blue, href: `${prefix}/colors/blue` },
-            { id: 'green', name: t.green, href: `${prefix}/colors/green` },
+            { id: 'red', name: t.red, href: `/colors/red` },
+            { id: 'blue', name: t.blue, href: `/colors/blue` },
+            { id: 'green', name: t.green, href: `/colors/green` },
             { id: 'scan', name: t.scan, href: `${prefix}/scan` },
             { id: 'widget', name: t.widget, href: `${prefix}/widget` },
         ];

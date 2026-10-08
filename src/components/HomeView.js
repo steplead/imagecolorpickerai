@@ -715,7 +715,7 @@ function NonEnglishHome({ locale }) {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Link
-            href={`${locale === 'en' ? '' : `/${locale}`}/colors/chinese`}
+            href={`/colors/chinese`}
             title="Explore Traditional Chinese Colors"
             className="relative h-64 rounded-3xl overflow-hidden group shadow-2xl transition-all hover:scale-[1.01]"
           >
@@ -726,7 +726,7 @@ function NonEnglishHome({ locale }) {
             </div>
           </Link>
           <Link
-            href={`${locale === 'en' ? '' : `/${locale}`}/colors/japanese`}
+            href={`/colors/japanese`}
             title="Explore Japanese Harmony Palette"
             className="relative h-64 rounded-3xl overflow-hidden group shadow-2xl transition-all hover:scale-[1.01]"
           >
@@ -741,7 +741,7 @@ function NonEnglishHome({ locale }) {
           {['Red', 'Green', 'Blue', 'Nature', 'Warm', 'Cool'].map((tag) => (
             <Link
               key={tag}
-              href={`${locale === 'en' ? '' : `/${locale}`}/colors/${tag.toLowerCase()}`}
+              href={`/colors/${tag.toLowerCase()}`}
               title={`View ${tag} color group`}
               className="px-6 py-3 bg-white border border-neutral-100 rounded-xl text-neutral-600 font-medium hover:bg-neutral-50 hover:border-neutral-200 transition shadow-sm"
             >
