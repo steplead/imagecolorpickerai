@@ -1,7 +1,8 @@
 import { ColorsCollectionView } from '../../../../components/ColorsCollectionView';
 import { generateMetadata as enGenerateMetadata } from '../../../colors/[group]/page';
 
-export { generateStaticParams } from '../../../colors/[group]/page';
+export function generateStaticParams() { return []; }
+export const dynamicParams = false;
 
 // og:url must carry this locale's own path prefix; the shared EN
 // generateMetadata hardcodes the EN route.

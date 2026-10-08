@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Copy, Download, Share2, Palette, Info, Tag } from 'lucide-react';
 import { getColorById, getCollectionMetadata, getRelatedColors } from '../utils/colorData';
+import { isGeneratedGroup } from '../utils/colorUtils';
 import WallpaperGenerator from './WallpaperGenerator';
 import ColorHarmony from './ColorHarmony';
 import ColorActions from './ColorActions';
@@ -244,17 +245,28 @@ export function ColorDetailView({ params, locale = 'en' }) {
 
                             {/* Tags (Classification Strategy) */}
                             <div className="mt-8 flex flex-wrap gap-2">
-                                {color.tags && color.tags.map(tag => (
-                                    <Link
-                                        key={tag}
-                                        href={`/colors/${tag}`}
-                                        title={`See all ${tag} colors`}
-                                        className="flex items-center gap-1 px-3 py-1.5 bg-neutral-100 text-neutral-600 rounded-lg text-sm hover:bg-neutral-200 transition"
-                                    >
-                                        <Tag className="w-3 h-3" />
-                                        {tag}
-                                    </Link>
-                                ))}
+                            {color.tags && color.tags.map(tag => {
+                                const generated = isGeneratedGroup(tag);
+                                return (
+                                    <span key={tag}>
+                                        {generated ? (
+                                            <Link
+                                                href={`/colors/${tag}`}
+                                                title={`See all ${tag} colors`}
+                                                className="flex items-center gap-1 px-3 py-1.5 bg-neutral-100 text-neutral-600 rounded-lg text-sm hover:bg-neutral-200 transition"
+                                            >
+                                                <Tag className="w-3 h-3" />
+                                                {tag}
+                                            </Link>
+                                        ) : (
+                                            <span className="flex items-center gap-1 px-3 py-1.5 bg-neutral-200 text-neutral-500 rounded-lg text-sm" title={`${tag} colors (coming soon)`}>
+                                                <Tag className="w-3 h-3" />
+                                                {tag}
+                                            </span>
+                                        )}
+                                    </span>
+                                );
+                            })}
                             </div>
 
                             {/* Color Harmonies */}

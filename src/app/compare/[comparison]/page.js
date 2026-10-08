@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
 
     return {
         title: `${c1.name} vs ${c2.name} - Color Comparison & Hex Codes | ImageColorPickerAI`,
-        description: `Compare ${c1.name} (${c1.hex}) vs ${c2.name} (${c2.hex}). Explore cultural meanings, aesthetics & design uses for traditional Chinese colors.`,
+        description: `Compare ${c1.name} (${c1.hex}) vs ${c2.name} (${c2.hex}). Explore cultural meanings, aesthetics & design uses for these colors.`,
         alternates: {
             canonical: `https://imagecolorpickerai.com/compare/${comparison}`,
         },
@@ -47,7 +47,7 @@ export default async function Page({ params }) {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": `${c1.name} vs ${c2.name} - Color Comparison`,
-        "description": `Compare ${c1.name} (${c1.hex}) and ${c2.name} (${c2.hex}) traditional Chinese colors`,
+        "description": `Compare ${c1.name} (${c1.hex}) and ${c2.name} (${c2.hex}).`,
         "itemListElement": [
             {
                 "@type": "ListItem",
@@ -55,7 +55,7 @@ export default async function Page({ params }) {
                 "item": {
                     "@type": "Color",
                     "name": c1.name,
-                    "alternateName": c1.chinese,
+                    "alternateName": c1.chinese || c1.name,
                     "colorCode": c1.hex,
                     "description": c1.meaning,
                     "url": `https://imagecolorpickerai.com/color/${c1.id}`
@@ -67,7 +67,7 @@ export default async function Page({ params }) {
                 "item": {
                     "@type": "Color",
                     "name": c2.name,
-                    "alternateName": c2.chinese,
+                    "alternateName": c2.chinese || c2.name,
                     "colorCode": c2.hex,
                     "description": c2.meaning,
                     "url": `https://imagecolorpickerai.com/color/${c2.id}`
@@ -96,7 +96,7 @@ export default async function Page({ params }) {
                         {c1.name} <span className="text-neutral-300">vs</span> {c2.name}
                     </h1>
                     <p className="text-neutral-500 max-w-xl mx-auto italic">
-                        Exploring the nuances between {c1.chinese} and {c2.chinese}.
+                        Exploring the nuances between {c1.chinese || c1.name} and {c2.chinese || c2.name}.
                     </p>
                 </div>
 
@@ -106,7 +106,7 @@ export default async function Page({ params }) {
                         <div className="h-48 w-full" style={{ backgroundColor: c1.hex }}></div>
                         <div className="p-8">
                             <h2 className="text-3xl font-bold text-neutral-900 mb-1">{c1.name}</h2>
-                            <p className="text-neutral-500 font-serif italic mb-6">{c1.chinese} · {c1.hex}</p>
+                            <p className="text-neutral-500 font-serif italic mb-6">{c1.chinese || c1.name} · {c1.hex}</p>
 
                             <div className="space-y-4">
                                 <div className="bg-neutral-50 p-4 rounded-xl border border-neutral-100">
@@ -131,7 +131,7 @@ export default async function Page({ params }) {
                         <div className="h-48 w-full" style={{ backgroundColor: c2.hex }}></div>
                         <div className="p-8">
                             <h2 className="text-3xl font-bold text-neutral-900 mb-1">{c2.name}</h2>
-                            <p className="text-neutral-500 font-serif italic mb-6">{c2.chinese} · {c2.hex}</p>
+                            <p className="text-neutral-500 font-serif italic mb-6">{c2.chinese || c2.name} · {c2.hex}</p>
 
                             <div className="space-y-4">
                                 <div className="bg-neutral-50 p-4 rounded-xl border border-neutral-100">

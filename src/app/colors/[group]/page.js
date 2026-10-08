@@ -1,6 +1,7 @@
 import { getAllColors } from '../../../utils/colorData';
 import { ColorsCollectionView } from '../../../components/ColorsCollectionView';
 import { socialMeta } from '@/lib/socialMeta';
+import { isGeneratedGroup } from '../../../utils/colorUtils';
 
 // 1. Generate Static Params for all Tags + Collections
 export async function generateStaticParams() {
@@ -18,9 +19,14 @@ export async function generateStaticParams() {
         if (c.tags) c.tags.forEach(t => allGroups.add(t.toLowerCase()));
     });
 
-    return Array.from(allGroups).map(group => ({
-        group: group, // match [group] param name
-    }));
+    // F3-3: only prerender pages for groups with >= 3 colours. Groups below
+    // the threshold still resolve at request time but return 404 (see the
+    // notFound guard in ColorsCollectionView), avoiding thin/duplicate pages.
+    return Array.from(allGroups)
+        .filter(group => isGeneratedGroup(group))
+        .map(group => ({
+            group: group, // match [group] param name
+        }));
 }
 
 // Per-collection/tag title & description templates (fixed 2026-08-19).
@@ -66,12 +72,6 @@ export async function generateMetadata({ params }) {
             canonical: `/colors/${group.toLowerCase()}`,
             languages: {
                 'en': `/colors/${group.toLowerCase()}`,
-                'zh-Hans': `/zh/colors/${group.toLowerCase()}`,
-                'ja': `/ja/colors/${group.toLowerCase()}`,
-                'es': `/es/colors/${group.toLowerCase()}`,
-                'fr': `/fr/colors/${group.toLowerCase()}`,
-                'de': `/de/colors/${group.toLowerCase()}`,
-                'pt': `/pt/colors/${group.toLowerCase()}`,
                 'x-default': `/colors/${group.toLowerCase()}`,
             },
         },

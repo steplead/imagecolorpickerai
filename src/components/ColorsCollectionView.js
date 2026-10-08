@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { getColorsByTag } from '../utils/colorUtils';
+import { getColorsByTag, isGeneratedGroup } from '../utils/colorUtils';
 import { getCollectionMetadata, getCollection } from '../utils/colorData';
 import AdPlacement from './AdPlacement';
 import EmbedWidget from './EmbedWidget';
@@ -17,7 +17,10 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
         ? getCollection('nature')
         : getColorsByTag(decodedGroup);
 
-    if (!colors || colors.length === 0) {
+    // F3-3: threshold guard. Groups with < 3 colours are not generated
+    // (generateStaticParams filters them) and must 404 at request time too,
+    // so thin/duplicate pages never render.
+    if (!colors || colors.length === 0 || !isGeneratedGroup(decodedGroup)) {
         notFound();
     }
 
@@ -109,7 +112,7 @@ export function ColorsCollectionView({ params, locale = 'en' }) {
         "about": {
             "@type": "Thing",
             "name": `${decodedGroup} Traditional Colors`,
-            "description": `Collection of ${decodedGroup} colors from ${collectionMeta.name}`
+            "description": `A curated palette of ${decodedGroup} colors`
         },
         "mainEntity": {
             "@type": "ItemList",

@@ -1,4 +1,4 @@
-import { getAllColors } from './colorData';
+import { getAllColors, getCollection } from './colorData';
 
 /**
  * Helper: Parse Hex to RGB
@@ -66,4 +66,19 @@ export const getColorsByTag = (tag) => {
         (c.tags && c.tags.some(t => t.toLowerCase() === searchTag)) ||
         (c.collectionId === searchTag)
     );
+};
+
+// F3-3: single source of truth for the tag/collection-page generation threshold.
+// A group page is only generated (and only renders) when it has >= 3 colours.
+// Shared by colors/[group] generateStaticParams (EN) and the tag-chip filter in
+// ColorDetailView so the two can never drift. 'nature' is special-cased the same
+// way the page resolves it (getCollection, not the tag) to stay consistent.
+export const getColorCountForGroup = (group) => {
+    const g = (group || '').toLowerCase();
+    if (g === 'nature') return getCollection('nature').length;
+    return getColorsByTag(g).length;
+};
+
+export const isGeneratedGroup = (group) => {
+    return getColorCountForGroup(group) >= 3;
 };
