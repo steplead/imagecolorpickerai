@@ -52,6 +52,11 @@ export default function sitemap() {
     const allColors = getAllColors();
 
     // 1. Static Routes (The Hubs)
+    // Locale homepages re-added 2026-10-08 under Scope A (the 6 language
+    // homepages were un-noindexed on this date). Their lastmod is the real
+    // change date, not REV.hub, so Google receives a fresh-crawl signal.
+    const LOCALE_HOMES = ['/zh', '/ja', '/es', '/fr', '/de', '/pt'];
+
     const routes = [
         '',
         '/scan',
@@ -62,9 +67,10 @@ export default function sitemap() {
         '/privacy-policy',
         '/terms-of-service',
         '/color-personality-test',
+        ...LOCALE_HOMES,
     ].map((route) => ({
         url: `${baseUrl}${route}`,
-        lastModified: hubRev(route),
+        lastModified: LOCALE_HOMES.includes(route) ? '2026-10-08' : hubRev(route),
         priority: route === '' ? 1.0 : 0.9,
     }));
 

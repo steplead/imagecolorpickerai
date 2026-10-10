@@ -3,8 +3,6 @@ import HomeView from '../../components/HomeView';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
-    robots: { index: false, follow: true },
-
     title: '图片取色器 - 专业的十六进制代码提取与传统色彩百科 | ImageColorPickerAI',
     description: '免费在线图片取色器。提取精确的十六进制代码、RGB，并立即发现中国和日本传统色彩配方。无需注册。',
     ...socialMeta({ title: '图片取色器 - 专业的十六进制代码提取与传统色彩百科 | ImageColorPickerAI', description: '免费在线图片取色器。提取精确的十六进制代码、RGB，并立即发现中国和日本传统色彩配方。无需注册。', path: '/zh' }),

@@ -3,8 +3,6 @@ import HomeView from '../../components/HomeView';
 import { socialMeta } from '@/lib/socialMeta';
 
 export const metadata = {
-    robots: { index: false, follow: true },
-
     title: '画像カラーピッカー - 画像からHEXカラーコードを抽出',
     description: '無料のオンライン画像カラーピッカー。HEX、RGB、CMYKコードを抽出し、中国と日本の伝統色の意味を即座に発見。登録不要。',
     ...socialMeta({ title: '画像カラーピッカー - 画像からHEXカラーコードを抽出', description: '無料のオンライン画像カラーピッカー。HEX、RGB、CMYKコードを抽出し、中国と日本の伝統色の意味を即座に発見。登録不要。', path: '/ja' }),
